@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0pntp4ef0gb1"]
+
+[ext_resource type="Script" path="res://BattleManager.gd" id="1_i4fai"]
+[ext_resource type="PackedScene" uid="uid://sce8xuonj2fd" path="res://Code/Bosses/BaseBoss.tscn" id="2_7b5iy"]
+[ext_resource type="PackedScene" uid="uid://caq3o3ok3b3vr" path="res://Code/PlayerAssets/Player.tscn" id="2_h6ivu"]
+[ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/Attacks/Cardbase.tscn" id="4_gjf2y"]
+
+[sub_resource type="Animation" id="Animation_rf1nl"]
+resource_name = "BossIntro"
+
+[sub_resource type="Animation" id="Animation_kuu7x"]
+resource_name = "PlayerIntro"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7880t"]
+_data = {
+"BossIntro": SubResource("Animation_rf1nl"),
+"PlayerIntro": SubResource("Animation_kuu7x")
+}
+
+[node name="BattleManager" type="Node2D"]
+script = ExtResource("1_i4fai")
+
+[node name="Boss" parent="." instance=ExtResource("2_7b5iy")]
+
+[node name="Player" parent="." instance=ExtResource("2_h6ivu")]
+
+[node name="BattleUnit" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BattleUnit"]
+
+[node name="PlayerButtons" type="HBoxContainer" parent="BattleUnit"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 500.0
+offset_right = 432.0
+offset_bottom = 508.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Attack" type="Button" parent="BattleUnit/PlayerButtons"]
+layout_mode = 2
+text = "Attack"
+
+[node name="Magic" type="Button" parent="BattleUnit/PlayerButtons"]
+layout_mode = 2
+text = "Magic"
+
+[node name="Defence" type="Button" parent="BattleUnit/PlayerButtons"]
+layout_mode = 2
+text = "Defence"
+
+[node name="BossHhealthBar" type="ProgressBar" parent="BattleUnit"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 213.0
+offset_bottom = 137.0
+
+[node name="PlayerhealthBar" type="ProgressBar" parent="BattleUnit"]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 110.0
+offset_right = 978.0
+offset_bottom = 144.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7880t")
+}
+
+[node name="BossHodler" type="Node2D" parent="."]
+position = Vector2(1041, 281)
+
+[node name="PlayerHolder" type="Node2D" parent="."]
+position = Vector2(-59, 281)
+
+[node name="AreaHolder" type="Node2D" parent="."]
+position = Vector2(516, 281)
+
+[node name="Cardbase" parent="." instance=ExtResource("4_gjf2y")]
+position = Vector2(484, 169)
+Name = ""
+Type = ""
+AttackDamage = 0
+SecondType = ""
+SecondAttackDamage = 0
+description = ""
