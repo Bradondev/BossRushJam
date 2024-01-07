@@ -1,4 +1,4 @@
-class_name  CardAttacks extends Node
+class_name  CardAttacks extends Node2D
 
 @export var Name :String
 @export var Type: String
@@ -9,8 +9,12 @@ class_name  CardAttacks extends Node
 
 
 var Up = false
+var hasMoved = false
 var Down = false
 var NewPositon
+
+var NextDrawPosition
+var Drawing = false 
 var OldPositon
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,16 +22,19 @@ func _ready():
 
 func _physics_process(delta):
 	if Up == true:
-		self.position.y = lerp(self.position.y,  NewPositon,.1 )
-	if  Down == true:
-		self.position.y = lerp(self.position.y, NewPositon +100 ,.1 )
+		self.global_position.y = lerp(self.global_position.y,  NewPositon,.1 )
+	if  Down == true and hasMoved :
+		self.global_position.y = lerp(self.global_position.y, NewPositon +100 ,.1 )
+	if Drawing == true:
+		self.global_position.x = lerp(self.global_position.x, NextDrawPosition ,.1 )
+		
+	
 func _on_mouse_checker_mouse_entered():
 	$HoldTimer.start()
-	print("mouse has enterd")
+	z_index = 1
 func _on_mouse_checker_mouse_exited():
 	$HoldTimer.stop()
-	print("mouse has exited ")
-	
+	z_index = 0
 	Down = true
 	Up =false
 	
@@ -42,4 +49,8 @@ func _on_mouse_checker_gui_input(event):
 func _on_hold_timer_timeout():
 	NewPositon =  self.global_position.y -100
 	Up = true
+	hasMoved= true
 	Down = false
+func Draw(Position):
+	Drawing = true
+	NextDrawPosition = Position

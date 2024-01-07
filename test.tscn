@@ -82,9 +82,3 @@ position = Vector2(516, 281)
 
 [node name="Cardbase" parent="." instance=ExtResource("4_gjf2y")]
 position = Vector2(484, 169)
-Name = ""
-Type = ""
-AttackDamage = 0
-SecondType = ""
-SecondAttackDamage = 0
-description = ""
