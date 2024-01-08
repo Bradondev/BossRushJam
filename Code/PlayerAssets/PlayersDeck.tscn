@@ -8,59 +8,88 @@
 script = ExtResource("1_j7q8m")
 
 [node name="CardHolder" type="Node2D" parent="."]
-position = Vector2(-628, -12)
+position = Vector2(-80, 393)
+scale = Vector2(0.5, 0.5)
 
 [node name="Cardbase" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-Name = "Attack"
+position = Vector2(0, 6)
+Name = "Attack1"
 
 [node name="Cardbase2" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(455, 227)
-Name = "Block"
+position = Vector2(0, 7)
+Name = "Block2"
 
 [node name="Cardbase3" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(455, 227)
+position = Vector2(0, 7)
 Name = "Block"
 
 [node name="Cardbase4" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(455, 227)
+position = Vector2(0, 7)
 Name = "Block"
 
 [node name="Cardbase5" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(455, 227)
+position = Vector2(0, 7)
 Name = "Block"
 
 [node name="Cardbase6" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(455, 227)
+position = Vector2(0, 7)
+Name = "2"
+
+[node name="Cardbase7" parent="CardHolder" instance=ExtResource("2_5g1pr")]
+position = Vector2(0, 7)
+Name = "34"
+
+[node name="Cardbase8" parent="CardHolder" instance=ExtResource("2_5g1pr")]
+position = Vector2(0, 7)
+Name = "2"
 
 [node name="CardsInPlay" type="Node2D" parent="."]
-position = Vector2(96, 61)
+position = Vector2(407, 244)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("3_u4ehx")
 
 [node name="Card1" type="Marker2D" parent="CardsInPlay"]
-position = Vector2(510, 410)
+position = Vector2(200, 512)
 
 [node name="Card2" type="Marker2D" parent="CardsInPlay"]
-position = Vector2(560, 410)
+position = Vector2(300, 512)
 
 [node name="Card3" type="Marker2D" parent="CardsInPlay"]
-position = Vector2(610, 410)
+position = Vector2(400, 512)
 
 [node name="Card4" type="Marker2D" parent="CardsInPlay"]
-position = Vector2(660, 410)
+position = Vector2(500, 512)
 
 [node name="Card5" type="Marker2D" parent="CardsInPlay"]
-position = Vector2(710, 410)
+position = Vector2(600, 512)
 
 [node name="Card6" type="Marker2D" parent="CardsInPlay"]
-position = Vector2(760, 410)
+position = Vector2(700, 512)
 
 [node name="Card7" type="Marker2D" parent="CardsInPlay"]
-position = Vector2(810, 410)
+position = Vector2(800, 512)
+
+[node name="Card8" type="Marker2D" parent="CardsInPlay"]
+position = Vector2(900, 512)
+
+[node name="Card9" type="Marker2D" parent="CardsInPlay"]
+position = Vector2(1000, 512)
+
+[node name="Card10" type="Marker2D" parent="CardsInPlay"]
+position = Vector2(1100, 512)
 
 [node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 133.0
+offset_top = 25.0
+offset_right = 242.0
+offset_bottom = 56.0
 text = "Draw 5 cards"
+
+[node name="UseArea" type="Marker2D" parent="."]
+position = Vector2(479, 254)
+
+[node name="DeckArea" type="Marker2D" parent="."]
+position = Vector2(0, 7)
 
 [connection signal="OnDraw" from="." to="CardsInPlay" method="_on_players_deck_on_draw"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

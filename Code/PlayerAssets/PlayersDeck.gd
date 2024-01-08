@@ -6,13 +6,16 @@ signal OnDraw(card)
 @onready var CardHolder = $CardHolder
 var Cards 
 var CurrentCardsCycle
+var CurrentCardCycleIndex
 var LengthOfDeck
 var NextCard
+var DrawAmount = 0
 
 func _ready():
 	
 	Cards = $CardHolder.get_children()
-	CurrentCardsCycle = $CardHolder.get_children()
+	CurrentCardsCycle = Cards.duplicate(true)
+	CurrentCardCycleIndex = CurrentCardsCycle.size() -1
 	LengthOfDeck =Cards.size()
 	print(CurrentCardsCycle)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,14 +27,34 @@ func ReSetDeck():
 	
 func DrawCards(AmountOfCards):
 	while AmountOfCards > 0:
-		if CurrentCardsCycle.size() == 0:
-			CurrentCardsCycle = Cards.duplicate(true)
-		NextCard = CurrentCardsCycle[CurrentCardsCycle.size() -1]
-		CurrentCardsCycle.remove_at(CurrentCardsCycle.size() -1)
-		AmountOfCards-= 1
-		print(NextCard.Name)
-		emit_signal("OnDraw", NextCard)
-		await get_tree().create_timer(.10).timeout
-		
+		if CurrentCardCycleIndex < 0:
+			print("reset")
+			CurrentCardCycleIndex = CurrentCardsCycle.size() -1
+		if Cards.size() -1 < DrawAmount:
+			NextCard = CurrentCardsCycle[CurrentCardCycleIndex]
+			var Newcard = NextCard.duplicate()
+			Newcard.global_position = $DeckArea.global_position
+			Newcard.visible = true
+			$CardHolder.add_child(Newcard)
+			emit_signal("OnDraw", Newcard)
+			DrawCounters()
+			AmountOfCards-= 1
+			await get_tree().create_timer(.10).timeout
+			
+			
+		else:
+			NextCard = CurrentCardsCycle[CurrentCardCycleIndex]
+			CurrentCardCycleIndex -=1 
+			AmountOfCards-= 1
+			emit_signal("OnDraw", NextCard)
+			DrawAmount += 1
+			await get_tree().create_timer(.10).timeout
+			
 func _on_button_pressed():
+	
 	DrawCards(5)
+
+
+func DrawCounters():
+	CurrentCardCycleIndex -=1 
+	DrawAmount += 1

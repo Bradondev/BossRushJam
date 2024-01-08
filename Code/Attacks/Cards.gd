@@ -7,7 +7,7 @@ class_name  CardAttacks extends Node2D
 @export var SecondAttackDamage :int
 @export var description : String
 
-
+signal  OnClick
 var Up = false
 var hasMoved = false
 var Down = false
@@ -42,8 +42,8 @@ func _on_mouse_checker_mouse_exited():
 func _on_mouse_checker_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("clicked")
-
+			emit_signal("OnClick",self)
+			visible = false
 
 
 func _on_hold_timer_timeout():
@@ -54,3 +54,5 @@ func _on_hold_timer_timeout():
 func Draw(Position):
 	Drawing = true
 	NextDrawPosition = Position
+func OnUse():
+	pass
