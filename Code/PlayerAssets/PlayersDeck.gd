@@ -30,25 +30,24 @@ func DrawCards(AmountOfCards):
 		if CurrentCardCycleIndex < 0:
 			print("reset")
 			CurrentCardCycleIndex = CurrentCardsCycle.size() -1
-		if Cards.size() -1 < DrawAmount:
-			NextCard = CurrentCardsCycle[CurrentCardCycleIndex]
-			var Newcard = NextCard.duplicate()
-			Newcard.global_position = $DeckArea.global_position
-			Newcard.visible = true
-			$CardHolder.add_child(Newcard)
-			emit_signal("OnDraw", Newcard)
-			DrawCounters()
-			AmountOfCards-= 1
-			await get_tree().create_timer(.10).timeout
-			
-			
-		else:
-			NextCard = CurrentCardsCycle[CurrentCardCycleIndex]
-			CurrentCardCycleIndex -=1 
-			AmountOfCards-= 1
-			emit_signal("OnDraw", NextCard)
-			DrawAmount += 1
-			await get_tree().create_timer(.10).timeout
+		#if Cards.size() -1 < DrawAmount:
+		NextCard = CurrentCardsCycle[CurrentCardCycleIndex]
+		var Newcard = NextCard.duplicate()
+		Newcard.global_position = $DeckArea.global_position
+		Newcard.visible = true
+		$CardsInHandHolder.add_child(Newcard)
+		emit_signal("OnDraw", Newcard)
+		DrawCounters()
+		AmountOfCards-= 1
+		await get_tree().create_timer(.10).timeout
+
+		#else:
+			#NextCard = CurrentCardsCycle[CurrentCardCycleIndex]
+			#CurrentCardCycleIndex -=1 
+			#AmountOfCards-= 1
+			#emit_signal("OnDraw", NextCard)
+			#DrawAmount += 1
+			#await get_tree().create_timer(.10).timeout
 			
 func _on_button_pressed():
 	

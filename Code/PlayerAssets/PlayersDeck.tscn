@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://br5brytqnyr30"]
+[gd_scene load_steps=6 format=3 uid="uid://br5brytqnyr30"]
 
 [ext_resource type="Script" path="res://Code/PlayerAssets/PlayersDeck.gd" id="1_j7q8m"]
 [ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/Attacks/Cardbase.tscn" id="2_5g1pr"]
+[ext_resource type="PackedScene" uid="uid://b8cy45nglsunw" path="res://Code/Attacks/AttackBaseCard.tscn" id="2_asa6g"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/CardMover.gd" id="3_u4ehx"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/ComboManager.gd" id="5_s4ahh"]
 
 [node name="PlayersDeck" type="Node2D"]
 script = ExtResource("1_j7q8m")
@@ -13,15 +15,15 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Cardbase" parent="CardHolder" instance=ExtResource("2_5g1pr")]
 position = Vector2(0, 6)
-Name = "Attack1"
+Name = "1"
 
 [node name="Cardbase2" parent="CardHolder" instance=ExtResource("2_5g1pr")]
 position = Vector2(0, 7)
-Name = "Block2"
+Name = "2"
 
 [node name="Cardbase3" parent="CardHolder" instance=ExtResource("2_5g1pr")]
 position = Vector2(0, 7)
-Name = "Block"
+Name = "B2"
 
 [node name="Cardbase4" parent="CardHolder" instance=ExtResource("2_5g1pr")]
 position = Vector2(0, 7)
@@ -38,45 +40,53 @@ Name = "2"
 [node name="Cardbase7" parent="CardHolder" instance=ExtResource("2_5g1pr")]
 position = Vector2(0, 7)
 Name = "34"
+Type = "Air"
 
 [node name="Cardbase8" parent="CardHolder" instance=ExtResource("2_5g1pr")]
 position = Vector2(0, 7)
 Name = "2"
 
-[node name="CardsInPlay" type="Node2D" parent="."]
-position = Vector2(407, 244)
+[node name="Cardbase9" parent="CardHolder" instance=ExtResource("2_asa6g")]
+position = Vector2(0, 7)
+
+[node name="CardsInPlayPlace" type="Node2D" parent="."]
+position = Vector2(171, 255)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_u4ehx")
 
-[node name="Card1" type="Marker2D" parent="CardsInPlay"]
+[node name="Card1" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(200, 512)
 
-[node name="Card2" type="Marker2D" parent="CardsInPlay"]
+[node name="Card2" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(300, 512)
 
-[node name="Card3" type="Marker2D" parent="CardsInPlay"]
+[node name="Card3" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(400, 512)
 
-[node name="Card4" type="Marker2D" parent="CardsInPlay"]
+[node name="Card4" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(500, 512)
 
-[node name="Card5" type="Marker2D" parent="CardsInPlay"]
+[node name="Card5" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(600, 512)
 
-[node name="Card6" type="Marker2D" parent="CardsInPlay"]
+[node name="Card6" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(700, 512)
 
-[node name="Card7" type="Marker2D" parent="CardsInPlay"]
+[node name="Card7" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(800, 512)
 
-[node name="Card8" type="Marker2D" parent="CardsInPlay"]
+[node name="Card8" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(900, 512)
 
-[node name="Card9" type="Marker2D" parent="CardsInPlay"]
+[node name="Card9" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(1000, 512)
 
-[node name="Card10" type="Marker2D" parent="CardsInPlay"]
+[node name="Card10" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(1100, 512)
+
+[node name="CardsInHandHolder" type="Node2D" parent="."]
+position = Vector2(-77, 398)
+scale = Vector2(0.5, 0.5)
 
 [node name="Button" type="Button" parent="."]
 offset_left = 133.0
@@ -86,10 +96,13 @@ offset_bottom = 56.0
 text = "Draw 5 cards"
 
 [node name="UseArea" type="Marker2D" parent="."]
-position = Vector2(479, 254)
+position = Vector2(469, 255)
 
 [node name="DeckArea" type="Marker2D" parent="."]
 position = Vector2(0, 7)
 
-[connection signal="OnDraw" from="." to="CardsInPlay" method="_on_players_deck_on_draw"]
+[node name="ComboManager" type="Node2D" parent="."]
+script = ExtResource("5_s4ahh")
+
+[connection signal="OnDraw" from="." to="CardsInPlayPlace" method="_on_players_deck_on_draw"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
