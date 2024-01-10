@@ -14,8 +14,6 @@ func _ready():
 	CardSpots.reverse()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_players_deck_on_draw(card):
@@ -25,10 +23,16 @@ func _on_players_deck_on_draw(card):
 		CardsInPLay.remove_at(CardsInPLay.find(card))
 		print(card.Name + " was not able to be draw becasue hand is full")
 		return
-	card.OnClick.connect(CutCardFromCardInPlay)
+	card.ConnectSignal("OnClick", self.CutCardFromCardInPlay)
+	#card.OnClick.connect(CutCardFromCardInPlay)
+	card.ConnectSignal("ChangeCombo", $"../ComboManager".CheckWeakness)
+	for effects in card.Effects:
+		effects.ConnectSignal("DrawCard", $"..".DrawCards)
 	card.Draw(CardSpots[CardsInPLay.find(card)].global_position.x)
-func RelineUpHand():
-	pass
+
+
+
+
 
 func CutCardFromCardInPlay(card):
 	CardsInPLay.remove_at(CardsInPLay.find(card))

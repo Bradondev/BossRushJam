@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://nvy27jaxb3h8"]
+
+[ext_resource type="PackedScene" uid="uid://b8cy45nglsunw" path="res://Code/Attacks/cards/AttackBaseCard.tscn" id="1_fgej4"]
+[ext_resource type="Texture2D" uid="uid://cbmrt4ouvuwns" path="res://Art/Cards/Card_Fire.png" id="2_xa784"]
+[ext_resource type="Texture2D" uid="uid://dwgnlb1pimtiu" path="res://Art/Cards/Icon_Fire.png" id="3_f6435"]
+
+[node name="Fire_Slash" instance=ExtResource("1_fgej4")]
+position = Vector2(462, 203)
+Name = "Fire Slash"
+AttackDamage = 2
+Type = "Fire"
+
+[node name="ColorRect" parent="." index="0"]
+texture = ExtResource("2_xa784")
+
+[node name="ImageType" parent="." index="3"]
+offset_left = 50.0
+offset_top = 35.0
+offset_right = 84.0
+offset_bottom = 72.0
+texture = ExtResource("3_f6435")
+
+[node name="Name" parent="." index="7"]
+text = "Fire Slash"

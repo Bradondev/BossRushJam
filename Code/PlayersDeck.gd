@@ -11,6 +11,7 @@ var LengthOfDeck
 var NextCard
 var DrawAmount = 0
 
+
 func _ready():
 	
 	Cards = $CardHolder.get_children()
@@ -19,6 +20,9 @@ func _ready():
 	LengthOfDeck =Cards.size()
 	print(CurrentCardsCycle)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func  _process(delta):
+	$DeckAmount.text = str(CurrentCardCycleIndex +1 )
+
 
 
 func ReSetDeck():

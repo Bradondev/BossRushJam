@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://BattleManager.gd" id="1_i4fai"]
 [ext_resource type="PackedScene" uid="uid://sce8xuonj2fd" path="res://Code/Bosses/BaseBoss.tscn" id="2_7b5iy"]
 [ext_resource type="PackedScene" uid="uid://caq3o3ok3b3vr" path="res://Code/PlayerAssets/Player.tscn" id="2_h6ivu"]
-[ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/Attacks/Cardbase.tscn" id="4_gjf2y"]
+[ext_resource type="PackedScene" uid="uid://br5brytqnyr30" path="res://Code/PlayerAssets/PlayersDeck.tscn" id="4_blya1"]
 
 [sub_resource type="Animation" id="Animation_rf1nl"]
 resource_name = "BossIntro"
@@ -33,26 +33,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="BattleUnit"]
 
-[node name="PlayerButtons" type="HBoxContainer" parent="BattleUnit"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 500.0
-offset_right = 432.0
-offset_bottom = 508.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Attack" type="Button" parent="BattleUnit/PlayerButtons"]
-layout_mode = 2
-text = "Attack"
-
-[node name="Magic" type="Button" parent="BattleUnit/PlayerButtons"]
-layout_mode = 2
-text = "Magic"
-
-[node name="Defence" type="Button" parent="BattleUnit/PlayerButtons"]
-layout_mode = 2
-text = "Defence"
-
 [node name="BossHhealthBar" type="ProgressBar" parent="BattleUnit"]
 layout_mode = 0
 offset_top = 110.0
@@ -80,5 +60,5 @@ position = Vector2(-59, 281)
 [node name="AreaHolder" type="Node2D" parent="."]
 position = Vector2(516, 281)
 
-[node name="Cardbase" parent="." instance=ExtResource("4_gjf2y")]
-position = Vector2(484, 169)
+[node name="PlayersDeck" parent="." instance=ExtResource("4_blya1")]
+position = Vector2(9, -26)

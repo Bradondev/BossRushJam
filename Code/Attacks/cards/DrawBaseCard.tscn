@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmfl1tvmrxric"]
+
+[ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/Attacks/cards/Cardbase.tscn" id="1_jcak2"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/Attacks/cards/card effects/Draw.tscn" id="2_yteec"]
+
+[node name="DrawEffect" instance=ExtResource("1_jcak2")]
+
+[node name="Name" parent="." index="7"]
+text = "Slash"
+
+[node name="Draw" parent="Card EffectHolder" index="0" instance=ExtResource("2_yteec")]
+AmountOfCardDrawed = 1

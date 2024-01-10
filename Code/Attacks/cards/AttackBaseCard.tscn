@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8cy45nglsunw"]
+
+[ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/Attacks/cards/Cardbase.tscn" id="1_urngt"]
+[ext_resource type="Script" path="res://Code/AttackBaseCard.gd" id="2_mu2t0"]
+
+[node name="Cardbase" instance=ExtResource("1_urngt")]
+script = ExtResource("2_mu2t0")
+Name = "Slash2"
+AttackDamage = 1
+Type = "Light"
+
+[node name="Name" parent="." index="7"]
+text = "Slash"

@@ -1,53 +1,61 @@
-[gd_scene load_steps=6 format=3 uid="uid://br5brytqnyr30"]
+[gd_scene load_steps=16 format=3 uid="uid://br5brytqnyr30"]
 
-[ext_resource type="Script" path="res://Code/PlayerAssets/PlayersDeck.gd" id="1_j7q8m"]
-[ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/Attacks/Cardbase.tscn" id="2_5g1pr"]
-[ext_resource type="PackedScene" uid="uid://b8cy45nglsunw" path="res://Code/Attacks/AttackBaseCard.tscn" id="2_asa6g"]
-[ext_resource type="Script" path="res://Code/PlayerAssets/CardMover.gd" id="3_u4ehx"]
-[ext_resource type="Script" path="res://Code/PlayerAssets/ComboManager.gd" id="5_s4ahh"]
+[ext_resource type="Script" path="res://Code/PlayersDeck.gd" id="1_j7q8m"]
+[ext_resource type="PackedScene" uid="uid://nvy27jaxb3h8" path="res://Code/Attacks/fire_slash.tscn" id="2_061gt"]
+[ext_resource type="PackedScene" uid="uid://drb5jcsr65rcj" path="res://Code/Attacks/dance_of_wind.tscn" id="2_f3hkh"]
+[ext_resource type="PackedScene" uid="uid://dq1wvexvemxll" path="res://Code/Attacks/quick_flame.tscn" id="2_kmlou"]
+[ext_resource type="PackedScene" uid="uid://cl06jeehwgipy" path="res://Code/Attacks/light_shot.tscn" id="3_1cgx3"]
+[ext_resource type="Script" path="res://Code/CardMover.gd" id="3_u4ehx"]
+[ext_resource type="PackedScene" uid="uid://d2u0sd4vfv8qv" path="res://Code/Attacks/Earth_Punch.tscn" id="4_udx3p"]
+[ext_resource type="PackedScene" uid="uid://675y7fulwdqa" path="res://Code/Attacks/wind_slash.tscn" id="5_ie4vv"]
+[ext_resource type="Script" path="res://Code/ComboManager.gd" id="5_s4ahh"]
+[ext_resource type="PackedScene" uid="uid://cr0m5n2w5xij1" path="res://Code/Attacks/dark_shot.tscn" id="6_cui6t"]
+[ext_resource type="PackedScene" uid="uid://bulgyyeiue5ba" path="res://Code/Attacks/Water_Gun.tscn" id="7_860y4"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/EndComboManager.gd" id="12_cma6a"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="12_gh4qe"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabel.gd" id="13_ef21n"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabelType.gd" id="15_flb88"]
 
 [node name="PlayersDeck" type="Node2D"]
 script = ExtResource("1_j7q8m")
 
 [node name="CardHolder" type="Node2D" parent="."]
-position = Vector2(-80, 393)
+position = Vector2(-58, 309)
 scale = Vector2(0.5, 0.5)
 
-[node name="Cardbase" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(0, 6)
-Name = "1"
+[node name="Dance Of Wind" parent="CardHolder" instance=ExtResource("2_f3hkh")]
+position = Vector2(0, 10)
 
-[node name="Cardbase2" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(0, 7)
-Name = "2"
+[node name="QuickFlame" parent="CardHolder" instance=ExtResource("2_kmlou")]
+position = Vector2(0, 10)
+OnUseSignal = "DrawCard"
 
-[node name="Cardbase3" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(0, 7)
-Name = "B2"
+[node name="Fire_Slash2" parent="CardHolder" instance=ExtResource("2_061gt")]
+position = Vector2(0, 10)
 
-[node name="Cardbase4" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(0, 7)
-Name = "Block"
+[node name="Light_Shot2" parent="CardHolder" instance=ExtResource("3_1cgx3")]
+position = Vector2(0, 10)
 
-[node name="Cardbase5" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(0, 7)
-Name = "Block"
+[node name="Earth_Punch2" parent="CardHolder" instance=ExtResource("4_udx3p")]
+position = Vector2(0, 10)
 
-[node name="Cardbase6" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(0, 7)
-Name = "2"
+[node name="Wind Slash" parent="CardHolder" instance=ExtResource("5_ie4vv")]
+position = Vector2(0, 10)
 
-[node name="Cardbase7" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(0, 7)
-Name = "34"
-Type = "Air"
+[node name="Light_Shot" parent="CardHolder" instance=ExtResource("3_1cgx3")]
+position = Vector2(0, 10)
 
-[node name="Cardbase8" parent="CardHolder" instance=ExtResource("2_5g1pr")]
-position = Vector2(0, 7)
-Name = "2"
+[node name="Fire_Slash" parent="CardHolder" instance=ExtResource("2_061gt")]
+position = Vector2(0, 10)
 
-[node name="Cardbase9" parent="CardHolder" instance=ExtResource("2_asa6g")]
-position = Vector2(0, 7)
+[node name="Dark_Shot" parent="CardHolder" instance=ExtResource("6_cui6t")]
+position = Vector2(0, 10)
+
+[node name="Earth_Punch" parent="CardHolder" instance=ExtResource("4_udx3p")]
+position = Vector2(0, 10)
+
+[node name="Water_Gun" parent="CardHolder" instance=ExtResource("7_860y4")]
+position = Vector2(0, 10)
 
 [node name="CardsInPlayPlace" type="Node2D" parent="."]
 position = Vector2(171, 255)
@@ -99,10 +107,44 @@ text = "Draw 5 cards"
 position = Vector2(469, 255)
 
 [node name="DeckArea" type="Marker2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(0, -61)
 
 [node name="ComboManager" type="Node2D" parent="."]
 script = ExtResource("5_s4ahh")
 
+[node name="EndComboManager" type="Node2D" parent="."]
+script = ExtResource("12_cma6a")
+
+[node name="DeckAmount" type="Label" parent="."]
+offset_top = 409.0
+offset_right = 92.0
+offset_bottom = 539.0
+theme = ExtResource("12_gh4qe")
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboLabel" type="RichTextLabel" parent="."]
+offset_left = 121.0
+offset_top = 142.0
+offset_right = 311.0
+offset_bottom = 212.0
+theme = ExtResource("12_gh4qe")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+script = ExtResource("13_ef21n")
+
+[node name="ComboLabelType" type="RichTextLabel" parent="."]
+offset_top = 142.0
+offset_right = 190.0
+offset_bottom = 212.0
+theme = ExtResource("12_gh4qe")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+script = ExtResource("15_flb88")
+
 [connection signal="OnDraw" from="." to="CardsInPlayPlace" method="_on_players_deck_on_draw"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="ChangeCombo" from="ComboManager" to="ComboLabel" method="_on_combo_manager_change_combo"]
+[connection signal="EndCombo" from="ComboManager" to="EndComboManager" method="_on_combo_manager_end_combo"]
+[connection signal="ChangeComboLabelType" from="EndComboManager" to="ComboLabelType" method="_on_end_combo_manager_change_combo_label_type"]

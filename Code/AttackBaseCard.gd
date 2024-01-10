@@ -10,4 +10,4 @@ func _process(delta):
 
 
 func  OnUse():
-	print("got used")
+	print("Attack")
