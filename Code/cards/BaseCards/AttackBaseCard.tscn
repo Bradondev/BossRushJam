@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8cy45nglsunw"]
+
+[ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/cards/BaseCards/Cardbase.tscn" id="1_b35ya"]
+[ext_resource type="Script" path="res://Code/AttackBaseCard.gd" id="2_aoedt"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_nnacc"]
+
+[node name="Cardbase" instance=ExtResource("1_b35ya")]
+script = ExtResource("2_aoedt")
+Name = "Slash2"
+AttackDamage = 1
+Type = "Light"
+
+[node name="Name" parent="." index="7"]
+text = "Slash"
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_nnacc")]
+AmountOfDamage = 1
+Name = "Attack"

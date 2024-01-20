@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv4eae4boc0k"]
+
+[ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/cards/BaseCards/Cardbase.tscn" id="1_wgci7"]
+[ext_resource type="Texture2D" uid="uid://orkq52wsoe82" path="res://Art/Cards/Card_Light.png" id="2_yneiy"]
+[ext_resource type="Texture2D" uid="uid://cslg4ix4gt8xi" path="res://Art/Cards/cardImages/light almighty.png" id="3_2jf23"]
+[ext_resource type="Texture2D" uid="uid://b314mpakcfydl" path="res://Art/Cards/cardImages/Icon_Light2.png" id="4_4d8as"]
+
+[node name="LightCardBase" instance=ExtResource("1_wgci7")]
+Type = "Light"
+
+[node name="ColorRect" parent="." index="0"]
+texture = ExtResource("2_yneiy")
+
+[node name="Image" parent="." index="2"]
+texture = ExtResource("3_2jf23")
+
+[node name="ImageType" parent="." index="3"]
+texture = ExtResource("4_4d8as")

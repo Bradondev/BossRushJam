@@ -6,6 +6,7 @@ extends Node2D
 
 var CardsInPLay = []
 var CardSpots
+var OverDrawDamage = 1
 var SpotsTaken = [false,false,false, false,false,false,false,false,false,false]
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,13 +22,16 @@ func _on_players_deck_on_draw(card):
 	SpotsTaken.append(true) 
 	if CardsInPLay.size() > CardSpots.size():
 		CardsInPLay.remove_at(CardsInPLay.find(card))
-		print(card.Name + " was not able to be draw becasue hand is full")
+		$"..".CurrentEnemy.TakeDamage(OverDrawDamage)
+		print(card.Name + " Over Draw")
+		card.IsUsed = true
 		return
 	card.ConnectSignal("OnClick", self.CutCardFromCardInPlay)
 	#card.OnClick.connect(CutCardFromCardInPlay)
 	card.ConnectSignal("ChangeCombo", $"../ComboManager".CheckWeakness)
 	for effects in card.Effects:
 		effects.ConnectSignal("DrawCard", $"..".DrawCards)
+		effects.ConnectSignal("AttackBoss",$"..".CurrentEnemy.TakeDamage)
 	card.Draw(CardSpots[CardsInPLay.find(card)].global_position.x)
 
 

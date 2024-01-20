@@ -1,19 +1,27 @@
 extends Node2D
 
-
-
+signal StartEnemyTurn
+signal StartPlayerTurn
+signal GiveWeaknessInfo
 signal OnDraw(card)
 @onready var CardHolder = $CardHolder
 var Cards 
+var PlayerCanUseCards = true
 var CurrentCardsCycle
 var CurrentCardCycleIndex
 var LengthOfDeck
 var NextCard
 var DrawAmount = 0
-
+@export var CurrentEnemy :Boss
+@export var CurrentPLayer: Player
 
 func _ready():
-	
+	if CurrentEnemy == null:
+		CurrentEnemy =  get_tree().get_nodes_in_group("boss")[0]
+	if CurrentPLayer == null:
+		print("foundPlayer")
+		CurrentPLayer =  get_tree().get_nodes_in_group("player")[0]
+	emit_signal("GiveWeaknessInfo", CurrentEnemy,CurrentPLayer)
 	Cards = $CardHolder.get_children()
 	CurrentCardsCycle = Cards.duplicate(true)
 	CurrentCardCycleIndex = CurrentCardsCycle.size() -1
@@ -39,6 +47,8 @@ func DrawCards(AmountOfCards):
 		var Newcard = NextCard.duplicate()
 		Newcard.global_position = $DeckArea.global_position
 		Newcard.visible = true
+		Newcard.CanBeUsed = PlayerCanUseCards
+		Newcard.UsePoint = $UseArea.global_position
 		$CardsInHandHolder.add_child(Newcard)
 		emit_signal("OnDraw", Newcard)
 		DrawCounters()
@@ -61,3 +71,24 @@ func _on_button_pressed():
 func DrawCounters():
 	CurrentCardCycleIndex -=1 
 	DrawAmount += 1
+
+
+func _on_end_combo_manager_draw_combo_break(Amount):
+	DrawCards(Amount)
+	
+	
+func StartTurn():
+	DrawCards(5)
+	PlayerCanUseCards = true
+	var Cards = get_tree().get_nodes_in_group("Cards")
+	for card  in Cards:
+		card.CanBeUsed = true
+	emit_signal("StartPlayerTurn")
+func  EndTurn():
+	PlayerCanUseCards = false
+	var Cards = get_tree().get_nodes_in_group("Cards")
+	for card  in Cards:
+		card.CanBeUsed = false
+	emit_signal("StartEnemyTurn")
+	
+

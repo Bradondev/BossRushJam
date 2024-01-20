@@ -1,0 +1,123 @@
+[gd_scene load_steps=9 format=3 uid="uid://byrkjggsh3t04"]
+
+[ext_resource type="Script" path="res://Code/Cards.gd" id="1_xp1t7"]
+[ext_resource type="Texture2D" uid="uid://bqub28n4ex52j" path="res://Art/Cards/Card_Dark.png" id="2_1icmn"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="3_ubpun"]
+[ext_resource type="Texture2D" uid="uid://d3lwlxuvk0bj6" path="res://Art/Cards/cardImages/earth almighty.png" id="4_4d2ni"]
+[ext_resource type="Texture2D" uid="uid://ca7jotfce6p6r" path="res://icon.svg" id="5_0d1gk"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="7_5ogvw"]
+[ext_resource type="Texture2D" uid="uid://be80enblifuwo" path="res://Art/Cards/Card_Main_Back.png" id="7_phe7u"]
+[ext_resource type="Texture2D" uid="uid://4awxss0qu5wv" path="res://Art/Cards/cardImages/Icon_One_Sword_ATK.png" id="8_jsdme"]
+
+[node name="Cardbase" type="Node2D" groups=["Cards"]]
+position = Vector2(465, 240)
+script = ExtResource("1_xp1t7")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -79.0
+offset_right = 89.0
+offset_bottom = 290.0
+texture = ExtResource("2_1icmn")
+stretch_mode = 6
+
+[node name="Name" type="RichTextLabel" parent="."]
+offset_left = -67.0
+offset_top = 38.0
+offset_right = 47.0
+offset_bottom = 74.0
+theme = ExtResource("3_ubpun")
+text = "Light Wind Attack"
+autowrap_mode = 2
+
+[node name="description" type="RichTextLabel" parent="."]
+offset_left = -67.0
+offset_top = 176.0
+offset_right = 77.0
+offset_bottom = 256.0
+theme = ExtResource("3_ubpun")
+theme_override_font_sizes/normal_font_size = 12
+text = "-Draw 2 
+-Deal Damage"
+tab_size = 2
+
+[node name="Image" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -68.0
+offset_top = 77.0
+offset_right = 78.0
+offset_bottom = 173.0
+texture = ExtResource("4_4d2ni")
+expand_mode = 1
+
+[node name="ImageType" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 49.0
+offset_top = 33.0
+offset_right = 83.0
+offset_bottom = 70.0
+texture = ExtResource("5_0d1gk")
+expand_mode = 1
+
+[node name="MouseChecker" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -65.0
+offset_top = 22.0
+offset_right = 73.0
+offset_bottom = 269.0
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+
+[node name="HoldTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="TypeOFCardImage" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -75.0
+offset_top = 224.0
+offset_right = -35.0
+offset_bottom = 264.0
+texture = ExtResource("8_jsdme")
+
+[node name="AttackLabel" type="Label" parent="."]
+offset_left = -61.0
+offset_top = 234.0
+offset_right = -51.0
+offset_bottom = 257.0
+theme = ExtResource("3_ubpun")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Card EffectHolder" type="Node2D" parent="."]
+
+[node name="LevelHolder" type="HBoxContainer" parent="."]
+offset_left = -37.0
+offset_top = 237.0
+offset_right = 39.0
+offset_bottom = 253.0
+scale = Vector2(1.4, 1.4)
+metadata/_edit_group_ = true
+
+[node name="star" type="TextureRect" parent="LevelHolder"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_5ogvw")
+stretch_mode = 2
+
+[node name="Back" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -79.0
+offset_right = 89.0
+offset_bottom = 290.0
+texture = ExtResource("7_phe7u")
+stretch_mode = 6
+
+[connection signal="gui_input" from="MouseChecker" to="." method="_on_mouse_checker_gui_input"]
+[connection signal="mouse_entered" from="MouseChecker" to="." method="_on_mouse_checker_mouse_entered"]
+[connection signal="mouse_exited" from="MouseChecker" to="." method="_on_mouse_checker_mouse_exited"]
+[connection signal="timeout" from="HoldTimer" to="." method="_on_hold_timer_timeout"]

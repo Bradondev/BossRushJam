@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr0m5n2w5xij1"]
+[gd_scene load_steps=5 format=3 uid="uid://cr0m5n2w5xij1"]
 
-[ext_resource type="PackedScene" uid="uid://b8cy45nglsunw" path="res://Code/Attacks/cards/AttackBaseCard.tscn" id="1_lv5s2"]
+[ext_resource type="PackedScene" uid="uid://b8cy45nglsunw" path="res://Code/cards/BaseCards/AttackBaseCard.tscn" id="1_lv5s2"]
 [ext_resource type="Texture2D" uid="uid://bqub28n4ex52j" path="res://Art/Cards/Card_Dark.png" id="2_dbmps"]
-[ext_resource type="Texture2D" uid="uid://cfr4r5sblvmna" path="res://Art/Cards/Icon_Dark2.png" id="3_x111g"]
+[ext_resource type="Script" path="res://Code/Cards.gd" id="2_ega5u"]
+[ext_resource type="Texture2D" uid="uid://cfr4r5sblvmna" path="res://Art/Cards/cardImages/Icon_Dark2.png" id="3_x111g"]
 
 [node name="Dark_Shot" instance=ExtResource("1_lv5s2")]
 position = Vector2(488, 222)
+script = ExtResource("2_ega5u")
 Name = "Dark_Shot"
 AttackDamage = 2
 Type = "Dark"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bblnj1oxe21bi"]
+
+[ext_resource type="Script" path="res://Code/SaveManager.gd" id="1_yfwk6"]
+
+[node name="SaveManager" type="Node"]
+script = ExtResource("1_yfwk6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "load
+"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

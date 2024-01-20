@@ -2,53 +2,66 @@ class_name  CardAttacks extends Node2D
 
 @export var Name :String
 @export var AttackDamage :int
-@export var SecondAttackDamage :int
-@export var description : String
+@export_multiline var description : String
 
 @export_enum("Fire", "Light", "Air", "Dark","Water","Earth") var Type: String
-@export_enum("Fire", "Light", "Air", "Dark","Water","Earth") var SecondType: String
-
 
 @export var OnUseSignal = ""
-
+@export var PlayerUsing = true
 
 signal  OnClick
 signal ChangeCombo
+signal BossUses
 
-
+var BossWillUse = false
+var CanBeUsed = true
 var Up = false
+var BossCard = false
 var hasMoved = false
 var Down = false
 var NewPositon
 var NextDrawPosition
 var Drawing = false 
 var OldPositon
+var IsUsed = false
+var UsePoint
 
 var DistanceMoved = 120
 @onready var LabelName = $Name
 @onready var AttackLabel = $AttackLabel
 @onready var Description = $description
 @onready var CardEffectHolder= $"Card EffectHolder"
+@onready var Back = $Back
 var Effects
 # Called when the node enters the scene tree for the first time.
 func _ready():
+		
+	if PlayerUsing:
+		$Back.visible= false
 	LabelName.text = Name
 	AttackLabel.text = str(AttackDamage)
 	Description.text = description
 	Effects =CardEffectHolder.get_children()
 func _physics_process(delta):
+	$Back.visible = BossCard
 	if Up == true:
-		self.global_position.y = lerp(self.global_position.y,  NewPositon,.1 )
+		self.global_position.y = lerp(self.global_position.y,  NewPositon ,.1 )
 		scale.x = lerp(scale.x, float(2),.1)
 		scale.y = lerp(scale.y, float(2),.1)
-	if  Down == true and hasMoved :
+	if  Down == true and hasMoved and not IsUsed:
 		self.global_position.y = lerp(self.global_position.y, NewPositon +DistanceMoved ,.1 )
 		scale.x = lerp(scale.x, float(1),.1)
 		scale.y = lerp(scale.y, float(1),.1)
 	if Drawing == true:
 		self.global_position.x = lerp(self.global_position.x, NextDrawPosition ,.1 )
-		
-	
+	if IsUsed:
+		self.global_position = lerp(self.global_position, UsePoint,.2 )
+		scale.x = lerp(scale.x, float(1),.1)
+		scale.y = lerp(scale.y, float(1),.1)
+		await get_tree().create_timer(.30).timeout
+		queue_free()
+	if BossWillUse:
+		BossWillUSe()
 func _on_mouse_checker_mouse_entered():
 	$HoldTimer.start()
 	z_index = 1
@@ -61,12 +74,11 @@ func _on_mouse_checker_mouse_exited():
 
 func _on_mouse_checker_gui_input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			emit_signal("OnClick",self)
-			emit_signal("ChangeCombo", Type)
-			visible = false
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and CanBeUsed:
+			IsUsed = true
 			OnUse()
-			queue_free()
+			#visible = false
+			#queue_free()
 
 
 
@@ -88,5 +100,11 @@ func Draw(Position):
 	NextDrawPosition = Position
 	
 func OnUse():
+	IsUsed = true
+	emit_signal("OnClick",self)
+	emit_signal("ChangeCombo", Type)
 	for effects in Effects:
 		effects.UseEffect()
+func BossWillUSe():
+	self.global_position.y = lerp(self.global_position.y,  NewPositon ,.1 )
+	BossCard = false

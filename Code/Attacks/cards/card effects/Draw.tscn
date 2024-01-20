@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bil84fm6y350b"]
-
-[ext_resource type="Script" path="res://Code/Attacks/cards/card effects/Draw.gd" id="1_r4y51"]
-
-[node name="Draw" type="Node2D"]
-script = ExtResource("1_r4y51")
-Name = "Draw"

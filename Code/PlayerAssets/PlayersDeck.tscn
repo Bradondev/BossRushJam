@@ -20,8 +20,9 @@
 script = ExtResource("1_j7q8m")
 
 [node name="CardHolder" type="Node2D" parent="."]
-position = Vector2(-58, 309)
+position = Vector2(-52, 433)
 scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
 
 [node name="Dance Of Wind" parent="CardHolder" instance=ExtResource("2_f3hkh")]
 position = Vector2(0, 10)
@@ -104,7 +105,7 @@ offset_bottom = 56.0
 text = "Draw 5 cards"
 
 [node name="UseArea" type="Marker2D" parent="."]
-position = Vector2(469, 255)
+position = Vector2(856, 240)
 
 [node name="DeckArea" type="Marker2D" parent="."]
 position = Vector2(0, -61)
@@ -143,8 +144,21 @@ theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 script = ExtResource("15_flb88")
 
+[node name="ComboLabelMistake" type="Label" parent="."]
+offset_left = 171.0
+offset_top = 378.0
+offset_right = 235.0
+offset_bottom = 409.0
+theme = ExtResource("12_gh4qe")
+text = "2"
+
+[connection signal="GiveWeaknessInfo" from="." to="ComboManager" method="_on_players_deck_give_weakness_info"]
+[connection signal="GiveWeaknessInfo" from="." to="EndComboManager" method="_on_players_deck_give_weakness_info"]
 [connection signal="OnDraw" from="." to="CardsInPlayPlace" method="_on_players_deck_on_draw"]
+[connection signal="StartPlayerTurn" from="." to="ComboManager" method="ResetComboLife"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="ChangeCombo" from="ComboManager" to="ComboLabel" method="_on_combo_manager_change_combo"]
 [connection signal="EndCombo" from="ComboManager" to="EndComboManager" method="_on_combo_manager_end_combo"]
+[connection signal="EndTurn" from="ComboManager" to="." method="EndTurn"]
 [connection signal="ChangeComboLabelType" from="EndComboManager" to="ComboLabelType" method="_on_end_combo_manager_change_combo_label_type"]
+[connection signal="DrawComboBreak" from="EndComboManager" to="." method="_on_end_combo_manager_draw_combo_break"]

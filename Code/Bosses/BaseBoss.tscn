@@ -1,10 +1,71 @@
-[gd_scene load_steps=2 format=3 uid="uid://sce8xuonj2fd"]
+[gd_scene load_steps=8 format=3 uid="uid://sce8xuonj2fd"]
 
 [ext_resource type="Script" path="res://Code/Bosses/BossBase.gd" id="1_w4mek"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="2_ompur"]
+[ext_resource type="Texture2D" uid="uid://ca7jotfce6p6r" path="res://icon.svg" id="3_x75xl"]
+[ext_resource type="PackedScene" uid="uid://donpin8m60qei" path="res://Code/Weakness/Weakness.tscn" id="4_67ku4"]
+[ext_resource type="Texture2D" uid="uid://dwgnlb1pimtiu" path="res://Art/Cards/cardImages/Icon_Fire.png" id="5_3y3gs"]
+[ext_resource type="Texture2D" uid="uid://b314mpakcfydl" path="res://Art/Cards/cardImages/Icon_Light2.png" id="6_nerv4"]
+[ext_resource type="Texture2D" uid="uid://df85usgr68t22" path="res://Art/Cards/cardImages/Icon_Wind.png" id="7_q5qdi"]
 
 [node name="Boss" type="Node2D"]
 script = ExtResource("1_w4mek")
 
-[node name="ListOfAttacks" type="Node2D" parent="."]
+[node name="UiHolder" type="VBoxContainer" parent="."]
+offset_left = -99.0
+offset_top = -80.0
+offset_right = 101.0
+offset_bottom = -20.0
+metadata/_edit_group_ = true
 
-[node name="Special" type="Node2D" parent="."]
+[node name="Name" type="Label" parent="UiHolder"]
+layout_mode = 2
+theme = ExtResource("2_ompur")
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Healthbar" type="ProgressBar" parent="UiHolder"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 59)
+texture = ExtResource("3_x75xl")
+
+[node name="WeaknessHolder" type="Node2D" parent="."]
+
+[node name="Weakness" parent="WeaknessHolder" instance=ExtResource("4_67ku4")]
+WeaknessType = "Fire"
+
+[node name="Weakness2" parent="WeaknessHolder" instance=ExtResource("4_67ku4")]
+WeaknessType = "Light"
+
+[node name="Weakness3" parent="WeaknessHolder" instance=ExtResource("4_67ku4")]
+WeaknessType = "Air"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -112.0
+offset_top = -153.0
+offset_right = -56.0
+offset_bottom = -137.0
+scale = Vector2(4, 4)
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_3y3gs")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_nerv4")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_q5qdi")
+stretch_mode = 4

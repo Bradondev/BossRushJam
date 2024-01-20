@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0pntp4ef0gb1"]
+[gd_scene load_steps=10 format=3 uid="uid://b0pntp4ef0gb1"]
 
-[ext_resource type="Script" path="res://BattleManager.gd" id="1_i4fai"]
+[ext_resource type="Script" path="res://Code/BattleManager.gd" id="1_i4fai"]
 [ext_resource type="PackedScene" uid="uid://sce8xuonj2fd" path="res://Code/Bosses/BaseBoss.tscn" id="2_7b5iy"]
 [ext_resource type="PackedScene" uid="uid://caq3o3ok3b3vr" path="res://Code/PlayerAssets/Player.tscn" id="2_h6ivu"]
 [ext_resource type="PackedScene" uid="uid://br5brytqnyr30" path="res://Code/PlayerAssets/PlayersDeck.tscn" id="4_blya1"]
+[ext_resource type="PackedScene" uid="uid://bteh0r3v7rnq2" path="res://enemy_deck.tscn" id="5_dvet2"]
+[ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="6_b6rgs"]
 
 [sub_resource type="Animation" id="Animation_rf1nl"]
 resource_name = "BossIntro"
@@ -20,31 +22,13 @@ _data = {
 [node name="BattleManager" type="Node2D"]
 script = ExtResource("1_i4fai")
 
-[node name="Boss" parent="." instance=ExtResource("2_7b5iy")]
+[node name="Boss" parent="." groups=["boss"] instance=ExtResource("2_7b5iy")]
+position = Vector2(728, 184)
+MaxHealth = 100
 
-[node name="Player" parent="." instance=ExtResource("2_h6ivu")]
-
-[node name="BattleUnit" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 0
-size_flags_vertical = 4
-metadata/_edit_use_anchors_ = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="BattleUnit"]
-
-[node name="BossHhealthBar" type="ProgressBar" parent="BattleUnit"]
-layout_mode = 0
-offset_top = 110.0
-offset_right = 213.0
-offset_bottom = 137.0
-
-[node name="PlayerhealthBar" type="ProgressBar" parent="BattleUnit"]
-layout_mode = 0
-offset_left = 765.0
-offset_top = 110.0
-offset_right = 978.0
-offset_bottom = 144.0
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_h6ivu")]
+position = Vector2(158, 364)
+Name = "Player"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -55,10 +39,31 @@ libraries = {
 position = Vector2(1041, 281)
 
 [node name="PlayerHolder" type="Node2D" parent="."]
-position = Vector2(-59, 281)
+position = Vector2(-43, 434)
 
 [node name="AreaHolder" type="Node2D" parent="."]
 position = Vector2(516, 281)
 
-[node name="PlayersDeck" parent="." instance=ExtResource("4_blya1")]
-position = Vector2(9, -26)
+[node name="PlayersDeck" parent="." node_paths=PackedStringArray("CurrentEnemy", "CurrentPLayer") instance=ExtResource("4_blya1")]
+position = Vector2(1, 23)
+CurrentEnemy = NodePath("../Boss")
+CurrentPLayer = NodePath("../Player")
+
+[node name="EnemyDeck" parent="." node_paths=PackedStringArray("CurrentEnemy", "CurrentPLayer") instance=ExtResource("5_dvet2")]
+position = Vector2(992, 670)
+CurrentEnemy = NodePath("../Player")
+CurrentPLayer = NodePath("../Boss")
+metadata/_edit_group_ = true
+
+[node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("6_b6rgs")]
+ItemToSave = NodePath("../PlayersDeck")
+
+[connection signal="StartComboBattle" from="." to="PlayersDeck" method="StartTurn"]
+[connection signal="StartComboBattle" from="." to="EnemyDeck" method="_on_battle_manager_start_combo_battle"]
+[connection signal="StartPLayarsTurn" from="." to="PlayersDeck" method="StartTurn"]
+[connection signal="StartEnemyTurn" from="PlayersDeck" to="EnemyDeck" method="StartTurn"]
+[connection signal="StartEnemyTurn" from="EnemyDeck" to="PlayersDeck" method="StartTurn"]
+[connection signal="EndTurn" from="EnemyDeck/CardsInHandHolder" to="EnemyDeck" method="EndTurn"]
+
+[editable path="PlayersDeck"]
+[editable path="EnemyDeck"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://g0xhrsaexod"]
+
+[ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/cards/BaseCards/Cardbase.tscn" id="1_72mvf"]
+[ext_resource type="Texture2D" uid="uid://cbmrt4ouvuwns" path="res://Art/Cards/Card_Fire.png" id="2_rhjcx"]
+[ext_resource type="Texture2D" uid="uid://c3kusfudgf6kl" path="res://Art/Cards/cardImages/fire light.png" id="3_1ubb1"]
+[ext_resource type="Texture2D" uid="uid://dwgnlb1pimtiu" path="res://Art/Cards/cardImages/Icon_Fire.png" id="4_06ylr"]
+
+[node name="FIreCardBase" instance=ExtResource("1_72mvf")]
+Type = "Fire"
+
+[node name="ColorRect" parent="." index="0"]
+texture = ExtResource("2_rhjcx")
+
+[node name="Image" parent="." index="2"]
+texture = ExtResource("3_1ubb1")
+
+[node name="ImageType" parent="." index="3"]
+texture = ExtResource("4_06ylr")

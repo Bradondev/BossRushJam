@@ -11,11 +11,25 @@ config_version=5
 [application]
 
 config/name="Boss Rush Jam"
+run/main_scene="res://Code/PlayerAssets/PlayersDeck.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=980
+window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://Art/Cards/": "blue",
+"res://Art/Cards/cardImages/": "teal",
+"res://Code/cards/Air Cards/": "green",
+"res://Code/cards/Dark Cards/": "purple",
+"res://Code/cards/EarthCards/": "gray",
+"res://Code/cards/Fire Cards/": "red",
+"res://Code/cards/Watercards/": "blue",
+"res://Code/cards/light cards/": "yellow"
+}
