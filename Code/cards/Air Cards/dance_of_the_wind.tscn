@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbg1sa1hej0v4"]
+
+[ext_resource type="PackedScene" uid="uid://ulliyjmgpda6" path="res://Code/cards/BaseCards/air_card_base.tscn" id="1_jmmi6"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="2_nl8cn"]
+
+[node name="Dance of the Wind" instance=ExtResource("1_jmmi6")]
+Name = "Dance of the Wind"
+AttackDamage = 2
+description = "-Draw 2"
+
+[node name="Name" parent="." index="1"]
+text = "Dance of the Wind"
+
+[node name="description" parent="." index="2"]
+text = "-Draw 2"
+
+[node name="Draw" parent="Card EffectHolder" index="0" instance=ExtResource("2_nl8cn")]
+AmountOfCardDrawed = 2

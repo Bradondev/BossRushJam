@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbwwnr1mh4vae"]
+
+[ext_resource type="PackedScene" uid="uid://ulliyjmgpda6" path="res://Code/cards/BaseCards/air_card_base.tscn" id="1_lnjkb"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="2_hj37v"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="2_n6s1e"]
+
+[node name="Master of Winds" instance=ExtResource("1_lnjkb")]
+Name = "Master of Winds"
+AttackDamage = 4
+description = "-Draw 4"
+
+[node name="Name" parent="." index="1"]
+text = "Master of Winds"
+
+[node name="description" parent="." index="2"]
+text = "-Draw 4"
+
+[node name="Draw" parent="Card EffectHolder" index="0" instance=ExtResource("2_n6s1e")]
+AmountOfCardDrawed = 4
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_hj37v")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_hj37v")
+stretch_mode = 2

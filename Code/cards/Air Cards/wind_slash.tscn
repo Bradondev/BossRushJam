@@ -21,11 +21,11 @@ AmountOfDamage = 1
 [node name="Draw" parent="Card EffectHolder" index="1" instance=ExtResource("3_8fr44")]
 AmountOfCardDrawed = 1
 
-[node name="Back" parent="." index="11"]
-texture = ExtResource("4_xrrlj")
-
 [node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_q8v38")
 stretch_mode = 2
+
+[node name="Back" parent="." index="12"]
+texture = ExtResource("4_xrrlj")

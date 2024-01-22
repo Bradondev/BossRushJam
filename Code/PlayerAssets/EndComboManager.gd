@@ -41,7 +41,6 @@ func _on_combo_manager_end_combo(Type,ComboAmount):
 	emit_signal("ChangeComboLabelType", Type, color)
 
 
-
 func _on_players_deck_give_weakness_info(boss,player):
 	CurrentPlayer = player
 	CurrentBoss = boss

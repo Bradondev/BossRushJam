@@ -12,22 +12,7 @@ Type = "Air"
 [node name="ColorRect" parent="." index="0"]
 texture = ExtResource("2_7l4ld")
 
-[node name="description" parent="." index="1"]
-theme = null
-tab_size = 4
-
-[node name="ImageType" parent="." index="3"]
-texture = ExtResource("3_6qyhp")
-
-[node name="AttackLabel" parent="." index="4"]
-theme = null
-text = "2+
-"
-
-[node name="HoldTimer" parent="." index="6"]
-wait_time = 0.5
-
-[node name="Name" parent="." index="7"]
+[node name="Name" parent="." index="1"]
 offset_left = -67.74
 offset_top = 44.0
 offset_right = 47.26
@@ -35,6 +20,21 @@ offset_bottom = 67.0
 theme = null
 text = "Dance Of Wind"
 autowrap_mode = 0
+
+[node name="description" parent="." index="2"]
+theme = null
+tab_size = 4
+
+[node name="ImageType" parent="." index="4"]
+texture = ExtResource("3_6qyhp")
+
+[node name="HoldTimer" parent="." index="6"]
+wait_time = 0.5
+
+[node name="AttackLabel" parent="." index="8"]
+theme = null
+text = "2+
+"
 
 [node name="Draw" parent="Card EffectHolder" index="0"]
 AmountOfCardDrawed = 2

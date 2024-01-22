@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0pntp4ef0gb1"]
+[gd_scene load_steps=11 format=3 uid="uid://b0pntp4ef0gb1"]
 
 [ext_resource type="Script" path="res://Code/BattleManager.gd" id="1_i4fai"]
 [ext_resource type="PackedScene" uid="uid://sce8xuonj2fd" path="res://Code/Bosses/BaseBoss.tscn" id="2_7b5iy"]
 [ext_resource type="PackedScene" uid="uid://caq3o3ok3b3vr" path="res://Code/PlayerAssets/Player.tscn" id="2_h6ivu"]
 [ext_resource type="PackedScene" uid="uid://br5brytqnyr30" path="res://Code/PlayerAssets/PlayersDeck.tscn" id="4_blya1"]
 [ext_resource type="PackedScene" uid="uid://bteh0r3v7rnq2" path="res://enemy_deck.tscn" id="5_dvet2"]
+[ext_resource type="Script" path="res://CardHolder.gd" id="5_rnd4n"]
 [ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="6_b6rgs"]
 
 [sub_resource type="Animation" id="Animation_rf1nl"]
@@ -49,6 +50,9 @@ position = Vector2(1, 23)
 CurrentEnemy = NodePath("../Boss")
 CurrentPLayer = NodePath("../Player")
 
+[node name="CardHolder" parent="PlayersDeck" index="0"]
+script = ExtResource("5_rnd4n")
+
 [node name="EnemyDeck" parent="." node_paths=PackedStringArray("CurrentEnemy", "CurrentPLayer") instance=ExtResource("5_dvet2")]
 position = Vector2(992, 670)
 CurrentEnemy = NodePath("../Player")
@@ -62,6 +66,7 @@ ItemToSave = NodePath("../PlayersDeck")
 [connection signal="StartComboBattle" from="." to="EnemyDeck" method="_on_battle_manager_start_combo_battle"]
 [connection signal="StartPLayarsTurn" from="." to="PlayersDeck" method="StartTurn"]
 [connection signal="StartEnemyTurn" from="PlayersDeck" to="EnemyDeck" method="StartTurn"]
+[connection signal="EndTurn" from="PlayersDeck/ComboManager" to="PlayersDeck" method="EndTurn"]
 [connection signal="StartEnemyTurn" from="EnemyDeck" to="PlayersDeck" method="StartTurn"]
 [connection signal="EndTurn" from="EnemyDeck/CardsInHandHolder" to="EnemyDeck" method="EndTurn"]
 
