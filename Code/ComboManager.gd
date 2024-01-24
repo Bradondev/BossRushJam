@@ -58,4 +58,15 @@ func ResetComboLife():
 	ComboMistakeAmount = MaxComboMistakeAmount
 	ChangeComboMistakeLabel(ComboAmount)
 func ChangeComboMistakeLabel(Amount):
-	ComboLabelMistake.text = str(Amount)
+	if ComboMistakeAmount == 2:
+		$"../UI/P{layerUi/VBoxContainer/Heartr".value = 2
+		$"../UI/P{layerUi/VBoxContainer/Heartr2".value = 2
+	if ComboMistakeAmount == 1:
+		$"../UI/P{layerUi/VBoxContainer/Heartr2".value = 0
+	if ComboMistakeAmount == 0:
+		$"../UI/P{layerUi/VBoxContainer/Heartr".value = 0
+		$"../UI/P{layerUi/VBoxContainer/Heartr2".value = 0
+
+
+func _on_break_pressed():
+	BreakCombo("Break button")

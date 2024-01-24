@@ -1,62 +1,108 @@
-[gd_scene load_steps=10 format=3 uid="uid://chfoymu17vdya"]
+[gd_scene load_steps=26 format=3 uid="uid://f4sqmqlwjpis"]
 
-[ext_resource type="Script" path="res://Code/PlayersDeck.gd" id="1_1a1g4"]
-[ext_resource type="Script" path="res://CardHolder.gd" id="2_ed1hb"]
-[ext_resource type="PackedScene" uid="uid://drb5jcsr65rcj" path="res://Code/Attacks/dance_of_wind.tscn" id="3_yekr4"]
-[ext_resource type="Script" path="res://Code/CardMover.gd" id="12_dajap"]
-[ext_resource type="Script" path="res://Code/ComboManager.gd" id="13_euwjp"]
-[ext_resource type="Script" path="res://Code/PlayerAssets/EndComboManager.gd" id="14_p3idg"]
-[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="15_v1j3m"]
-[ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabel.gd" id="16_f36xw"]
-[ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabelType.gd" id="17_6kxwy"]
+[ext_resource type="Script" path="res://Code/PlayersDeck.gd" id="1_us4ej"]
+[ext_resource type="PackedScene" uid="uid://drb5jcsr65rcj" path="res://Code/Attacks/dance_of_wind.tscn" id="2_uo6md"]
+[ext_resource type="PackedScene" uid="uid://dq1wvexvemxll" path="res://Code/Attacks/quick_flame.tscn" id="4_qm4ug"]
+[ext_resource type="PackedScene" uid="uid://nvy27jaxb3h8" path="res://Code/Attacks/fire_slash.tscn" id="5_gb1c7"]
+[ext_resource type="PackedScene" uid="uid://cl06jeehwgipy" path="res://Code/Attacks/light_shot.tscn" id="6_57mcv"]
+[ext_resource type="PackedScene" uid="uid://d2u0sd4vfv8qv" path="res://Code/Attacks/Earth_Punch.tscn" id="7_dkj5b"]
+[ext_resource type="PackedScene" uid="uid://675y7fulwdqa" path="res://Code/Attacks/wind_slash.tscn" id="8_5c4rp"]
+[ext_resource type="PackedScene" uid="uid://cr0m5n2w5xij1" path="res://Code/Attacks/dark_shot.tscn" id="9_akgs6"]
+[ext_resource type="PackedScene" uid="uid://bulgyyeiue5ba" path="res://Code/Attacks/Water_Gun.tscn" id="10_fgsy3"]
+[ext_resource type="Script" path="res://Code/CardMover.gd" id="11_qjf25"]
+[ext_resource type="Script" path="res://Code/ComboManager.gd" id="12_fjurm"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/EndComboManager.gd" id="13_15qh8"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="14_j0uko"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabel.gd" id="15_ung6n"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabelType.gd" id="16_wmjw0"]
+[ext_resource type="Texture2D" uid="uid://m452ft6obee4" path="res://Art/UI/HUD_Player_Layout.png" id="17_yi7x7"]
+[ext_resource type="Texture2D" uid="uid://bgeg87cr58epg" path="res://Art/UI/HUD_HealthBar.png" id="18_hcxbl"]
+[ext_resource type="Texture2D" uid="uid://0jbdy8i0susp" path="res://Art/UI/HUD_Heal.png" id="19_3uuir"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/ProgressBar.gd" id="20_uuonf"]
+[ext_resource type="Texture2D" uid="uid://bgwj2b72u6v3n" path="res://Art/UI/heaartl-export.png" id="21_h60ep"]
+[ext_resource type="Texture2D" uid="uid://2buotv1b7mpl" path="res://Art/UI/fulll-export.png" id="22_y58qa"]
+[ext_resource type="Texture2D" uid="uid://dq0q2jboya6jq" path="res://Art/UI/Button_Break_Normal.png" id="23_rup3g"]
+[ext_resource type="Texture2D" uid="uid://dv527jp84e6iw" path="res://Art/UI/Button_Break_OnHover_OnClick.png" id="24_wnqhh"]
+[ext_resource type="Texture2D" uid="uid://cwbq8i3n85p7h" path="res://Art/UI/Button_End_Normal.png" id="25_etsac"]
+[ext_resource type="Texture2D" uid="uid://djx5iu233nf4i" path="res://Art/UI/Button_End_OnHover_OnClick.png" id="26_f86lb"]
 
 [node name="PlayersDeck" type="Node2D"]
-position = Vector2(1, 23)
-script = ExtResource("1_1a1g4")
+position = Vector2(-2, -3)
+script = ExtResource("1_us4ej")
 
 [node name="CardHolder" type="Node2D" parent="."]
 position = Vector2(-52, 433)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("2_ed1hb")
 metadata/_edit_group_ = true
 
-[node name="Dance Of Wind" parent="CardHolder" instance=ExtResource("3_yekr4")]
+[node name="Dance Of Wind" parent="CardHolder" instance=ExtResource("2_uo6md")]
+position = Vector2(0, 10)
+
+[node name="QuickFlame" parent="CardHolder" instance=ExtResource("4_qm4ug")]
+position = Vector2(0, 10)
+OnUseSignal = "DrawCard"
+
+[node name="Fire_Slash2" parent="CardHolder" instance=ExtResource("5_gb1c7")]
+position = Vector2(0, 10)
+
+[node name="Light_Shot2" parent="CardHolder" instance=ExtResource("6_57mcv")]
+position = Vector2(0, 10)
+
+[node name="Earth_Punch2" parent="CardHolder" instance=ExtResource("7_dkj5b")]
+position = Vector2(0, 10)
+
+[node name="Wind Slash" parent="CardHolder" instance=ExtResource("8_5c4rp")]
+position = Vector2(0, 10)
+
+[node name="Light_Shot" parent="CardHolder" instance=ExtResource("6_57mcv")]
+position = Vector2(0, 10)
+
+[node name="Fire_Slash" parent="CardHolder" instance=ExtResource("5_gb1c7")]
+position = Vector2(0, 10)
+
+[node name="Dark_Shot" parent="CardHolder" instance=ExtResource("9_akgs6")]
+position = Vector2(0, 10)
+
+[node name="Earth_Punch" parent="CardHolder" instance=ExtResource("7_dkj5b")]
+position = Vector2(0, 10)
+
+[node name="Water_Gun" parent="CardHolder" instance=ExtResource("10_fgsy3")]
 position = Vector2(0, 10)
 
 [node name="CardsInPlayPlace" type="Node2D" parent="."]
-position = Vector2(171, 255)
+position = Vector2(242, 532)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("12_dajap")
+script = ExtResource("11_qjf25")
 
 [node name="Card1" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(200, 512)
+position = Vector2(116, 28)
 
 [node name="Card2" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(300, 512)
+position = Vector2(216, 28)
 
 [node name="Card3" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(400, 512)
+position = Vector2(316, 28)
 
 [node name="Card4" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(500, 512)
+position = Vector2(416, 28)
 
 [node name="Card5" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(600, 512)
+position = Vector2(516, 28)
 
 [node name="Card6" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(700, 512)
+position = Vector2(616, 28)
 
 [node name="Card7" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(800, 512)
+position = Vector2(716, 28)
 
 [node name="Card8" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(900, 512)
+position = Vector2(816, 28)
 
 [node name="Card9" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(1000, 512)
+position = Vector2(916, 28)
 
 [node name="Card10" type="Marker2D" parent="CardsInPlayPlace"]
-position = Vector2(1100, 512)
+position = Vector2(1016, 28)
 
 [node name="CardsInHandHolder" type="Node2D" parent="."]
 position = Vector2(-77, 398)
@@ -76,47 +122,142 @@ position = Vector2(856, 240)
 position = Vector2(0, -61)
 
 [node name="ComboManager" type="Node2D" parent="."]
-script = ExtResource("13_euwjp")
+script = ExtResource("12_fjurm")
 
 [node name="EndComboManager" type="Node2D" parent="."]
-script = ExtResource("14_p3idg")
+script = ExtResource("13_15qh8")
 
 [node name="DeckAmount" type="Label" parent="."]
-offset_top = 409.0
-offset_right = 92.0
-offset_bottom = 539.0
-theme = ExtResource("15_v1j3m")
-text = "1"
+offset_left = 296.0
+offset_top = 259.0
+offset_right = 388.0
+offset_bottom = 389.0
+theme = ExtResource("14_j0uko")
+text = "6"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ComboLabel" type="RichTextLabel" parent="."]
-offset_left = 121.0
-offset_top = 142.0
-offset_right = 311.0
-offset_bottom = 212.0
-theme = ExtResource("15_v1j3m")
+offset_left = 100.0
+offset_top = 82.0
+offset_right = 290.0
+offset_bottom = 152.0
+theme = ExtResource("14_j0uko")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "[wave amp=50.0 freq=5.0 connected=1]Combo! 1[/wave]"
-script = ExtResource("16_f36xw")
+script = ExtResource("15_ung6n")
 
 [node name="ComboLabelType" type="RichTextLabel" parent="."]
-offset_top = 142.0
-offset_right = 190.0
-offset_bottom = 212.0
-theme = ExtResource("15_v1j3m")
+offset_left = 119.0
+offset_top = 105.0
+offset_right = 309.0
+offset_bottom = 175.0
+theme = ExtResource("14_j0uko")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-script = ExtResource("17_6kxwy")
+script = ExtResource("16_wmjw0")
 
-[node name="ComboLabelMistake" type="Label" parent="."]
-offset_left = 171.0
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 42.0
+
+[node name="P{layerUi" type="TextureRect" parent="UI"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 382.0
+offset_right = 241.0
+offset_bottom = 460.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("17_yi7x7")
+stretch_mode = 2
+
+[node name="ProgressBar" type="TextureProgressBar" parent="UI/P{layerUi"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 55.0
+offset_right = 234.0
+offset_bottom = 72.0
+value = 100.0
+texture_under = ExtResource("18_hcxbl")
+texture_progress = ExtResource("19_3uuir")
+script = ExtResource("20_uuonf")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/P{layerUi"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 55.0
+offset_right = 281.0
+offset_bottom = 72.0
+metadata/_edit_group_ = true
+
+[node name="Heartr" type="TextureProgressBar" parent="UI/P{layerUi/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = ExtResource("21_h60ep")
+texture_progress = ExtResource("22_y58qa")
+
+[node name="Heartr2" type="TextureProgressBar" parent="UI/P{layerUi/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = ExtResource("21_h60ep")
+texture_progress = ExtResource("22_y58qa")
+
+[node name="Buttons" type="VBoxContainer" parent="UI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 819.0
 offset_top = 378.0
-offset_right = 235.0
-offset_bottom = 409.0
-theme = ExtResource("15_v1j3m")
-text = "0"
+offset_right = 935.0
+offset_bottom = 478.0
+
+[node name="break" type="TextureButton" parent="UI/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("23_rup3g")
+texture_pressed = ExtResource("24_wnqhh")
+
+[node name="Label" type="Label" parent="UI/Buttons/break"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("14_j0uko")
+text = "Break"
+
+[node name="end" type="TextureButton" parent="UI/Buttons"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("25_etsac")
+texture_pressed = ExtResource("26_f86lb")
+
+[node name="Label" type="Label" parent="UI/Buttons/end"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -7.5
+offset_right = 14.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("14_j0uko")
+text = "End"
 
 [connection signal="GiveWeaknessInfo" from="." to="ComboManager" method="_on_players_deck_give_weakness_info"]
 [connection signal="GiveWeaknessInfo" from="." to="EndComboManager" method="_on_players_deck_give_weakness_info"]
@@ -128,3 +269,4 @@ text = "0"
 [connection signal="EndTurn" from="ComboManager" to="." method="EndTurn"]
 [connection signal="ChangeComboLabelType" from="EndComboManager" to="ComboLabelType" method="_on_end_combo_manager_change_combo_label_type"]
 [connection signal="DrawComboBreak" from="EndComboManager" to="." method="_on_end_combo_manager_draw_combo_break"]
+[connection signal="pressed" from="UI/Buttons/break" to="ComboManager" method="_on_break_pressed"]

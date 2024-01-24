@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://gfr13jwmhos1"]
+
+[ext_resource type="PackedScene" uid="uid://g0xhrsaexod" path="res://Code/cards/BaseCards/f_ire_card_base.tscn" id="1_0wobn"]
+[ext_resource type="Texture2D" uid="uid://b8vqupxhndfiv" path="res://Art/Cards/cardImages/Icon_Dual_Sword_ATK.png" id="2_xvewm"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_pfpw2"]
+
+[node name="FIreCardBase" instance=ExtResource("1_0wobn")]
+Name = "Fireflies"
+description = "-Deal Damage twice"
+
+[node name="Name" parent="." index="1"]
+text = "Fireflies"
+
+[node name="description" parent="." index="2"]
+text = "-Deal Damage twice"
+
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("2_xvewm")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_pfpw2")]
+position = Vector2(-37, 237)
+scale = Vector2(1.4, 1.4)
+AmountOfDamage = 1
+
+[node name="Attack2" parent="Card EffectHolder" index="1" instance=ExtResource("3_pfpw2")]
+position = Vector2(-37, 237)
+scale = Vector2(1.4, 1.4)
+AmountOfDamage = 1

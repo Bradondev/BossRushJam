@@ -1,7 +1,7 @@
 class_name Boss extends Node2D
 
 
-
+signal Dead
 signal StartEnemyTurn
 signal StartPlayerTurn
 @export var Name = ""
@@ -38,7 +38,8 @@ func  TakeDamage(Amount):
 func checkHealth():
 	if CurrentHealth <= 0:
 		CurrentHealth = 0
-		return "dead"
-	
+		emit_signal("Dead", "Boss")
+	if CurrentHealth > MaxHealth:
+		CurrentHealth = MaxHealth
 func UpdateLabels():
 		HealthBar.value = CurrentHealth

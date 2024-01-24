@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0pntp4ef0gb1"]
+[gd_scene load_steps=10 format=3 uid="uid://b0pntp4ef0gb1"]
 
 [ext_resource type="Script" path="res://Code/BattleManager.gd" id="1_i4fai"]
 [ext_resource type="PackedScene" uid="uid://sce8xuonj2fd" path="res://Code/Bosses/BaseBoss.tscn" id="2_7b5iy"]
 [ext_resource type="PackedScene" uid="uid://caq3o3ok3b3vr" path="res://Code/PlayerAssets/Player.tscn" id="2_h6ivu"]
 [ext_resource type="PackedScene" uid="uid://br5brytqnyr30" path="res://Code/PlayerAssets/PlayersDeck.tscn" id="4_blya1"]
 [ext_resource type="PackedScene" uid="uid://bteh0r3v7rnq2" path="res://enemy_deck.tscn" id="5_dvet2"]
-[ext_resource type="Script" path="res://CardHolder.gd" id="5_rnd4n"]
 [ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="6_b6rgs"]
 
 [sub_resource type="Animation" id="Animation_rf1nl"]
@@ -23,52 +22,75 @@ _data = {
 [node name="BattleManager" type="Node2D"]
 script = ExtResource("1_i4fai")
 
-[node name="Boss" parent="." groups=["boss"] instance=ExtResource("2_7b5iy")]
-position = Vector2(728, 184)
-MaxHealth = 100
+[node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("6_b6rgs")]
+ItemToSave = NodePath("../PlayersDeck/CardHolder")
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("2_h6ivu")]
-position = Vector2(158, 364)
-Name = "Player"
+[node name="Boss" parent="." groups=["boss"] instance=ExtResource("2_7b5iy")]
+position = Vector2(787, 191)
+MaxHealth = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_7880t")
 }
 
-[node name="BossHodler" type="Node2D" parent="."]
-position = Vector2(1041, 281)
-
-[node name="PlayerHolder" type="Node2D" parent="."]
-position = Vector2(-43, 434)
-
-[node name="AreaHolder" type="Node2D" parent="."]
-position = Vector2(516, 281)
-
 [node name="PlayersDeck" parent="." node_paths=PackedStringArray("CurrentEnemy", "CurrentPLayer") instance=ExtResource("4_blya1")]
-position = Vector2(1, 23)
+position = Vector2(-2, -3)
 CurrentEnemy = NodePath("../Boss")
 CurrentPLayer = NodePath("../Player")
 
-[node name="CardHolder" parent="PlayersDeck" index="0"]
-script = ExtResource("5_rnd4n")
+[node name="CardsInPlayPlace" parent="PlayersDeck" index="1"]
+position = Vector2(242, 532)
+
+[node name="Card1" parent="PlayersDeck/CardsInPlayPlace" index="0"]
+position = Vector2(116, 28)
+
+[node name="Card2" parent="PlayersDeck/CardsInPlayPlace" index="1"]
+position = Vector2(216, 28)
+
+[node name="Card3" parent="PlayersDeck/CardsInPlayPlace" index="2"]
+position = Vector2(316, 28)
+
+[node name="Card4" parent="PlayersDeck/CardsInPlayPlace" index="3"]
+position = Vector2(416, 28)
+
+[node name="Card5" parent="PlayersDeck/CardsInPlayPlace" index="4"]
+position = Vector2(516, 28)
+
+[node name="Card6" parent="PlayersDeck/CardsInPlayPlace" index="5"]
+position = Vector2(616, 28)
+
+[node name="Card7" parent="PlayersDeck/CardsInPlayPlace" index="6"]
+position = Vector2(716, 28)
+
+[node name="Card8" parent="PlayersDeck/CardsInPlayPlace" index="7"]
+position = Vector2(816, 28)
+
+[node name="Card9" parent="PlayersDeck/CardsInPlayPlace" index="8"]
+position = Vector2(916, 28)
+
+[node name="Card10" parent="PlayersDeck/CardsInPlayPlace" index="9"]
+position = Vector2(1016, 28)
 
 [node name="EnemyDeck" parent="." node_paths=PackedStringArray("CurrentEnemy", "CurrentPLayer") instance=ExtResource("5_dvet2")]
-position = Vector2(992, 670)
+position = Vector2(960, 575)
 CurrentEnemy = NodePath("../Player")
 CurrentPLayer = NodePath("../Boss")
 metadata/_edit_group_ = true
 
-[node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("6_b6rgs")]
-ItemToSave = NodePath("../PlayersDeck")
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_h6ivu")]
+position = Vector2(74, 388)
+Name = "Player"
 
 [connection signal="StartComboBattle" from="." to="PlayersDeck" method="StartTurn"]
-[connection signal="StartComboBattle" from="." to="EnemyDeck" method="_on_battle_manager_start_combo_battle"]
+[connection signal="StartComboBattle" from="." to="EnemyDeck" method="StartBattle"]
 [connection signal="StartPLayarsTurn" from="." to="PlayersDeck" method="StartTurn"]
+[connection signal="Dead" from="Boss" to="." method="EndBattle"]
 [connection signal="StartEnemyTurn" from="PlayersDeck" to="EnemyDeck" method="StartTurn"]
 [connection signal="EndTurn" from="PlayersDeck/ComboManager" to="PlayersDeck" method="EndTurn"]
 [connection signal="StartEnemyTurn" from="EnemyDeck" to="PlayersDeck" method="StartTurn"]
-[connection signal="EndTurn" from="EnemyDeck/CardsInHandHolder" to="EnemyDeck" method="EndTurn"]
+[connection signal="ChangeLables" from="Player" to="PlayersDeck/UI/P{layerUi/ProgressBar" method="_on_player_change_lables"]
+[connection signal="Dead" from="Player" to="." method="EndBattle"]
 
 [editable path="PlayersDeck"]
 [editable path="EnemyDeck"]

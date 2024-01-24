@@ -6,8 +6,8 @@ signal GiveWeaknessInfo
 signal OnDraw(card)
 @onready var CardHolder = $CardHolder
 var Cards 
-var PlayerCanUseCards = true
-var CurrentCardsCycle
+var PlayerCanUseCards 
+var CurrentCardsCycle 
 var CurrentCardCycleIndex
 var LengthOfDeck
 var NextCard
@@ -43,6 +43,7 @@ func DrawCards(AmountOfCards):
 			print("reset")
 			CurrentCardCycleIndex = CurrentCardsCycle.size() -1
 		#if Cards.size() -1 < DrawAmount:
+		print_debug(CurrentCardCycleIndex)
 		NextCard = CurrentCardsCycle[CurrentCardCycleIndex]
 		var Newcard = NextCard.duplicate()
 		Newcard.global_position = $DeckArea.global_position
@@ -90,5 +91,10 @@ func  EndTurn():
 	for card  in Cards:
 		card.CanBeUsed = false
 	emit_signal("StartEnemyTurn")
-	
+func ReloadInfo():
+	Cards = $CardHolder.get_children()
+	CurrentCardsCycle = Cards.duplicate(true)
+	CurrentCardCycleIndex = CurrentCardsCycle.size() -1
+	LengthOfDeck =Cards.size()
+	print(CurrentCardsCycle)
 

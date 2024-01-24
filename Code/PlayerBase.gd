@@ -8,6 +8,8 @@ var WeaknessList = []
 
 @onready var HealthBar = $UiHolder/Healthbar
 @onready var NameLabel = $UiHolder/Name
+signal Dead
+signal ChangeLables(Health, maxHealth)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for weakness in $WeaknessHolder.get_children():
@@ -38,9 +40,11 @@ func  Heal(Amount):
 func checkHealth():
 	if CurrentHealth <= 0:
 		CurrentHealth = 0
-		return "dead"
+		emit_signal("Dead","Player")
+		
 	if CurrentHealth > MaxHealth:
 		CurrentHealth = MaxHealth
 func UpdateLabels():
+	emit_signal("ChangeLables", CurrentHealth, MaxHealth)
 	$UiHolder/Label.text = str(CurrentHealth)
 	HealthBar.value = CurrentHealth

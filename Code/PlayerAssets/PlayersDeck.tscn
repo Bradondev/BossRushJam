@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://br5brytqnyr30"]
+[gd_scene load_steps=26 format=3 uid="uid://br5brytqnyr30"]
 
 [ext_resource type="Script" path="res://Code/PlayersDeck.gd" id="1_j7q8m"]
 [ext_resource type="PackedScene" uid="uid://nvy27jaxb3h8" path="res://Code/Attacks/fire_slash.tscn" id="2_061gt"]
@@ -15,6 +15,16 @@
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="12_gh4qe"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabel.gd" id="13_ef21n"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabelType.gd" id="15_flb88"]
+[ext_resource type="Texture2D" uid="uid://m452ft6obee4" path="res://Art/UI/HUD_Player_Layout.png" id="16_rbfhc"]
+[ext_resource type="Texture2D" uid="uid://bgeg87cr58epg" path="res://Art/UI/HUD_HealthBar.png" id="17_hj6jj"]
+[ext_resource type="Texture2D" uid="uid://cwbq8i3n85p7h" path="res://Art/UI/Button_End_Normal.png" id="17_m7nqr"]
+[ext_resource type="Texture2D" uid="uid://0jbdy8i0susp" path="res://Art/UI/HUD_Heal.png" id="18_nsqjd"]
+[ext_resource type="Texture2D" uid="uid://djx5iu233nf4i" path="res://Art/UI/Button_End_OnHover_OnClick.png" id="18_w4fi4"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/ProgressBar.gd" id="19_bj4tu"]
+[ext_resource type="Texture2D" uid="uid://dq0q2jboya6jq" path="res://Art/UI/Button_Break_Normal.png" id="19_erfj7"]
+[ext_resource type="Texture2D" uid="uid://bgwj2b72u6v3n" path="res://Art/UI/heaartl-export.png" id="19_nlmbl"]
+[ext_resource type="Texture2D" uid="uid://2buotv1b7mpl" path="res://Art/UI/fulll-export.png" id="20_0nrun"]
+[ext_resource type="Texture2D" uid="uid://dv527jp84e6iw" path="res://Art/UI/Button_Break_OnHover_OnClick.png" id="20_4f62i"]
 
 [node name="PlayersDeck" type="Node2D"]
 script = ExtResource("1_j7q8m")
@@ -59,7 +69,7 @@ position = Vector2(0, 10)
 position = Vector2(0, 10)
 
 [node name="CardsInPlayPlace" type="Node2D" parent="."]
-position = Vector2(171, 255)
+position = Vector2(271, 382)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_u4ehx")
 
@@ -117,40 +127,136 @@ script = ExtResource("5_s4ahh")
 script = ExtResource("12_cma6a")
 
 [node name="DeckAmount" type="Label" parent="."]
-offset_top = 409.0
-offset_right = 92.0
-offset_bottom = 539.0
+offset_left = 296.0
+offset_top = 259.0
+offset_right = 388.0
+offset_bottom = 389.0
 theme = ExtResource("12_gh4qe")
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ComboLabel" type="RichTextLabel" parent="."]
-offset_left = 121.0
-offset_top = 142.0
-offset_right = 311.0
-offset_bottom = 212.0
+offset_left = 100.0
+offset_top = 82.0
+offset_right = 290.0
+offset_bottom = 152.0
 theme = ExtResource("12_gh4qe")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 script = ExtResource("13_ef21n")
 
 [node name="ComboLabelType" type="RichTextLabel" parent="."]
-offset_top = 142.0
-offset_right = 190.0
-offset_bottom = 212.0
+offset_left = 119.0
+offset_top = 105.0
+offset_right = 309.0
+offset_bottom = 175.0
 theme = ExtResource("12_gh4qe")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 script = ExtResource("15_flb88")
 
-[node name="ComboLabelMistake" type="Label" parent="."]
-offset_left = 171.0
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 42.0
+
+[node name="P{layerUi" type="TextureRect" parent="UI"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 382.0
+offset_right = 241.0
+offset_bottom = 460.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("16_rbfhc")
+stretch_mode = 2
+
+[node name="ProgressBar" type="TextureProgressBar" parent="UI/P{layerUi"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 55.0
+offset_right = 234.0
+offset_bottom = 72.0
+value = 100.0
+texture_under = ExtResource("17_hj6jj")
+texture_progress = ExtResource("18_nsqjd")
+script = ExtResource("19_bj4tu")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI/P{layerUi"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 55.0
+offset_right = 281.0
+offset_bottom = 72.0
+metadata/_edit_group_ = true
+
+[node name="Heartr" type="TextureProgressBar" parent="UI/P{layerUi/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = ExtResource("19_nlmbl")
+texture_progress = ExtResource("20_0nrun")
+
+[node name="Heartr2" type="TextureProgressBar" parent="UI/P{layerUi/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+texture_under = ExtResource("19_nlmbl")
+texture_progress = ExtResource("20_0nrun")
+
+[node name="Buttons" type="VBoxContainer" parent="UI"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 819.0
 offset_top = 378.0
-offset_right = 235.0
-offset_bottom = 409.0
+offset_right = 935.0
+offset_bottom = 478.0
+
+[node name="break" type="TextureButton" parent="UI/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("19_erfj7")
+texture_pressed = ExtResource("20_4f62i")
+
+[node name="Label" type="Label" parent="UI/Buttons/break"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("12_gh4qe")
-text = "2"
+text = "Break"
+
+[node name="end" type="TextureButton" parent="UI/Buttons"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("17_m7nqr")
+texture_pressed = ExtResource("18_w4fi4")
+
+[node name="Label" type="Label" parent="UI/Buttons/end"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -7.5
+offset_right = 14.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_gh4qe")
+text = "End"
 
 [connection signal="GiveWeaknessInfo" from="." to="ComboManager" method="_on_players_deck_give_weakness_info"]
 [connection signal="GiveWeaknessInfo" from="." to="EndComboManager" method="_on_players_deck_give_weakness_info"]
@@ -162,3 +268,4 @@ text = "2"
 [connection signal="EndTurn" from="ComboManager" to="." method="EndTurn"]
 [connection signal="ChangeComboLabelType" from="EndComboManager" to="ComboLabelType" method="_on_end_combo_manager_change_combo_label_type"]
 [connection signal="DrawComboBreak" from="EndComboManager" to="." method="_on_end_combo_manager_draw_combo_break"]
+[connection signal="pressed" from="UI/Buttons/break" to="ComboManager" method="_on_break_pressed"]

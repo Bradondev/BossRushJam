@@ -71,7 +71,8 @@ func DrawCounters():
 func _on_end_combo_manager_draw_combo_break(Amount):
 	DrawCards(Amount)
 	
-	
+func StartBattle():
+	DrawCards(5)
 func StartTurn():
 	DrawCards(3)
 	emit_signal("StartThisUnitTurn")

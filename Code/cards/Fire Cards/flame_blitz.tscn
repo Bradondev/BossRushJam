@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc7f5pj6kdwpq"]
+
+[ext_resource type="PackedScene" uid="uid://g0xhrsaexod" path="res://Code/cards/BaseCards/f_ire_card_base.tscn" id="1_6wvqy"]
+
+[node name="Flame Blitz" instance=ExtResource("1_6wvqy")]
+Name = "Flame Blitz"
+AttackDamage = 6
+description = "-Deal 6 Damage
+-Take 2 Recoil Damage"
+
+[node name="Name" parent="." index="1"]
+text = "Flame Blitz"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 6 Damage
+-Take 2 Recoil Damage"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://t3oqvg73v7ag"]
+
+[ext_resource type="PackedScene" uid="uid://g0xhrsaexod" path="res://Code/cards/BaseCards/f_ire_card_base.tscn" id="1_xk1ac"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="2_siqvy"]
+
+[node name="Flame Bolt" instance=ExtResource("1_xk1ac")]
+Name = "Flame Bolt"
+AttackDamage = 2
+description = "-Deal Damage"
+
+[node name="Name" parent="." index="1"]
+text = "Flame Bolt"
+
+[node name="description" parent="." index="2"]
+text = "-Deal Damage"
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("2_siqvy")]
+AmountOfDamage = 2
