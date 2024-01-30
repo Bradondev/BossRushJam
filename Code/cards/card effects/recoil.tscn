@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8w05qamjowyk"]
+
+[ext_resource type="Script" path="res://Code/cards/card effects/recoil.gd" id="1_0p1qr"]
+
+[node name="Recoil" type="Node2D"]
+script = ExtResource("1_0p1qr")

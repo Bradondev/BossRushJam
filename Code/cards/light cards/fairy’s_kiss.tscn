@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv5yufj5gp5w2"]
+
+[ext_resource type="PackedScene" uid="uid://bv4eae4boc0k" path="res://Code/cards/BaseCards/light_card_base.tscn" id="1_hxd26"]
+[ext_resource type="Texture2D" uid="uid://bkmt3m558qvyr" path="res://Art/Cards/cardImages/light medium.png" id="2_m5h1k"]
+[ext_resource type="Texture2D" uid="uid://b2wxwdvvtnr4d" path="res://Art/Cards/cardImages/Icon_Heal.png" id="2_mow1m"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_gnoa8"]
+[ext_resource type="PackedScene" uid="uid://ctd2prbk30buh" path="res://Code/cards/card effects/Heal.tscn" id="4_hl6vj"]
+[ext_resource type="PackedScene" uid="uid://biwms2oatts6b" path="res://Code/cards/card effects/Shield.tscn" id="5_cv6q3"]
+
+[node name="Fairy’s Kiss" instance=ExtResource("1_hxd26")]
+Name = "Fairy’s Kiss"
+AttackDamage = 3
+description = "-Heal 2
+-Shield 1"
+
+[node name="Name" parent="." index="1"]
+text = "Fairy’s Kiss"
+
+[node name="description" parent="." index="2"]
+text = "-Heal 2
+-Shield 1"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_m5h1k")
+
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("2_mow1m")
+
+[node name="AttackLabel" parent="." index="8"]
+texture_filter = 2
+
+[node name="Heal" parent="Card EffectHolder" index="0" instance=ExtResource("4_hl6vj")]
+AmountOfCardDrawed = 2
+
+[node name="Shield" parent="Card EffectHolder" index="1" instance=ExtResource("5_cv6q3")]
+AmountOfShield = 1
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_gnoa8")
+stretch_mode = 2

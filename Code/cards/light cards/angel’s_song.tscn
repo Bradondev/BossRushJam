@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct06ksfjen6e6"]
+
+[ext_resource type="PackedScene" uid="uid://bv4eae4boc0k" path="res://Code/cards/BaseCards/light_card_base.tscn" id="1_tw276"]
+[ext_resource type="PackedScene" uid="uid://ctd2prbk30buh" path="res://Code/cards/card effects/Heal.tscn" id="2_282gf"]
+[ext_resource type="Texture2D" uid="uid://bkmt3m558qvyr" path="res://Art/Cards/cardImages/light medium.png" id="2_l42rp"]
+[ext_resource type="Texture2D" uid="uid://b2wxwdvvtnr4d" path="res://Art/Cards/cardImages/Icon_Heal.png" id="3_d1hly"]
+[ext_resource type="PackedScene" uid="uid://8s4e7juvrpg5" path="res://Code/cards/card effects/ComboBreakBuff.tscn" id="3_paq5n"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="6_7eeb6"]
+
+[node name="Angel’s Song" instance=ExtResource("1_tw276")]
+Name = "Angel’s Song"
+AttackDamage = 2
+description = "-Heal 2
+-Combo Break +1"
+
+[node name="Name" parent="." index="1"]
+text = "Angel’s Song"
+
+[node name="description" parent="." index="2"]
+text = "-Heal 2
+-Combo Break +1"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_l42rp")
+
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("3_d1hly")
+
+[node name="Heal" parent="Card EffectHolder" index="0" instance=ExtResource("2_282gf")]
+AmountOfCardDrawed = 2
+
+[node name="ComboBreakBuff" parent="Card EffectHolder" index="1" instance=ExtResource("3_paq5n")]
+AmountOfBuff = 1
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_7eeb6")
+stretch_mode = 2

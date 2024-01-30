@@ -50,6 +50,7 @@ func DrawCards(AmountOfCards):
 		Newcard.visible = true
 		Newcard.CanBeUsed = PlayerCanUseCards
 		Newcard.UsePoint = $UseArea.global_position
+		Newcard.add_to_group("PlayerCards")
 		$CardsInHandHolder.add_child(Newcard)
 		emit_signal("OnDraw", Newcard)
 		DrawCounters()

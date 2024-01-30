@@ -28,8 +28,8 @@ folder_colors={
 "res://Art/Cards/cardImages/": "teal",
 "res://Code/cards/Air Cards/": "green",
 "res://Code/cards/Dark Cards/": "purple",
-"res://Code/cards/EarthCards/": "gray",
 "res://Code/cards/Fire Cards/": "red",
 "res://Code/cards/Watercards/": "blue",
-"res://Code/cards/light cards/": "yellow"
+"res://Code/cards/light cards/": "yellow",
+"res://Code/cards/light cards/EarthCards/": "gray"
 }

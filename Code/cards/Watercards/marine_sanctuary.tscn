@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://6r5518jq2ja4"]
+
+[ext_resource type="PackedScene" uid="uid://ll6a4tti2aym" path="res://Code/cards/BaseCards/water_card_base.tscn" id="1_swqsv"]
+[ext_resource type="Texture2D" uid="uid://b8ote4iuvknjh" path="res://Art/Cards/cardImages/water almighty.png" id="2_vthy8"]
+[ext_resource type="Texture2D" uid="uid://b2wxwdvvtnr4d" path="res://Art/Cards/cardImages/Icon_Heal.png" id="3_2okpj"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_7mb68"]
+
+[node name="Marine Sanctuary" instance=ExtResource("1_swqsv")]
+Name = "Marine Sanctuary"
+AttackDamage = 5
+description = "-Heal 5 for 5 turn"
+
+[node name="Name" parent="." index="1"]
+text = "Marine Sanctuary"
+
+[node name="description" parent="." index="2"]
+text = "-Heal 5 for 5 turn
+"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_vthy8")
+
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("3_2okpj")
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_7mb68")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_7mb68")
+stretch_mode = 2
+
+[node name="star4" type="TextureRect" parent="LevelHolder" index="3"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_7mb68")
+stretch_mode = 2

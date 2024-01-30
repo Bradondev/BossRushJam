@@ -21,12 +21,13 @@ var hasMoved = false
 var Down = false
 var NewPositon
 var NextDrawPosition
+var NextDrawPositionY
 var Drawing = false 
 var OldPositon
 var IsUsed = false
 var UsePoint
-
 var DistanceMoved = 120
+var CardEffects 
 @onready var LabelName = $Name
 @onready var AttackLabel = $AttackLabel
 @onready var Description = $description
@@ -35,7 +36,8 @@ var DistanceMoved = 120
 var Effects
 # Called when the node enters the scene tree for the first time.
 func _ready():
-		
+	if $"Card EffectHolder".get_children():
+		CardEffects =$"Card EffectHolder".get_children()
 	if PlayerUsing:
 		$Back.visible= false
 	LabelName.text = Name
@@ -98,7 +100,6 @@ func _on_hold_timer_timeout():
 func Draw(Position):
 	Drawing = true
 	NextDrawPosition = Position
-	
 func OnUse():
 	IsUsed = true
 	emit_signal("OnClick",self)

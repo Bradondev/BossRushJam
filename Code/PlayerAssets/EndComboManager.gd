@@ -28,6 +28,15 @@ func _on_combo_manager_end_combo(Type,ComboAmount):
 		'Dark':  
 			print(Type +" Combo")
 			color = "black"
+			if ComboAmount <=3:
+				$"../StealCard".StealCard(1)
+				return
+			if ComboAmount <= 5:
+				$"../StealCard".StealCard(2)
+				return
+			if ComboAmount > 5:
+				$"../StealCard".StealCard(4)
+				return
 			#ssteal cards
 		'Light':
 			print(Type +" Combo")

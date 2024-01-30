@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dujfx84u7xadn"]
+[gd_scene load_steps=6 format=3 uid="uid://dujfx84u7xadn"]
 
 [ext_resource type="PackedScene" uid="uid://g0xhrsaexod" path="res://Code/cards/BaseCards/f_ire_card_base.tscn" id="1_c82tl"]
 [ext_resource type="Texture2D" uid="uid://cf4msqnsb5isn" path="res://Art/Cards/cardImages/fire medium.png" id="2_04ijs"]
 [ext_resource type="Texture2D" uid="uid://b8vqupxhndfiv" path="res://Art/Cards/cardImages/Icon_Dual_Sword_ATK.png" id="2_if1h5"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="4_h70r1"]
 [ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_wkkl0"]
 
 [node name="Flame Fang" instance=ExtResource("1_c82tl")]
 Name = "Flame Fang"
 AttackDamage = 2
-description = "-Deal Damage twice"
+description = "-Deal 2 Damage twice"
 
 [node name="Name" parent="." index="1"]
 text = "Flame Fang"
@@ -21,6 +22,12 @@ texture = ExtResource("2_04ijs")
 
 [node name="TypeOFCardImage" parent="." index="7"]
 texture = ExtResource("2_if1h5")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("4_h70r1")]
+AmountOfDamage = 2
+
+[node name="Attack2" parent="Card EffectHolder" index="1" instance=ExtResource("4_h70r1")]
+AmountOfDamage = 2
 
 [node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
 texture_filter = 1

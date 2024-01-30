@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjephv04nipwi"]
+
+[ext_resource type="PackedScene" uid="uid://blnu171a4knsf" path="res://Code/cards/BaseCards/earth_cardbase.tscn" id="1_g54rg"]
+
+[node name="Planet Earth" instance=ExtResource("1_g54rg")]
+Name = "Planet Earth"
+
+[node name="Name" parent="." index="1"]
+text = "Planet Earth
+"
+
+[node name="description" parent="." index="2"]
+text = "-Shield 8 
+-Reflect"

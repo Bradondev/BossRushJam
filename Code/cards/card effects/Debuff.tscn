@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbn6ek3kfourn"]
+
+[ext_resource type="Script" path="res://Code/cards/card effects/Debuff.gd" id="1_3l8vm"]
+
+[node name="Debuff" type="Node2D"]
+script = ExtResource("1_3l8vm")

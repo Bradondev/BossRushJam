@@ -1,16 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://br5brytqnyr30"]
+[gd_scene load_steps=21 format=3 uid="uid://br5brytqnyr30"]
 
 [ext_resource type="Script" path="res://Code/PlayersDeck.gd" id="1_j7q8m"]
-[ext_resource type="PackedScene" uid="uid://nvy27jaxb3h8" path="res://Code/Attacks/fire_slash.tscn" id="2_061gt"]
-[ext_resource type="PackedScene" uid="uid://drb5jcsr65rcj" path="res://Code/Attacks/dance_of_wind.tscn" id="2_f3hkh"]
-[ext_resource type="PackedScene" uid="uid://dq1wvexvemxll" path="res://Code/Attacks/quick_flame.tscn" id="2_kmlou"]
-[ext_resource type="PackedScene" uid="uid://cl06jeehwgipy" path="res://Code/Attacks/light_shot.tscn" id="3_1cgx3"]
+[ext_resource type="PackedScene" uid="uid://cbnu0dckupgjp" path="res://CardHolder.tscn" id="2_kwm68"]
 [ext_resource type="Script" path="res://Code/CardMover.gd" id="3_u4ehx"]
-[ext_resource type="PackedScene" uid="uid://d2u0sd4vfv8qv" path="res://Code/Attacks/Earth_Punch.tscn" id="4_udx3p"]
-[ext_resource type="PackedScene" uid="uid://675y7fulwdqa" path="res://Code/Attacks/wind_slash.tscn" id="5_ie4vv"]
 [ext_resource type="Script" path="res://Code/ComboManager.gd" id="5_s4ahh"]
-[ext_resource type="PackedScene" uid="uid://cr0m5n2w5xij1" path="res://Code/Attacks/dark_shot.tscn" id="6_cui6t"]
-[ext_resource type="PackedScene" uid="uid://bulgyyeiue5ba" path="res://Code/Attacks/Water_Gun.tscn" id="7_860y4"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/EndComboManager.gd" id="12_cma6a"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="12_gh4qe"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabel.gd" id="13_ef21n"]
@@ -25,50 +18,15 @@
 [ext_resource type="Texture2D" uid="uid://bgwj2b72u6v3n" path="res://Art/UI/heaartl-export.png" id="19_nlmbl"]
 [ext_resource type="Texture2D" uid="uid://2buotv1b7mpl" path="res://Art/UI/fulll-export.png" id="20_0nrun"]
 [ext_resource type="Texture2D" uid="uid://dv527jp84e6iw" path="res://Art/UI/Button_Break_OnHover_OnClick.png" id="20_4f62i"]
+[ext_resource type="Texture2D" uid="uid://du0r6nxr65c22" path="res://Art/Cards/cardImages/Icon_Shield.png" id="22_e7h4o"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/StealCard.gd" id="26_6xwqx"]
 
 [node name="PlayersDeck" type="Node2D"]
 script = ExtResource("1_j7q8m")
 
-[node name="CardHolder" type="Node2D" parent="."]
-position = Vector2(-52, 433)
-scale = Vector2(0.5, 0.5)
-metadata/_edit_group_ = true
+[node name="CardHolder" parent="." instance=ExtResource("2_kwm68")]
 
-[node name="Dance Of Wind" parent="CardHolder" instance=ExtResource("2_f3hkh")]
-position = Vector2(0, 10)
-
-[node name="QuickFlame" parent="CardHolder" instance=ExtResource("2_kmlou")]
-position = Vector2(0, 10)
-OnUseSignal = "DrawCard"
-
-[node name="Fire_Slash2" parent="CardHolder" instance=ExtResource("2_061gt")]
-position = Vector2(0, 10)
-
-[node name="Light_Shot2" parent="CardHolder" instance=ExtResource("3_1cgx3")]
-position = Vector2(0, 10)
-
-[node name="Earth_Punch2" parent="CardHolder" instance=ExtResource("4_udx3p")]
-position = Vector2(0, 10)
-
-[node name="Wind Slash" parent="CardHolder" instance=ExtResource("5_ie4vv")]
-position = Vector2(0, 10)
-
-[node name="Light_Shot" parent="CardHolder" instance=ExtResource("3_1cgx3")]
-position = Vector2(0, 10)
-
-[node name="Fire_Slash" parent="CardHolder" instance=ExtResource("2_061gt")]
-position = Vector2(0, 10)
-
-[node name="Dark_Shot" parent="CardHolder" instance=ExtResource("6_cui6t")]
-position = Vector2(0, 10)
-
-[node name="Earth_Punch" parent="CardHolder" instance=ExtResource("4_udx3p")]
-position = Vector2(0, 10)
-
-[node name="Water_Gun" parent="CardHolder" instance=ExtResource("7_860y4")]
-position = Vector2(0, 10)
-
-[node name="CardsInPlayPlace" type="Node2D" parent="."]
+[node name="CardsInPlayPlace" type="Node2D" parent="." groups=["PlayerCardPlaces"]]
 position = Vector2(271, 382)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_u4ehx")
@@ -207,6 +165,27 @@ value = 1.0
 texture_under = ExtResource("19_nlmbl")
 texture_progress = ExtResource("20_0nrun")
 
+[node name="Shield" type="TextureRect" parent="UI"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 154.0
+offset_top = 491.0
+offset_right = 197.0
+offset_bottom = 531.0
+texture = ExtResource("22_e7h4o")
+
+[node name="Label" type="Label" parent="UI/Shield"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -5.0
+offset_right = 45.0
+offset_bottom = 44.0
+theme = ExtResource("12_gh4qe")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Buttons" type="VBoxContainer" parent="UI"]
 texture_filter = 1
 layout_mode = 0
@@ -257,6 +236,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("12_gh4qe")
 text = "End"
+
+[node name="StealCard" type="Node2D" parent="." groups=["PlayerStealCard"]]
+script = ExtResource("26_6xwqx")
 
 [connection signal="GiveWeaknessInfo" from="." to="ComboManager" method="_on_players_deck_give_weakness_info"]
 [connection signal="GiveWeaknessInfo" from="." to="EndComboManager" method="_on_players_deck_give_weakness_info"]

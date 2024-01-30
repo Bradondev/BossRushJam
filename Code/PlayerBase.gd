@@ -5,6 +5,7 @@ class_name  Player extends Node
 @export var MaxHealth: int
 var CurrentHealth = 100
 var WeaknessList = []
+var Shield = 0
 
 @onready var HealthBar = $UiHolder/Healthbar
 @onready var NameLabel = $UiHolder/Name
@@ -29,6 +30,13 @@ func _process(delta):
 
 
 func  TakeDamage(Amount):
+	if Shield >0:
+		Shield -= Amount
+		if Shield < 0: 
+			CurrentHealth -=Shield
+		checkHealth()
+		UpdateLabels()
+		return
 	CurrentHealth -=Amount
 	checkHealth()
 	UpdateLabels()
@@ -45,6 +53,10 @@ func checkHealth():
 	if CurrentHealth > MaxHealth:
 		CurrentHealth = MaxHealth
 func UpdateLabels():
-	emit_signal("ChangeLables", CurrentHealth, MaxHealth)
+	emit_signal("ChangeLables", CurrentHealth, MaxHealth, Shield)
 	$UiHolder/Label.text = str(CurrentHealth)
 	HealthBar.value = CurrentHealth
+	
+func ShieldUpdate(Amount):
+	Shield += Amount
+	UpdateLabels()

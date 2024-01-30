@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkbs0um1u3v6g"]
+
+[ext_resource type="PackedScene" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_5wj5p"]
+[ext_resource type="Texture2D" uid="uid://gvpofi6rgx8v" path="res://Art/Cards/cardImages/dark medium.png" id="2_uv5g6"]
+[ext_resource type="Texture2D" uid="uid://b2wxwdvvtnr4d" path="res://Art/Cards/cardImages/Icon_Heal.png" id="3_c3vva"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_4cj5f"]
+[ext_resource type="PackedScene" uid="uid://dbn6ek3kfourn" path="res://Code/cards/card effects/Debuff.tscn" id="4_l625j"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="5_r55g7"]
+
+[node name="Demon Dance" instance=ExtResource("1_5wj5p")]
+Name = "Demon Dance"
+AttackDamage = 2
+description = "-Debuff 1 Enemy's card
+-Buff 2 Player's Card"
+
+[node name="Name" parent="." index="1"]
+text = "Demon Dance"
+
+[node name="description" parent="." index="2"]
+text = "-Debuff 1 Enemy's card
+-Buff 2 Player's Card"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_uv5g6")
+
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("3_c3vva")
+
+[node name="Debuff" parent="Card EffectHolder" index="0" instance=ExtResource("4_l625j")]
+AmountOfDeBuff = 1
+
+[node name="Draw" parent="Card EffectHolder" index="1" instance=ExtResource("5_r55g7")]
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_4cj5f")
+stretch_mode = 2

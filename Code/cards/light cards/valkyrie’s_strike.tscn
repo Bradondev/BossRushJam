@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbedehcdstg0b"]
+
+[ext_resource type="PackedScene" uid="uid://bv4eae4boc0k" path="res://Code/cards/BaseCards/light_card_base.tscn" id="1_mann4"]
+[ext_resource type="Texture2D" uid="uid://c3p7e0rdbek1k" path="res://Art/Cards/cardImages/light Heavy.png" id="2_lsofp"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_j3fv3"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_mufd7"]
+[ext_resource type="PackedScene" uid="uid://ctd2prbk30buh" path="res://Code/cards/card effects/Heal.tscn" id="4_2wu76"]
+
+[node name="Valkyrie’s Strike" instance=ExtResource("1_mann4")]
+Name = "Valkyrie’s Strike"
+AttackDamage = 4
+
+[node name="Name" parent="." index="1"]
+text = "Valkyrie’s Strike"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 4 Damage
+-heal 2"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_lsofp")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_j3fv3")]
+AmountOfDamage = 4
+
+[node name="Heal" parent="Card EffectHolder" index="1" instance=ExtResource("4_2wu76")]
+AmountOfCardDrawed = 2
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_mufd7")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_mufd7")
+stretch_mode = 2

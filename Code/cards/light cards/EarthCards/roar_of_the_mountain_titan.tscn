@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckgkrj6xwaxco"]
+
+[ext_resource type="PackedScene" uid="uid://blnu171a4knsf" path="res://Code/cards/BaseCards/earth_cardbase.tscn" id="1_yamd7"]
+[ext_resource type="PackedScene" uid="uid://biwms2oatts6b" path="res://Code/cards/card effects/Shield.tscn" id="2_at1io"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_65lt6"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_l628y"]
+
+[node name="Roar of the Mountain Titan" instance=ExtResource("1_yamd7")]
+Name = "[font_size={10}]Roar of the [/font_size] [font_size={17}]Mountain Titan [/font_size"
+AttackDamage = 7
+description = "-Deal 7 Damage
+-Shield 4"
+
+[node name="Name" parent="." index="1"]
+offset_top = 35.0
+bbcode_enabled = true
+text = "[font_size={10}]Roar of the [/font_size] [font_size={17}]Mountain Titan [/font_size]
+"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 7 Damage
+-Shield 4"
+
+[node name="Shield" parent="Card EffectHolder" index="0" instance=ExtResource("2_at1io")]
+AmountOfShield = 4
+
+[node name="Attack" parent="Card EffectHolder" index="1" instance=ExtResource("3_65lt6")]
+AmountOfDamage = 6
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_l628y")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_l628y")
+stretch_mode = 2
+
+[node name="star4" type="TextureRect" parent="LevelHolder" index="3"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_l628y")
+stretch_mode = 2

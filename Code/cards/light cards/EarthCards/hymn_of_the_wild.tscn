@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhnb5uod262eg"]
+
+[ext_resource type="PackedScene" uid="uid://blnu171a4knsf" path="res://Code/cards/BaseCards/earth_cardbase.tscn" id="1_vox4o"]
+[ext_resource type="Texture2D" uid="uid://u4ofv25a25lq" path="res://Art/Cards/cardImages/earth medium.png" id="2_k8fla"]
+[ext_resource type="Texture2D" uid="uid://du0r6nxr65c22" path="res://Art/Cards/cardImages/Icon_Shield.png" id="3_j8ce8"]
+[ext_resource type="PackedScene" uid="uid://biwms2oatts6b" path="res://Code/cards/card effects/Shield.tscn" id="3_nd5it"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_xqtby"]
+
+[node name="Hymn of the Wild" instance=ExtResource("1_vox4o")]
+Name = "Hymn of the Wild"
+AttackDamage = 4
+description = "-Shield 4"
+
+[node name="Name" parent="." index="1"]
+text = "Hymn of the Wild"
+
+[node name="description" parent="." index="2"]
+text = "-Shield 4
+"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_k8fla")
+
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("3_j8ce8")
+
+[node name="Shield" parent="Card EffectHolder" index="0" instance=ExtResource("3_nd5it")]
+AmountOfShield = 4
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_xqtby")
+stretch_mode = 2

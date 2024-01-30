@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvihpgs3lfkuq"]
+
+[ext_resource type="PackedScene" uid="uid://blnu171a4knsf" path="res://Code/cards/BaseCards/earth_cardbase.tscn" id="1_c6sqc"]
+[ext_resource type="Texture2D" uid="uid://r1rkjfj4yymw" path="res://Art/Cards/cardImages/earth heavy.png" id="2_hlupw"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_g83je"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_uw4gs"]
+
+[node name="Rock Slide" instance=ExtResource("1_c6sqc")]
+Name = "Rock Slide"
+AttackDamage = 5
+description = "-Deal 5 Damage"
+
+[node name="Name" parent="." index="1"]
+text = "Rock Slide"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 5 Damage"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_hlupw")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_g83je")]
+AmountOfDamage = 5
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_uw4gs")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_uw4gs")
+stretch_mode = 2

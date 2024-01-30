@@ -48,6 +48,7 @@ func DrawCards(AmountOfCards):
 		Newcard.CanBeUsed = PlayerCanUseCards
 		Newcard.UsePoint = $UseArea.global_position
 		Newcard.BossCard = true
+		Newcard.add_to_group("BossCards")
 		$CardsInHandHolder.add_child(Newcard)
 		emit_signal("OnDraw", Newcard)
 		DrawCounters()
@@ -60,7 +61,6 @@ func DrawCards(AmountOfCards):
 			#emit_signal("OnDraw", NextCard)
 			#DrawAmount += 1
 			#await get_tree().create_timer(.10).timeout
-			
 
 
 func DrawCounters():

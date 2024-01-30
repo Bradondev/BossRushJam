@@ -8,7 +8,7 @@
 [node name="WildFire" instance=ExtResource("1_70lki")]
 Name = "WildFire"
 AttackDamage = 6
-description = "-Deal Damage"
+description = "-Deal 6 Damage"
 
 [node name="Name" parent="." index="1"]
 text = "WildFire"

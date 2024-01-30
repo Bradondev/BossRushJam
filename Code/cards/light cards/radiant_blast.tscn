@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cavw82l6ouqse"]
+
+[ext_resource type="PackedScene" uid="uid://bv4eae4boc0k" path="res://Code/cards/BaseCards/light_card_base.tscn" id="1_vbiui"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="2_7ywx5"]
+[ext_resource type="Texture2D" uid="uid://bkmt3m558qvyr" path="res://Art/Cards/cardImages/light medium.png" id="2_vu5kn"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_lo3xs"]
+
+[node name="Radiant Blast" instance=ExtResource("1_vbiui")]
+Name = "Radiant Blast"
+AttackDamage = 3
+description = "-Deal 3 Damage"
+
+[node name="Name" parent="." index="1"]
+text = "Radiant Blast"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 3 Damage"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_vu5kn")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("2_7ywx5")]
+AmountOfDamage = 3
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_lo3xs")
+stretch_mode = 2

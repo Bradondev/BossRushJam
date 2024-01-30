@@ -40,7 +40,8 @@ CurrentEnemy = NodePath("../Boss")
 CurrentPLayer = NodePath("../Player")
 
 [node name="CardsInPlayPlace" parent="PlayersDeck" index="1"]
-position = Vector2(242, 532)
+position = Vector2(182, 372)
+metadata/_edit_group_ = true
 
 [node name="Card1" parent="PlayersDeck/CardsInPlayPlace" index="0"]
 position = Vector2(116, 28)
@@ -72,6 +73,9 @@ position = Vector2(916, 28)
 [node name="Card10" parent="PlayersDeck/CardsInPlayPlace" index="9"]
 position = Vector2(1016, 28)
 
+[node name="CardsInHandHolder" parent="PlayersDeck" index="2"]
+position = Vector2(-52, 368)
+
 [node name="EnemyDeck" parent="." node_paths=PackedStringArray("CurrentEnemy", "CurrentPLayer") instance=ExtResource("5_dvet2")]
 position = Vector2(960, 575)
 CurrentEnemy = NodePath("../Player")
@@ -87,7 +91,6 @@ Name = "Player"
 [connection signal="StartPLayarsTurn" from="." to="PlayersDeck" method="StartTurn"]
 [connection signal="Dead" from="Boss" to="." method="EndBattle"]
 [connection signal="StartEnemyTurn" from="PlayersDeck" to="EnemyDeck" method="StartTurn"]
-[connection signal="EndTurn" from="PlayersDeck/ComboManager" to="PlayersDeck" method="EndTurn"]
 [connection signal="StartEnemyTurn" from="EnemyDeck" to="PlayersDeck" method="StartTurn"]
 [connection signal="ChangeLables" from="Player" to="PlayersDeck/UI/P{layerUi/ProgressBar" method="_on_player_change_lables"]
 [connection signal="Dead" from="Player" to="." method="EndBattle"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgplycrw7g2c3"]
+
+[ext_resource type="PackedScene" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_kpcsx"]
+[ext_resource type="Texture2D" uid="uid://bdld1sv1ox6lx" path="res://Art/Cards/cardImages/dark almighty.png" id="2_usxrh"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_nocf1"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_wgmum"]
+
+[node name="Unholy Sacrifice" instance=ExtResource("1_kpcsx")]
+Name = "Unholy Sacrifice"
+AttackDamage = 7
+description = "-Deal 7 Damage"
+
+[node name="Name" parent="." index="1"]
+text = "Unholy Sacrifice"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 7 Damage"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_usxrh")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_wgmum")]
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_nocf1")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_nocf1")
+stretch_mode = 2
+
+[node name="star4" type="TextureRect" parent="LevelHolder" index="3"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_nocf1")
+stretch_mode = 2

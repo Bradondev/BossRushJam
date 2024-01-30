@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://va3uehugjy75"]
+
+[ext_resource type="PackedScene" uid="uid://bv4eae4boc0k" path="res://Code/cards/BaseCards/light_card_base.tscn" id="1_0o57n"]
+[ext_resource type="Texture2D" uid="uid://bkmt3m558qvyr" path="res://Art/Cards/cardImages/light medium.png" id="2_brspm"]
+[ext_resource type="PackedScene" uid="uid://ctd2prbk30buh" path="res://Code/cards/card effects/Heal.tscn" id="2_fiiku"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_d2dil"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="4_sbccp"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="5_rgo5l"]
+
+[node name="Illuminated Slashes" instance=ExtResource("1_0o57n")]
+Name = "Illuminated Slashes"
+AttackDamage = 1
+description = "-Deal 1 Damage
+-Draw 1
+-Heal 1"
+
+[node name="Name" parent="." index="1"]
+text = "Illuminated Slashes"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 1 Damage
+-Draw 1
+-Heal 1"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_brspm")
+
+[node name="Heal" parent="Card EffectHolder" index="0" instance=ExtResource("2_fiiku")]
+AmountOfCardDrawed = 1
+
+[node name="Attack" parent="Card EffectHolder" index="1" instance=ExtResource("3_d2dil")]
+AmountOfDamage = 1
+
+[node name="Draw" parent="Card EffectHolder" index="2" instance=ExtResource("4_sbccp")]
+AmountOfCardDrawed = 1
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_rgo5l")
+stretch_mode = 2

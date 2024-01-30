@@ -1,16 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bteh0r3v7rnq2"]
+[gd_scene load_steps=7 format=3 uid="uid://bteh0r3v7rnq2"]
 
 [ext_resource type="Script" path="res://Code/enemy_deck.gd" id="1_h3105"]
-[ext_resource type="PackedScene" uid="uid://drb5jcsr65rcj" path="res://Code/Attacks/dance_of_wind.tscn" id="2_33hbi"]
-[ext_resource type="PackedScene" uid="uid://dq1wvexvemxll" path="res://Code/Attacks/quick_flame.tscn" id="3_hc1p7"]
-[ext_resource type="PackedScene" uid="uid://nvy27jaxb3h8" path="res://Code/Attacks/fire_slash.tscn" id="4_5qbnk"]
-[ext_resource type="PackedScene" uid="uid://cl06jeehwgipy" path="res://Code/Attacks/light_shot.tscn" id="5_f4akg"]
-[ext_resource type="PackedScene" uid="uid://d2u0sd4vfv8qv" path="res://Code/Attacks/Earth_Punch.tscn" id="6_ybkra"]
-[ext_resource type="PackedScene" uid="uid://675y7fulwdqa" path="res://Code/Attacks/wind_slash.tscn" id="7_dfsjv"]
-[ext_resource type="PackedScene" uid="uid://cr0m5n2w5xij1" path="res://Code/Attacks/dark_shot.tscn" id="8_ny8qv"]
-[ext_resource type="PackedScene" uid="uid://bulgyyeiue5ba" path="res://Code/Attacks/Water_Gun.tscn" id="9_add1g"]
+[ext_resource type="PackedScene" uid="uid://cbnu0dckupgjp" path="res://CardHolder.tscn" id="2_2okhj"]
+[ext_resource type="Script" path="res://StealCardBoss.gd" id="6_6a7e6"]
+[ext_resource type="Script" path="res://BossAiHolder.gd" id="6_6etnk"]
 [ext_resource type="Script" path="res://Code/EnemyPlayPlace.gd" id="10_8wjqx"]
-[ext_resource type="Script" path="res://Code/BossAi.gd" id="11_x57sh"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="13_607fp"]
 
 [node name="EnemyDeck" type="Node2D"]
@@ -18,46 +12,9 @@ position = Vector2(980, 568)
 rotation = 3.14159
 script = ExtResource("1_h3105")
 
-[node name="CardHolder" type="Node2D" parent="."]
-position = Vector2(-465.001, 422.999)
-scale = Vector2(0.5, 0.5)
-metadata/_edit_group_ = true
+[node name="CardHolder" parent="." instance=ExtResource("2_2okhj")]
 
-[node name="Dance Of Wind" parent="CardHolder" instance=ExtResource("2_33hbi")]
-position = Vector2(0, 10)
-
-[node name="QuickFlame" parent="CardHolder" instance=ExtResource("3_hc1p7")]
-position = Vector2(0, 10)
-OnUseSignal = "DrawCard"
-
-[node name="Fire_Slash2" parent="CardHolder" instance=ExtResource("4_5qbnk")]
-position = Vector2(0, 10)
-
-[node name="Light_Shot2" parent="CardHolder" instance=ExtResource("5_f4akg")]
-position = Vector2(0, 10)
-
-[node name="Earth_Punch2" parent="CardHolder" instance=ExtResource("6_ybkra")]
-position = Vector2(0, 10)
-
-[node name="Wind Slash" parent="CardHolder" instance=ExtResource("7_dfsjv")]
-position = Vector2(0, 10)
-
-[node name="Light_Shot" parent="CardHolder" instance=ExtResource("5_f4akg")]
-position = Vector2(0, 10)
-
-[node name="Fire_Slash" parent="CardHolder" instance=ExtResource("4_5qbnk")]
-position = Vector2(0, 10)
-
-[node name="Dark_Shot" parent="CardHolder" instance=ExtResource("8_ny8qv")]
-position = Vector2(0, 10)
-
-[node name="Earth_Punch" parent="CardHolder" instance=ExtResource("6_ybkra")]
-position = Vector2(0, 10)
-
-[node name="Water_Gun" parent="CardHolder" instance=ExtResource("9_add1g")]
-position = Vector2(0, 10)
-
-[node name="CardsInPlayPlace" type="Node2D" parent="."]
+[node name="CardsInPlayPlace" type="Node2D" parent="." groups=["BossCardPlaces"]]
 position = Vector2(171, 255)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("10_8wjqx")
@@ -95,7 +52,6 @@ position = Vector2(1100, 512)
 [node name="CardsInHandHolder" type="Node2D" parent="."]
 position = Vector2(-467.001, 425.999)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("11_x57sh")
 
 [node name="UseArea" type="Marker2D" parent="."]
 position = Vector2(1011, 157.003)
@@ -111,6 +67,7 @@ theme = ExtResource("13_607fp")
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
 offset_left = 198.999
@@ -118,9 +75,14 @@ offset_top = 493.0
 offset_right = 246.999
 offset_bottom = 524.0
 text = "draw"
+metadata/_edit_use_anchors_ = true
 
-[connection signal="GiveWeaknessInfo" from="." to="CardHolder/Earth_Punch" method="_on_enemy_deck_give_weakness_info"]
+[node name="StealCardBoss" type="Node2D" parent="." groups=["StealCardBoss"]]
+script = ExtResource("6_6a7e6")
+
+[node name="BossAIHoler" type="Node2D" parent="."]
+script = ExtResource("6_6etnk")
+
 [connection signal="OnDraw" from="." to="CardsInPlayPlace" method="_on_players_deck_on_draw"]
-[connection signal="StartThisUnitTurn" from="." to="CardsInHandHolder" method="FindCardstoUse"]
-[connection signal="EndTurn" from="CardsInHandHolder" to="." method="EndTurn"]
+[connection signal="StartThisUnitTurn" from="." to="BossAIHoler" method="FindCardsToUse"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://q2li60bgsmct"]
+
+[ext_resource type="PackedScene" uid="uid://blnu171a4knsf" path="res://Code/cards/BaseCards/earth_cardbase.tscn" id="1_5qhqe"]
+[ext_resource type="Texture2D" uid="uid://bmjk1bgkujyjm" path="res://Art/Cards/cardImages/earth light.png" id="2_q5ym4"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_iqhs0"]
+
+[node name="Stone Shard" instance=ExtResource("1_5qhqe")]
+Name = "Stone Shard"
+AttackDamage = 2
+description = "-Deal 2 Damage"
+
+[node name="Name" parent="." index="1"]
+text = "Stone Shard"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 2 Damage"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_q5ym4")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_iqhs0")]
+AmountOfDamage = 2

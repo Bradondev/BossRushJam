@@ -11,8 +11,8 @@ Type = "Light"
 [node name="ColorRect" parent="." index="0"]
 texture = ExtResource("2_yneiy")
 
-[node name="Image" parent="." index="2"]
+[node name="Image" parent="." index="3"]
 texture = ExtResource("3_2jf23")
 
-[node name="ImageType" parent="." index="3"]
+[node name="ImageType" parent="." index="4"]
 texture = ExtResource("4_4d8as")

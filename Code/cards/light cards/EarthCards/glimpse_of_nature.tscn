@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://mdlbv2miu8rc"]
+
+[ext_resource type="PackedScene" uid="uid://blnu171a4knsf" path="res://Code/cards/BaseCards/earth_cardbase.tscn" id="1_fjqha"]
+[ext_resource type="Texture2D" uid="uid://du0r6nxr65c22" path="res://Art/Cards/cardImages/Icon_Shield.png" id="2_isbt5"]
+[ext_resource type="PackedScene" uid="uid://biwms2oatts6b" path="res://Code/cards/card effects/Shield.tscn" id="3_biasg"]
+
+[node name="Glimpse of Nature" instance=ExtResource("1_fjqha")]
+Name = "Glimpse of Nature"
+AttackDamage = 2
+description = "-Shield 2"
+
+[node name="Name" parent="." index="1"]
+text = "Glimpse of Nature"
+
+[node name="description" parent="." index="2"]
+text = "-Shield 2"
+
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("2_isbt5")
+
+[node name="Shield" parent="Card EffectHolder" index="0" instance=ExtResource("3_biasg")]
+AmountOfShield = 2

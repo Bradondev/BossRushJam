@@ -8,6 +8,7 @@ signal StartPlayerTurn
 @export var MaxHealth: int
 var CurrentHealth = 100
 var WeaknessList = []
+var Shield = 0
 @onready var HealthBar = $UiHolder/Healthbar
 @onready var NameLabel = $UiHolder/Name
 # Called when the node enters the scene tree for the first time.
@@ -28,18 +29,35 @@ func _process(delta):
 
 
 
+	
+
+func UpdateLabels():
+		HealthBar.value = CurrentHealth
 func  TakeDamage(Amount):
+	if Shield >0:
+		Shield -= Amount
+		if Shield < 0: 
+			CurrentHealth -=Shield
+		checkHealth()
+		UpdateLabels()
+		return
 	CurrentHealth -=Amount
 	checkHealth()
 	UpdateLabels()
 	
-	
-	
+func  Heal(Amount):
+	CurrentHealth += Amount
+	checkHealth()
+	UpdateLabels()
 func checkHealth():
 	if CurrentHealth <= 0:
 		CurrentHealth = 0
 		emit_signal("Dead", "Boss")
+		
 	if CurrentHealth > MaxHealth:
 		CurrentHealth = MaxHealth
-func UpdateLabels():
-		HealthBar.value = CurrentHealth
+
+	
+func ShieldUpdate(Amount):
+	Shield += Amount
+	

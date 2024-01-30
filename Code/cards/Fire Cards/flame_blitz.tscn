@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc7f5pj6kdwpq"]
+[gd_scene load_steps=6 format=3 uid="uid://dc7f5pj6kdwpq"]
 
 [ext_resource type="PackedScene" uid="uid://g0xhrsaexod" path="res://Code/cards/BaseCards/f_ire_card_base.tscn" id="1_6wvqy"]
+[ext_resource type="Texture2D" uid="uid://sjx5xkotxole" path="res://Art/Cards/cardImages/fire heavy.png" id="2_4g67r"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="2_nxcku"]
+[ext_resource type="PackedScene" uid="uid://8w05qamjowyk" path="res://Code/cards/card effects/recoil.tscn" id="3_cmh2n"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_bbh5m"]
 
 [node name="Flame Blitz" instance=ExtResource("1_6wvqy")]
 Name = "Flame Blitz"
@@ -14,3 +18,24 @@ text = "Flame Blitz"
 [node name="description" parent="." index="2"]
 text = "-Deal 6 Damage
 -Take 2 Recoil Damage"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_4g67r")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("2_nxcku")]
+AmountOfDamage = 6
+
+[node name="Recoil" parent="Card EffectHolder" index="1" instance=ExtResource("3_cmh2n")]
+AmountOfRecoilDamage = 2
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_bbh5m")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_bbh5m")
+stretch_mode = 2

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqsdx1s10w8us"]
+
+[ext_resource type="PackedScene" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_rbbbg"]
+[ext_resource type="Texture2D" uid="uid://cxooospud8dku" path="res://Art/Cards/cardImages/dark heavy.png" id="2_1ywh4"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_q8mqo"]
+[ext_resource type="PackedScene" uid="uid://cvlln5b6xnfhp" path="res://Code/cards/card effects/Steal.tscn" id="4_k6uqc"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_ok31n"]
+
+[node name="The Jester" instance=ExtResource("1_rbbbg")]
+Name = "The Jester"
+AttackDamage = 3
+description = "-steal 2 cards
+-Deal 3 Damage"
+
+[node name="Name" parent="." index="1"]
+text = "The Jester"
+
+[node name="description" parent="." index="2"]
+text = "-steal 2 cards
+-Deal 3 Damage"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_1ywh4")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_q8mqo")]
+AmountOfDamage = 3
+
+[node name="Steal" parent="Card EffectHolder" index="1" instance=ExtResource("4_k6uqc")]
+AmountOfCardSteal = 2
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_ok31n")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_ok31n")
+stretch_mode = 2

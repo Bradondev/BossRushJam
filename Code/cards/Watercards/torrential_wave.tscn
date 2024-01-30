@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://f4q8an4v7h3h"]
+
+[ext_resource type="PackedScene" uid="uid://ll6a4tti2aym" path="res://Code/cards/BaseCards/water_card_base.tscn" id="1_820yy"]
+[ext_resource type="Texture2D" uid="uid://c0lwqrkmn2oh4" path="res://Art/Cards/cardImages/water heavy.png" id="2_b0m2c"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_epia3"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_ufjge"]
+
+[node name="Torrential Wave" instance=ExtResource("1_820yy")]
+Name = "Torrential Wave"
+AttackDamage = 5
+description = "-Deal 5 Damage"
+
+[node name="Name" parent="." index="1"]
+text = "Torrential Wave"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 5 Damage"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_b0m2c")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_epia3")]
+AmountOfDamage = 5
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_ufjge")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_ufjge")
+stretch_mode = 2

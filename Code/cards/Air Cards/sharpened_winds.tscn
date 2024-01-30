@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drxb62wak6kuf"]
+[gd_scene load_steps=5 format=3 uid="uid://drxb62wak6kuf"]
 
 [ext_resource type="PackedScene" uid="uid://ulliyjmgpda6" path="res://Code/cards/BaseCards/air_card_base.tscn" id="1_s4fnf"]
 [ext_resource type="Texture2D" uid="uid://djcrxvplkev6k" path="res://Art/Cards/cardImages/Wind heavy-export.png" id="2_554dd"]
+[ext_resource type="PackedScene" uid="uid://2xvp27bsf5im" path="res://Code/cards/card effects/OverDrawBuff.tscn" id="3_7hf53"]
 [ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_ab6n0"]
 
 [node name="Sharpened Winds" instance=ExtResource("1_s4fnf")]
@@ -16,6 +17,9 @@ text = "-Buff Over Draw Damage"
 
 [node name="Image" parent="." index="3"]
 texture = ExtResource("2_554dd")
+
+[node name="OverDrawBuff" parent="Card EffectHolder" index="0" instance=ExtResource("3_7hf53")]
+AmountOfCardDrawed = 1
 
 [node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
 texture_filter = 1

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://5b3ag5sorgaw"]
+
+[ext_resource type="PackedScene" uid="uid://bv4eae4boc0k" path="res://Code/cards/BaseCards/light_card_base.tscn" id="1_xh15y"]
+[ext_resource type="Texture2D" uid="uid://jmbenqyqdgal" path="res://Art/Cards/cardImages/light light.png" id="2_jod16"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_ggusm"]
+[ext_resource type="PackedScene" uid="uid://ctd2prbk30buh" path="res://Code/cards/card effects/Heal.tscn" id="4_w8dq0"]
+
+[node name="Luminous Bolt" instance=ExtResource("1_xh15y")]
+Name = "Luminous Bolt"
+AttackDamage = 1
+description = "-Deal 1 Damage
+-Heal 1"
+
+[node name="Name" parent="." index="1"]
+text = "Luminous Bolt"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 1 Damage
+-Heal 1"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_jod16")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_ggusm")]
+AmountOfDamage = 1
+
+[node name="Heal" parent="Card EffectHolder" index="1" instance=ExtResource("4_w8dq0")]
+AmountOfCardDrawed = 1
