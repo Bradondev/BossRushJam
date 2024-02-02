@@ -11,8 +11,11 @@ Type = "Air"
 [node name="ColorRect" parent="." index="0"]
 texture = ExtResource("2_11ysr")
 
-[node name="Image" parent="." index="2"]
+[node name="description" parent="." index="2"]
+texture_filter = 1
+
+[node name="Image" parent="." index="3"]
 texture = ExtResource("3_daxpt")
 
-[node name="ImageType" parent="." index="3"]
+[node name="ImageType" parent="." index="4"]
 texture = ExtResource("4_wnnmi")

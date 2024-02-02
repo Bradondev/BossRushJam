@@ -19,8 +19,8 @@ text = "Illuminated Slashes"
 
 [node name="description" parent="." index="2"]
 text = "-Deal 1 Damage
--Draw 1
--Heal 1"
+-Draw 1 
+  -Heal 1"
 
 [node name="Image" parent="." index="3"]
 texture = ExtResource("2_brspm")

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Code/enemy_deck.gd" id="1_h3105"]
 [ext_resource type="PackedScene" uid="uid://cbnu0dckupgjp" path="res://CardHolder.tscn" id="2_2okhj"]
+[ext_resource type="Script" path="res://Code/BossAi.gd" id="4_j5d3b"]
 [ext_resource type="Script" path="res://StealCardBoss.gd" id="6_6a7e6"]
-[ext_resource type="Script" path="res://BossAiHolder.gd" id="6_6etnk"]
 [ext_resource type="Script" path="res://Code/EnemyPlayPlace.gd" id="10_8wjqx"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="13_607fp"]
 
@@ -52,6 +52,7 @@ position = Vector2(1100, 512)
 [node name="CardsInHandHolder" type="Node2D" parent="."]
 position = Vector2(-467.001, 425.999)
 scale = Vector2(0.5, 0.5)
+script = ExtResource("4_j5d3b")
 
 [node name="UseArea" type="Marker2D" parent="."]
 position = Vector2(1011, 157.003)
@@ -80,9 +81,10 @@ metadata/_edit_use_anchors_ = true
 [node name="StealCardBoss" type="Node2D" parent="." groups=["StealCardBoss"]]
 script = ExtResource("6_6a7e6")
 
-[node name="BossAIHoler" type="Node2D" parent="."]
-script = ExtResource("6_6etnk")
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="OnDraw" from="." to="CardsInPlayPlace" method="_on_players_deck_on_draw"]
-[connection signal="StartThisUnitTurn" from="." to="BossAIHoler" method="FindCardsToUse"]
+[connection signal="StartThisUnitTurn" from="." to="CardsInHandHolder" method="FindCardstoUse"]
+[connection signal="EndTurn" from="CardsInHandHolder" to="." method="EndTurn"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="CardsInHandHolder" method="_on_timer_timeout"]

@@ -12,12 +12,12 @@ signal  StartBossTurn
 func  _ready():
 	#$SaveManager.LoadItem()
 	StartBattle()
-	
+	$SaveManager.LoadItem()
 func  StartBattle():
 	emit_signal("StartComboBattle")
 
 func EndBattle(WhoLost):
 	if WhoLost == "Player":
-		pass
-	elif WhoLost == "Boss":
-		pass
+		$OverLays.LossScreen()
+	if WhoLost == "Boss":
+		$OverLays.WinScreen()

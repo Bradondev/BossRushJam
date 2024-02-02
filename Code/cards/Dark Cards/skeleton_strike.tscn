@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://dw5k1xkaj27re"]
 
-[ext_resource type="PackedScene" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_bqo36"]
+[ext_resource type="PackedScene" uid="uid://dbs8iqmgup11u" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_bqo36"]
 [ext_resource type="Texture2D" uid="uid://ogshk3dl3d1s" path="res://Art/Cards/cardImages/dark light.png" id="2_l0mjx"]
 
 [node name="Skeleton Strike" instance=ExtResource("1_bqo36")]
 Name = "Skeleton Strike"
 AttackDamage = 2
-description = "-Deal Damage"
+description = "-Deal 2 Damage"
 
 [node name="Name" parent="." index="1"]
 text = "Skeleton Strike"
 
 [node name="description" parent="." index="2"]
-text = "-Deal Damage"
+text = "-Deal 2 Damage"
 
 [node name="Image" parent="." index="3"]
 texture = ExtResource("2_l0mjx")

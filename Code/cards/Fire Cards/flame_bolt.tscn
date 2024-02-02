@@ -6,13 +6,13 @@
 [node name="Flame Bolt" instance=ExtResource("1_xk1ac")]
 Name = "Flame Bolt"
 AttackDamage = 2
-description = "-Deal Damage"
+description = "-Deal 2 Damage"
 
 [node name="Name" parent="." index="1"]
 text = "Flame Bolt"
 
 [node name="description" parent="." index="2"]
-text = "-Deal Damage"
+text = "-Deal 2 Damage"
 
 [node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("2_siqvy")]
 AmountOfDamage = 2

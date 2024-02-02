@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://4awxss0qu5wv" path="res://Art/Cards/cardImages/Icon_One_Sword_ATK.png" id="8_jsdme"]
 
 [node name="Cardbase" type="Node2D" groups=["Cards"]]
+texture_filter = 1
 position = Vector2(465, 240)
 script = ExtResource("1_xp1t7")
 metadata/_edit_group_ = true
@@ -37,7 +38,7 @@ offset_top = 176.0
 offset_right = 77.0
 offset_bottom = 256.0
 theme = ExtResource("3_ubpun")
-theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/normal_font_size = 18
 text = "-Draw 2 
 -Deal Damage"
 tab_size = 2

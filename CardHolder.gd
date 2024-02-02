@@ -1,11 +1,9 @@
 extends Node2D
 
-@export var Cards: Array[CardAttacks]
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func AddCards(CardList):
+	for card in CardList:
+		var Newcard = card.duplicate()
+		Newcard.global_position = global_position
+		self.add_child(Newcard)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

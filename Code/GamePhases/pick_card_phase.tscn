@@ -1,0 +1,371 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1nx15mfo2mld"]
+
+[ext_resource type="Script" path="res://Code/GamePhases/pick_card_phase.gd" id="1_b61up"]
+[ext_resource type="PackedScene" uid="uid://3dqgddntmh7x" path="res://Code/GamePhases/BasicCardPack.tscn" id="1_dqtut"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="3_6784g"]
+[ext_resource type="PackedScene" uid="uid://cbnu0dckupgjp" path="res://CardHolder.tscn" id="4_gcjpg"]
+[ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="5_c70vb"]
+[ext_resource type="Texture2D" uid="uid://djx5iu233nf4i" path="res://Art/UI/Button_End_OnHover_OnClick.png" id="6_p8up2"]
+[ext_resource type="Texture2D" uid="uid://cwbq8i3n85p7h" path="res://Art/UI/Button_End_Normal.png" id="7_gy0mm"]
+
+[sub_resource type="Animation" id="Animation_yntwa"]
+resource_name = "LabalCardsBeenAdded"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 50]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Cards been added to your deck.", "Cards been added to your deck."]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:horizontal_alignment")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DoneButton:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoneButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.3, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_itbjq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, 640)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MouseBlocker:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:horizontal_alignment")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:vertical_alignment")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DoneButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DoneButton:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dmyvb"]
+resource_name = "ShowPacks"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 2,
+"values": [Vector2(512, 640), Vector2(512, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MouseBlocker:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Please choose a pack to
+add to your deck", "Please choose a pack to
+add to your deck"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label:visible_characters")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label:vertical_alignment")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Label:horizontal_alignment")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 1]
+}
+
+[sub_resource type="Animation" id="Animation_nscc8"]
+resource_name = "Yellow"
+length = 0.05
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w77a7"]
+_data = {
+"LabalCardsBeenAdded": SubResource("Animation_yntwa"),
+"RESET": SubResource("Animation_itbjq"),
+"ShowPacks": SubResource("Animation_dmyvb"),
+"Yellow": SubResource("Animation_nscc8")
+}
+
+[node name="PickCardPhase" type="Node2D" groups=["PickPhase"]]
+position = Vector2(512, 640)
+script = ExtResource("1_b61up")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+offset_left = -872.0
+offset_top = -1004.0
+offset_right = 848.0
+offset_bottom = 548.0
+color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="AllPacks" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CardHolder3" type="Node2D" parent="AllPacks"]
+position = Vector2(200, 0)
+
+[node name="CardPack" parent="AllPacks/CardHolder3" instance=ExtResource("1_dqtut")]
+position = Vector2(0, -20)
+
+[node name="CardHolder2" type="Node2D" parent="AllPacks"]
+
+[node name="CardPack" parent="AllPacks/CardHolder2" instance=ExtResource("1_dqtut")]
+position = Vector2(0, -20)
+
+[node name="CardHolder" type="Node2D" parent="AllPacks"]
+position = Vector2(-200, 0)
+
+[node name="CardPack" parent="AllPacks/CardHolder" instance=ExtResource("1_dqtut")]
+position = Vector2(0, -20)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w77a7")
+}
+
+[node name="MouseBlocker" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
+offset_bottom = 80.0
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+offset_left = 240.0
+offset_top = 56.0
+offset_right = 780.0
+offset_bottom = 136.0
+theme = ExtResource("3_6784g")
+theme_override_font_sizes/font_size = 30
+text = "Please choose a pack to
+add to your deck"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_ratio = -0.025
+
+[node name="CardHolder" parent="." groups=["CardHolderPlayer"] instance=ExtResource("4_gcjpg")]
+position = Vector2(-872, 120)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("5_c70vb")]
+ItemToSave = NodePath("../CardHolder")
+
+[node name="DoneButton" type="TextureButton" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 296.0
+offset_top = 64.0
+offset_right = 408.0
+offset_bottom = 104.0
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("6_p8up2")
+texture_hover = ExtResource("7_gy0mm")
+
+[node name="Label" type="Label" parent="DoneButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 40.0
+theme = ExtResource("3_6784g")
+text = "Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

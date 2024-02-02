@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0pntp4ef0gb1"]
+[gd_scene load_steps=11 format=3 uid="uid://b0pntp4ef0gb1"]
 
 [ext_resource type="Script" path="res://Code/BattleManager.gd" id="1_i4fai"]
 [ext_resource type="PackedScene" uid="uid://sce8xuonj2fd" path="res://Code/Bosses/BaseBoss.tscn" id="2_7b5iy"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://br5brytqnyr30" path="res://Code/PlayerAssets/PlayersDeck.tscn" id="4_blya1"]
 [ext_resource type="PackedScene" uid="uid://bteh0r3v7rnq2" path="res://enemy_deck.tscn" id="5_dvet2"]
 [ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="6_b6rgs"]
+[ext_resource type="PackedScene" uid="uid://cqt6g201yn5j7" path="res://over_lays.tscn" id="7_8plj6"]
 
 [sub_resource type="Animation" id="Animation_rf1nl"]
 resource_name = "BossIntro"
@@ -85,6 +86,9 @@ metadata/_edit_group_ = true
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_h6ivu")]
 position = Vector2(74, 388)
 Name = "Player"
+
+[node name="OverLays" parent="." instance=ExtResource("7_8plj6")]
+position = Vector2(-2, -1)
 
 [connection signal="StartComboBattle" from="." to="PlayersDeck" method="StartTurn"]
 [connection signal="StartComboBattle" from="." to="EnemyDeck" method="StartBattle"]

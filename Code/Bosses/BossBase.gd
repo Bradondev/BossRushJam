@@ -52,7 +52,7 @@ func  Heal(Amount):
 func checkHealth():
 	if CurrentHealth <= 0:
 		CurrentHealth = 0
-		emit_signal("Dead", "Boss")
+		emit_signal("Dead","Boss")
 		
 	if CurrentHealth > MaxHealth:
 		CurrentHealth = MaxHealth

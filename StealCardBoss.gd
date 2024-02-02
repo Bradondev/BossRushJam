@@ -10,7 +10,7 @@ func StealCard(Amount):
 			return
 		var my_random_number = rng.randi_range(0, CardstoSteal.size() -1)
 		var CardGettingStolen = CardstoSteal[my_random_number]
-		var new_parent = $"../CardHolder"
+		var new_parent = $"../CardsInHandHolder"
 		CardGettingStolen.get_parent().remove_child(CardGettingStolen)
 		new_parent.add_child(CardGettingStolen)
 		CardGettingStolen.add_to_group("BossCards")
@@ -23,7 +23,7 @@ func StealCard(Amount):
 		CardGettingStolen.BossCard = true
 		CardGettingStolen.CanBeUsed = false
 		CardGettingStolen.UsePoint = $"../UseArea".global_position
-		CardGettingStolen.global_position.y = $"../CardsInHandHolder".global_position.y -27
+		CardGettingStolen.global_position.y = $"../CardsInHandHolder".global_position.y -72
 		for effects in CardGettingStolen.Effects:
 			var NameOfEffect = effects.get_name()
 			if NameOfEffect == "Draw":

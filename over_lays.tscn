@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqt6g201yn5j7"]
+[gd_scene load_steps=11 format=3 uid="uid://cqt6g201yn5j7"]
 
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="1_4x533"]
+[ext_resource type="Script" path="res://over_lays.gd" id="1_wvghb"]
 [ext_resource type="Texture2D" uid="uid://dq0q2jboya6jq" path="res://Art/UI/Button_Break_Normal.png" id="2_r75wm"]
 [ext_resource type="Texture2D" uid="uid://dv527jp84e6iw" path="res://Art/UI/Button_Break_OnHover_OnClick.png" id="3_c0arq"]
 [ext_resource type="Texture2D" uid="uid://cwbq8i3n85p7h" path="res://Art/UI/Button_End_Normal.png" id="4_esdqv"]
@@ -60,7 +61,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Loss/CenterContainer/VBoxContainer/TextureButton:visible")
+tracks/4/path = NodePath("Loss/CenterContainer/VBoxContainer/Retry:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -72,7 +73,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Loss/CenterContainer/VBoxContainer/TextureButton2:visible")
+tracks/5/path = NodePath("Loss/CenterContainer/VBoxContainer/Menu:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -80,6 +81,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ce3d7"]
@@ -124,6 +137,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yusuu"]
 _data = {
@@ -133,9 +158,12 @@ _data = {
 }
 
 [node name="OverLays" type="Node2D"]
+visible = false
+script = ExtResource("1_wvghb")
 
 [node name="Loss" type="Node2D" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 
 [node name="ColorRect" type="ColorRect" parent="Loss"]
 offset_right = 960.0
@@ -160,14 +188,15 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="TextureButton" type="TextureButton" parent="Loss/CenterContainer/VBoxContainer"]
+[node name="Retry" type="TextureButton" parent="Loss/CenterContainer/VBoxContainer"]
+visible = false
 texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("2_r75wm")
 texture_pressed = ExtResource("3_c0arq")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="Loss/CenterContainer/VBoxContainer/TextureButton"]
+[node name="Label" type="Label" parent="Loss/CenterContainer/VBoxContainer/Retry"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 8.0
@@ -178,14 +207,15 @@ text = "Retry?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton2" type="TextureButton" parent="Loss/CenterContainer/VBoxContainer"]
+[node name="Menu" type="TextureButton" parent="Loss/CenterContainer/VBoxContainer"]
+visible = false
 texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("4_esdqv")
 texture_pressed = ExtResource("5_ufgab")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="Loss/CenterContainer/VBoxContainer/TextureButton2"]
+[node name="Label" type="Label" parent="Loss/CenterContainer/VBoxContainer/Menu"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 8.0
@@ -197,6 +227,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Win" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 
 [node name="ColorRect" type="ColorRect" parent="Win"]
 offset_right = 960.0
@@ -218,14 +249,14 @@ layout_mode = 2
 theme = ExtResource("1_4x533")
 text = "You won this battle!"
 
-[node name="TextureButton" type="TextureButton" parent="Win/CenterContainer/VBoxContainer"]
+[node name="Continue?" type="TextureButton" parent="Win/CenterContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("2_r75wm")
 texture_pressed = ExtResource("3_c0arq")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="Win/CenterContainer/VBoxContainer/TextureButton"]
+[node name="Label" type="Label" parent="Win/CenterContainer/VBoxContainer/Continue?"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 8.0
@@ -240,3 +271,7 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_yusuu")
 }
+
+[connection signal="pressed" from="Loss/CenterContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Loss/CenterContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Win/CenterContainer/VBoxContainer/Continue?" to="." method="_on_continue_pressed"]

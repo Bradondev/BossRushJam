@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqsdx1s10w8us"]
 
-[ext_resource type="PackedScene" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_rbbbg"]
+[ext_resource type="PackedScene" uid="uid://dbs8iqmgup11u" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_rbbbg"]
 [ext_resource type="Texture2D" uid="uid://cxooospud8dku" path="res://Art/Cards/cardImages/dark heavy.png" id="2_1ywh4"]
 [ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_q8mqo"]
 [ext_resource type="PackedScene" uid="uid://cvlln5b6xnfhp" path="res://Code/cards/card effects/Steal.tscn" id="4_k6uqc"]

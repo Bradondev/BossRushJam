@@ -6,6 +6,7 @@
 script = ExtResource("1_yfwk6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 

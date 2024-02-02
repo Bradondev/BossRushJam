@@ -28,11 +28,14 @@ var IsUsed = false
 var UsePoint
 var DistanceMoved = 120
 var CardEffects 
+var ShowingOff = false
+var ShowingOffPoint 
 @onready var LabelName = $Name
 @onready var AttackLabel = $AttackLabel
 @onready var Description = $description
 @onready var CardEffectHolder= $"Card EffectHolder"
 @onready var Back = $Back
+@onready var MouseChecker =$MouseChecker
 var Effects
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -64,6 +67,8 @@ func _physics_process(delta):
 		queue_free()
 	if BossWillUse:
 		BossWillUSe()
+	if ShowingOff:
+		self.global_position = lerp(self.global_position, ShowingOffPoint,.05 )
 func _on_mouse_checker_mouse_entered():
 	$HoldTimer.start()
 	z_index = 1
@@ -91,7 +96,6 @@ func  ConnectSignal(name_of_signal,target_function):
 	connect(name_of_signal, target_function)
 	#print("Connected signal '", name_of_signal, "' to function '", target_function, "'.")
 
-
 func _on_hold_timer_timeout():
 	NewPositon =  self.global_position.y -DistanceMoved
 	Up = true
@@ -109,3 +113,7 @@ func OnUse():
 func BossWillUSe():
 	self.global_position.y = lerp(self.global_position.y,  NewPositon ,.1 )
 	BossCard = false
+func ShowOffCard(Position, IsShowingOff):
+	if IsShowingOff:
+		ShowingOff = true
+	ShowingOffPoint = Position

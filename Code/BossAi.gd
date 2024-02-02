@@ -17,6 +17,7 @@ func _process(delta):
 	
 func FindCardstoUse():
 	var temp = 0
+	TempNumberArray = []
 	CardsThatCanBeUsedUse  = get_children()
 	for Card in CardsThatCanBeUsedUse:
 		if TempNumberArray.size()==0:
@@ -25,6 +26,7 @@ func FindCardstoUse():
 			TempNumberArray.append(temp)
 		temp += 1
 		# Shuffle the array
+	print(TempNumberArray)
 	TempNumberArray.shuffle()
 	# Select the first three elements
 	var random_indices = TempNumberArray.slice(0,NumberOfCardsBeingPlayed)
@@ -36,8 +38,12 @@ func FindCardstoUse():
 		
 func UseCards():
 	for card in CardsThatCanBeUsedUse:
-		await get_tree().create_timer(1).timeout
-		if card.BossWillUse == true:
+		print_debug(card)
+		if is_instance_valid(card) and card.BossWillUse    == true:
 			card.OnUse()
-			
+		await get_tree().create_timer(.1).timeout
 	emit_signal("EndTurn")
+
+
+func _on_timer_timeout():
+	pass # Replace with function body.

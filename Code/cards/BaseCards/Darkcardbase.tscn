@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch43xuve7a6j0"]
+[gd_scene load_steps=3 format=3 uid="uid://dbs8iqmgup11u"]
 
 [ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/cards/BaseCards/Cardbase.tscn" id="1_wy4on"]
 [ext_resource type="Texture2D" uid="uid://cfr4r5sblvmna" path="res://Art/Cards/cardImages/Icon_Dark2.png" id="2_ltb5d"]
@@ -6,5 +6,5 @@
 [node name="Cardbase" instance=ExtResource("1_wy4on")]
 Type = "Dark"
 
-[node name="ImageType" parent="." index="3"]
+[node name="ImageType" parent="." index="4"]
 texture = ExtResource("2_ltb5d")
