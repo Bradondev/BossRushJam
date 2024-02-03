@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Code/Bosses/BossBase.gd" id="1_w4mek"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="2_ompur"]
-[ext_resource type="Texture2D" uid="uid://ca7jotfce6p6r" path="res://icon.svg" id="3_x75xl"]
+[ext_resource type="Texture2D" uid="uid://ca7jotfce6p6r" path="res://Art/icon.svg" id="3_x75xl"]
 [ext_resource type="PackedScene" uid="uid://donpin8m60qei" path="res://Code/Weakness/Weakness.tscn" id="4_67ku4"]
 [ext_resource type="Texture2D" uid="uid://dwgnlb1pimtiu" path="res://Art/Cards/cardImages/Icon_Fire.png" id="5_3y3gs"]
 [ext_resource type="Texture2D" uid="uid://b314mpakcfydl" path="res://Art/Cards/cardImages/Icon_Light2.png" id="6_nerv4"]

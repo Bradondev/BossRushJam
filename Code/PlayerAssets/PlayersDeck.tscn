@@ -1,12 +1,14 @@
 [gd_scene load_steps=21 format=3 uid="uid://br5brytqnyr30"]
 
 [ext_resource type="Script" path="res://Code/PlayersDeck.gd" id="1_j7q8m"]
-[ext_resource type="PackedScene" uid="uid://cbnu0dckupgjp" path="res://CardHolder.tscn" id="2_kwm68"]
+[ext_resource type="PackedScene" uid="uid://dbljr6webtxg1" path="res://card_holder.tscn" id="2_ebcu4"]
 [ext_resource type="Script" path="res://Code/CardMover.gd" id="3_u4ehx"]
 [ext_resource type="Script" path="res://Code/ComboManager.gd" id="5_s4ahh"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/EndComboManager.gd" id="12_cma6a"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="12_gh4qe"]
+[ext_resource type="Texture2D" uid="uid://celcw23ik15mp" path="res://Art/Cards/cardImages/Icon_ComboBreakNull.png" id="13_d2mbj"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabel.gd" id="13_ef21n"]
+[ext_resource type="Texture2D" uid="uid://c5mlicl7i4dw3" path="res://Art/Cards/cardImages/Icon_ComboBreak.png" id="14_s03rt"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabelType.gd" id="15_flb88"]
 [ext_resource type="Texture2D" uid="uid://m452ft6obee4" path="res://Art/UI/HUD_Player_Layout.png" id="16_rbfhc"]
 [ext_resource type="Texture2D" uid="uid://bgeg87cr58epg" path="res://Art/UI/HUD_HealthBar.png" id="17_hj6jj"]
@@ -15,8 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://djx5iu233nf4i" path="res://Art/UI/Button_End_OnHover_OnClick.png" id="18_w4fi4"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/ProgressBar.gd" id="19_bj4tu"]
 [ext_resource type="Texture2D" uid="uid://dq0q2jboya6jq" path="res://Art/UI/Button_Break_Normal.png" id="19_erfj7"]
-[ext_resource type="Texture2D" uid="uid://bgwj2b72u6v3n" path="res://Art/UI/heaartl-export.png" id="19_nlmbl"]
-[ext_resource type="Texture2D" uid="uid://2buotv1b7mpl" path="res://Art/UI/fulll-export.png" id="20_0nrun"]
 [ext_resource type="Texture2D" uid="uid://dv527jp84e6iw" path="res://Art/UI/Button_Break_OnHover_OnClick.png" id="20_4f62i"]
 [ext_resource type="Texture2D" uid="uid://du0r6nxr65c22" path="res://Art/Cards/cardImages/Icon_Shield.png" id="22_e7h4o"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/StealCard.gd" id="26_6xwqx"]
@@ -24,7 +24,7 @@
 [node name="PlayersDeck" type="Node2D"]
 script = ExtResource("1_j7q8m")
 
-[node name="CardHolder" parent="." instance=ExtResource("2_kwm68")]
+[node name="CardHolder" parent="." instance=ExtResource("2_ebcu4")]
 
 [node name="CardsInPlayPlace" type="Node2D" parent="." groups=["PlayerCardPlaces"]]
 position = Vector2(271, 382)
@@ -144,26 +144,27 @@ texture_progress = ExtResource("18_nsqjd")
 script = ExtResource("19_bj4tu")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="UI/P{layerUi"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 241.0
-offset_top = 55.0
-offset_right = 281.0
-offset_bottom = 72.0
+offset_top = 44.0
+offset_right = 309.0
+offset_bottom = 76.0
 metadata/_edit_group_ = true
 
 [node name="Heartr" type="TextureProgressBar" parent="UI/P{layerUi/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 value = 1.0
-texture_under = ExtResource("19_nlmbl")
-texture_progress = ExtResource("20_0nrun")
+texture_under = ExtResource("13_d2mbj")
+texture_progress = ExtResource("14_s03rt")
 
 [node name="Heartr2" type="TextureProgressBar" parent="UI/P{layerUi/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 value = 1.0
-texture_under = ExtResource("19_nlmbl")
-texture_progress = ExtResource("20_0nrun")
+texture_under = ExtResource("13_d2mbj")
+texture_progress = ExtResource("14_s03rt")
 
 [node name="Shield" type="TextureRect" parent="UI"]
 visible = false

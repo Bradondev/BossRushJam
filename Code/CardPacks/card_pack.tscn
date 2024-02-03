@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://q84h2ixauhlr"]
 
-[ext_resource type="Script" path="res://CardPack.gd" id="1_gmwym"]
+[ext_resource type="Script" path="res://Code/CardPack.gd" id="1_gmwym"]
 [ext_resource type="Texture2D" uid="uid://be80enblifuwo" path="res://Art/Cards/Card_Main_Back.png" id="2_g6hkl"]
 
 [sub_resource type="Shader" id="Shader_crqrk"]
@@ -70,6 +70,7 @@ void fragment() {
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fuh03"]
+resource_local_to_scene = true
 shader = SubResource("Shader_crqrk")
 shader_parameter/color = Color(1, 1, 1, 0.976471)
 shader_parameter/width = 0.0
@@ -90,6 +91,40 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t70gt"]
+resource_name = "GoldHighLights"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:material:shader_parameter/color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.85098, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7lg6s"]
+resource_name = "Idle"
+length = 3.869
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -12), Vector2(0, 0), Vector2(0, 12)]
 }
 
 [sub_resource type="Animation" id="Animation_aouih"]
@@ -175,40 +210,6 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_t70gt"]
-resource_name = "GoldHighLights"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CardBack:material:shader_parameter/color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.85098, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_7lg6s"]
-resource_name = "Idle"
-length = 3.869
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.1, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -12), Vector2(0, 0), Vector2(0, 12)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yhpte"]
 _data = {
 "FadeOut": SubResource("Animation_nr5ls"),
@@ -221,7 +222,6 @@ _data = {
 
 [node name="CardPack" type="Node2D"]
 texture_filter = 1
-position = Vector2(0, -12)
 script = ExtResource("1_gmwym")
 
 [node name="CardHolder" type="Node2D" parent="."]
@@ -232,15 +232,13 @@ metadata/_edit_group_ = true
 [node name="CardBack" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_fuh03")
 offset_left = -71.0
-offset_top = -35.0
+offset_top = -64.0
 offset_right = -7.0
-offset_bottom = 29.0
 scale = Vector2(2.3, 2.3)
 texture = ExtResource("2_g6hkl")
 stretch_mode = 3
 
 [node name="MouseChecker" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -39.0
@@ -260,6 +258,12 @@ position = Vector2(100, -172)
 [node name="DrawPoint3" type="Marker2D" parent="PointHolder"]
 position = Vector2(-100, -172)
 
+[node name="DrawPoint4" type="Marker2D" parent="PointHolder"]
+position = Vector2(-200, -172)
+
+[node name="DrawPoint5" type="Marker2D" parent="PointHolder"]
+position = Vector2(200, -172)
+
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -276,5 +280,4 @@ libraries = {
 [connection signal="mouse_entered" from="MouseChecker" to="." method="_on_mouse_checker_mouse_entered"]
 [connection signal="mouse_exited" from="MouseChecker" to="." method="_on_mouse_checker_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_animation_finished"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Code/enemy_deck.gd" id="1_h3105"]
 [ext_resource type="PackedScene" uid="uid://cbnu0dckupgjp" path="res://CardHolder.tscn" id="2_2okhj"]
 [ext_resource type="Script" path="res://Code/BossAi.gd" id="4_j5d3b"]
-[ext_resource type="Script" path="res://StealCardBoss.gd" id="6_6a7e6"]
+[ext_resource type="Script" path="res://Code/StealCardBoss.gd" id="6_6a7e6"]
 [ext_resource type="Script" path="res://Code/EnemyPlayPlace.gd" id="10_8wjqx"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="13_607fp"]
 

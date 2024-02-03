@@ -45,6 +45,7 @@ func DrawCards(AmountOfCards):
 		#if Cards.size() -1 < DrawAmount:
 		print_debug(CurrentCardCycleIndex)
 		NextCard = CurrentCardsCycle[CurrentCardCycleIndex]
+		print_debug(NextCard)
 		var Newcard = NextCard.duplicate()
 		Newcard.global_position = $DeckArea.global_position
 		Newcard.visible = true
@@ -82,14 +83,14 @@ func _on_end_combo_manager_draw_combo_break(Amount):
 func StartTurn():
 	DrawCards(5)
 	PlayerCanUseCards = true
-	var Cards = get_tree().get_nodes_in_group("Cards")
-	for card  in Cards:
+	var CardsInPlay = get_tree().get_nodes_in_group("Cards")
+	for card  in CardsInPlay:
 		card.CanBeUsed = true
 	emit_signal("StartPlayerTurn")
 func  EndTurn():
 	PlayerCanUseCards = false
-	var Cards = get_tree().get_nodes_in_group("Cards")
-	for card  in Cards:
+	var CardsInPlay = get_tree().get_nodes_in_group("Cards")
+	for card  in CardsInPlay:
 		card.CanBeUsed = false
 	emit_signal("StartEnemyTurn")
 func ReloadInfo():

@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://f4sqmqlwjpis"]
 
 [ext_resource type="Script" path="res://Code/PlayersDeck.gd" id="1_us4ej"]
-[ext_resource type="PackedScene" uid="uid://drb5jcsr65rcj" path="res://Code/Attacks/dance_of_wind.tscn" id="2_uo6md"]
+[ext_resource type="PackedScene" uid="uid://drb5jcsr65rcj" path="res://Code/cards/Air Cards/dance_of_wind.tscn" id="2_uo6md"]
 [ext_resource type="PackedScene" uid="uid://dq1wvexvemxll" path="res://Code/Attacks/quick_flame.tscn" id="4_qm4ug"]
 [ext_resource type="PackedScene" uid="uid://nvy27jaxb3h8" path="res://Code/Attacks/fire_slash.tscn" id="5_gb1c7"]
 [ext_resource type="PackedScene" uid="uid://cl06jeehwgipy" path="res://Code/Attacks/light_shot.tscn" id="6_57mcv"]

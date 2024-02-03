@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7kgy6v84id0b"]
+
+[ext_resource type="PackedScene" uid="uid://g0xhrsaexod" path="res://Code/cards/BaseCards/f_ire_card_base.tscn" id="1_jyoj7"]
+[ext_resource type="Texture2D" uid="uid://cf4msqnsb5isn" path="res://Art/Cards/cardImages/fire medium.png" id="2_y1xbq"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_5xt53"]
+
+[node name="FireWall" instance=ExtResource("1_jyoj7")]
+Name = "Fire Wall"
+AttackDamage = 2
+description = "-Deal 1 Damage
+-Shield 2"
+
+[node name="Name" parent="." index="1"]
+text = "Fire Wall"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 1 Damage
+-Shield 2"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_y1xbq")
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_5xt53")
+stretch_mode = 2

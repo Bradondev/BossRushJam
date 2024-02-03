@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1nx15mfo2mld"]
+[gd_scene load_steps=15 format=3 uid="uid://d1nx15mfo2mld"]
 
 [ext_resource type="Script" path="res://Code/GamePhases/pick_card_phase.gd" id="1_b61up"]
-[ext_resource type="PackedScene" uid="uid://3dqgddntmh7x" path="res://Code/GamePhases/BasicCardPack.tscn" id="1_dqtut"]
+[ext_resource type="PackedScene" uid="uid://3dqgddntmh7x" path="res://Code/CardPacks/BasicCardPack.tscn" id="1_dqtut"]
+[ext_resource type="PackedScene" uid="uid://b1qgm1kjxj1ck" path="res://Code/CardPacks/Pack2.tscn" id="3_2apg2"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="3_6784g"]
-[ext_resource type="PackedScene" uid="uid://cbnu0dckupgjp" path="res://CardHolder.tscn" id="4_gcjpg"]
+[ext_resource type="PackedScene" uid="uid://d1d5myxteh5fh" path="res://Code/CardPacks/5-1StarCards.tscn" id="3_wqxva"]
 [ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="5_c70vb"]
 [ext_resource type="Texture2D" uid="uid://djx5iu233nf4i" path="res://Art/UI/Button_End_OnHover_OnClick.png" id="6_p8up2"]
 [ext_resource type="Texture2D" uid="uid://cwbq8i3n85p7h" path="res://Art/UI/Button_End_Normal.png" id="7_gy0mm"]
+[ext_resource type="PackedScene" uid="uid://dbljr6webtxg1" path="res://card_holder.tscn" id="7_nwylt"]
 
 [sub_resource type="Animation" id="Animation_yntwa"]
 resource_name = "LabalCardsBeenAdded"
@@ -291,19 +293,16 @@ metadata/_edit_group_ = true
 [node name="CardHolder3" type="Node2D" parent="AllPacks"]
 position = Vector2(200, 0)
 
-[node name="CardPack" parent="AllPacks/CardHolder3" instance=ExtResource("1_dqtut")]
-position = Vector2(0, -20)
+[node name="CardPack" parent="AllPacks/CardHolder3" instance=ExtResource("3_wqxva")]
 
 [node name="CardHolder2" type="Node2D" parent="AllPacks"]
 
 [node name="CardPack" parent="AllPacks/CardHolder2" instance=ExtResource("1_dqtut")]
-position = Vector2(0, -20)
 
 [node name="CardHolder" type="Node2D" parent="AllPacks"]
 position = Vector2(-200, 0)
 
-[node name="CardPack" parent="AllPacks/CardHolder" instance=ExtResource("1_dqtut")]
-position = Vector2(0, -20)
+[node name="Pack_2" parent="AllPacks/CardHolder" instance=ExtResource("3_2apg2")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -328,16 +327,14 @@ offset_right = 780.0
 offset_bottom = 136.0
 theme = ExtResource("3_6784g")
 theme_override_font_sizes/font_size = 30
-text = "Please choose a pack to
-add to your deck"
+text = "Cards been added to your deck."
 horizontal_alignment = 1
 vertical_alignment = 1
-visible_ratio = -0.025
-
-[node name="CardHolder" parent="." groups=["CardHolderPlayer"] instance=ExtResource("4_gcjpg")]
-position = Vector2(-872, 120)
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1, 11)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -367,5 +364,9 @@ text = "Continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CardHolder" parent="." groups=["CardHolderPlayer"] instance=ExtResource("7_nwylt")]
+position = Vector2(854, 206)
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed"]

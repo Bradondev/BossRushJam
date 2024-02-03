@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1qgm1kjxj1ck"]
+
+[ext_resource type="PackedScene" uid="uid://q84h2ixauhlr" path="res://Code/CardPacks/card_pack.tscn" id="1_gqrq1"]
+[ext_resource type="PackedScene" uid="uid://dujfx84u7xadn" path="res://Code/cards/Fire Cards/flame_fang.tscn" id="2_lxvj0"]
+[ext_resource type="PackedScene" uid="uid://nkyoi5lscp6q" path="res://Code/cards/Dark Cards/shadow_blast.tscn" id="3_ycw2y"]
+
+[node name="Pack_2" instance=ExtResource("1_gqrq1")]
+
+[node name="Flame Fang" parent="CardHolder" index="0" instance=ExtResource("2_lxvj0")]
+
+[node name="Shadow Blast" parent="CardHolder" index="1" instance=ExtResource("3_ycw2y")]
+
+[node name="CardBack" parent="." index="1"]
+offset_left = -70.0
+offset_top = -66.0
+offset_right = -6.0
+offset_bottom = -2.0

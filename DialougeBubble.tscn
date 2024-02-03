@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bubghem5n8xi2"]
+
+[ext_resource type="Script" path="res://Code/Text.gd" id="1_7soye"]
+[ext_resource type="Texture2D" uid="uid://dq0q2jboya6jq" path="res://Art/UI/Button_Break_Normal.png" id="2_s6bys"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="3_ind8r"]
+
+[node name="Text" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7soye")
+
+[node name="textBubble" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 40.0
+offset_right = 736.0
+offset_bottom = 240.0
+texture = ExtResource("2_s6bys")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="textBubble"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 416.0
+offset_bottom = 152.0
+theme = ExtResource("3_ind8r")
+
+[node name="TextTimer" type="Timer" parent="."]
+wait_time = 0.03
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]

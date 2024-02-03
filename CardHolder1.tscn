@@ -1,0 +1,54 @@
+[gd_scene load_steps=13 format=3 uid="uid://c13y77mqosnec"]
+
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_8tadk"]
+[ext_resource type="PackedScene" uid="uid://ckgkrj6xwaxco" path="res://Code/cards/light cards/EarthCards/roar_of_the_mountain_titan.tscn" id="2_cdyy3"]
+[ext_resource type="PackedScene" uid="uid://blj3b88njxvd2" path="res://Code/cards/Dark Cards/demon_slashes.tscn" id="4_4q1uo"]
+[ext_resource type="PackedScene" uid="uid://cbg1sa1hej0v4" path="res://Code/cards/Air Cards/dance_of_the_wind.tscn" id="5_trlrn"]
+[ext_resource type="PackedScene" uid="uid://nk7w272w161j" path="res://Code/cards/Air Cards/wind_slash.tscn" id="6_sq06t"]
+[ext_resource type="PackedScene" uid="uid://885t68w5anyh" path="res://Code/cards/Fire Cards/natsu.tscn" id="7_6mnpp"]
+[ext_resource type="PackedScene" uid="uid://bqsdx1s10w8us" path="res://Code/cards/Dark Cards/the_jester.tscn" id="8_66r7c"]
+[ext_resource type="PackedScene" uid="uid://drxb62wak6kuf" path="res://Code/cards/Air Cards/sharpened_winds.tscn" id="9_dsxib"]
+[ext_resource type="PackedScene" uid="uid://cva253rdjm72p" path="res://Code/cards/light cards/god’s_judgment.tscn" id="10_etjka"]
+[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="11_wj2to"]
+[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="12_lhtm1"]
+[ext_resource type="PackedScene" uid="uid://dqn40dp5dml1u" path="res://Code/cards/Watercards/Aqua Glist.tscn" id="13_6qcki"]
+
+[node name="CardHolder1" type="Node2D" groups=["CardHolderPlayer"]]
+position = Vector2(-872, 120)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_8tadk")
+
+[node name="Roar of the Mountain Titan" parent="." instance=ExtResource("2_cdyy3")]
+position = Vector2(465, 240)
+
+[node name="Demon Slashes" parent="." instance=ExtResource("4_4q1uo")]
+position = Vector2(465, 240)
+
+[node name="Dance of the Wind" parent="." instance=ExtResource("5_trlrn")]
+position = Vector2(465, 240)
+
+[node name="Wind Slash" parent="." instance=ExtResource("6_sq06t")]
+position = Vector2(465, 240)
+
+[node name="Natsu" parent="." instance=ExtResource("7_6mnpp")]
+position = Vector2(465, 240)
+
+[node name="The Jester" parent="." instance=ExtResource("8_66r7c")]
+position = Vector2(1, 0)
+
+[node name="Sharpened Winds" parent="." instance=ExtResource("9_dsxib")]
+
+[node name="Wind Slash2" parent="." instance=ExtResource("6_sq06t")]
+position = Vector2(-2, -2)
+
+[node name="God’s Judgment" parent="." instance=ExtResource("10_etjka")]
+position = Vector2(-2, -2)
+
+[node name="Gust of Wind" parent="." instance=ExtResource("11_wj2to")]
+position = Vector2(-360, 520)
+
+[node name="Skeleton Strike" parent="." instance=ExtResource("12_lhtm1")]
+position = Vector2(-360, 520)
+
+[node name="WaterCardBase" parent="." instance=ExtResource("13_6qcki")]
+position = Vector2(-360, 520)

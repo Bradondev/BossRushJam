@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://blace6uro553k"]
+
+[ext_resource type="PackedScene" uid="uid://g0xhrsaexod" path="res://Code/cards/BaseCards/f_ire_card_base.tscn" id="1_3l7mb"]
+[ext_resource type="Texture2D" uid="uid://cf4msqnsb5isn" path="res://Art/Cards/cardImages/fire medium.png" id="2_0w27f"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_8segl"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="4_jbiew"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="5_pfpkw"]
+
+[node name="Quick Flame" instance=ExtResource("1_3l7mb")]
+Name = "Quick Flame"
+AttackDamage = 2
+description = "-Draw 2 
+-Deal Damage"
+
+[node name="Name" parent="." index="1"]
+text = "Quick Flame"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 2 Damage
+-Draw 2 
+"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_0w27f")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_8segl")]
+AmountOfDamage = 2
+
+[node name="Draw" parent="Card EffectHolder" index="1" instance=ExtResource("4_jbiew")]
+AmountOfCardDrawed = 2
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_pfpkw")
+stretch_mode = 2

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq5x2tovrov6s"]
+
+[ext_resource type="PackedScene" uid="uid://b0pntp4ef0gb1" path="res://test.tscn" id="1_uset5"]
+
+[node name="BattleManager" instance=ExtResource("1_uset5")]
+
+[editable path="PlayersDeck"]
+[editable path="EnemyDeck"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbljr6webtxg1"]
+
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_r25hg"]
+[ext_resource type="PackedScene" uid="uid://ckgkrj6xwaxco" path="res://Code/cards/light cards/EarthCards/roar_of_the_mountain_titan.tscn" id="2_hw8pd"]
+[ext_resource type="PackedScene" uid="uid://blj3b88njxvd2" path="res://Code/cards/Dark Cards/demon_slashes.tscn" id="3_k0tt0"]
+[ext_resource type="PackedScene" uid="uid://cbg1sa1hej0v4" path="res://Code/cards/Air Cards/dance_of_the_wind.tscn" id="4_6pa6w"]
+
+[node name="CardHolder" type="Node2D"]
+position = Vector2(-52, 433)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_r25hg")
+metadata/_edit_group_ = true
+
+[node name="Roar of the Mountain Titan" parent="." instance=ExtResource("2_hw8pd")]
+texture_filter = 0
+
+[node name="Demon Slashes" parent="." instance=ExtResource("3_k0tt0")]
+
+[node name="Dance of the Wind" parent="." instance=ExtResource("4_6pa6w")]
+texture_filter = 0

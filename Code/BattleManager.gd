@@ -10,9 +10,9 @@ signal  StartBossTurn
 # Called when the node enters the scene tree for  the first time.
 
 func  _ready():
-	#$SaveManager.LoadItem()
-	StartBattle()
 	$SaveManager.LoadItem()
+	StartBattle()
+	#$SaveManager.LoadItem()
 func  StartBattle():
 	emit_signal("StartComboBattle")
 

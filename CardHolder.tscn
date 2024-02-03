@@ -1,38 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbnu0dckupgjp"]
+[gd_scene load_steps=10 format=3 uid="uid://cbnu0dckupgjp"]
 
 [ext_resource type="PackedScene" uid="uid://cbg1sa1hej0v4" path="res://Code/cards/Air Cards/dance_of_the_wind.tscn" id="1_5ursw"]
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_6kd3c"]
 [ext_resource type="PackedScene" uid="uid://blj3b88njxvd2" path="res://Code/cards/Dark Cards/demon_slashes.tscn" id="1_jimmr"]
-[ext_resource type="Script" path="res://CardHolder.gd" id="1_jub0i"]
 [ext_resource type="PackedScene" uid="uid://nk7w272w161j" path="res://Code/cards/Air Cards/wind_slash.tscn" id="2_i6e28"]
 [ext_resource type="PackedScene" uid="uid://bqsdx1s10w8us" path="res://Code/cards/Dark Cards/the_jester.tscn" id="5_f3p71"]
 [ext_resource type="PackedScene" uid="uid://ckgkrj6xwaxco" path="res://Code/cards/light cards/EarthCards/roar_of_the_mountain_titan.tscn" id="6_wewll"]
 [ext_resource type="PackedScene" uid="uid://drxb62wak6kuf" path="res://Code/cards/Air Cards/sharpened_winds.tscn" id="7_fag88"]
 [ext_resource type="PackedScene" uid="uid://885t68w5anyh" path="res://Code/cards/Fire Cards/natsu.tscn" id="7_qtfuv"]
+[ext_resource type="PackedScene" uid="uid://cva253rdjm72p" path="res://Code/cards/light cards/god’s_judgment.tscn" id="9_t8p5v"]
 
 [node name="CardHolder" type="Node2D"]
-position = Vector2(-52, 433)
+position = Vector2(-92, 455)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_jub0i")
-metadata/_edit_group_ = true
+script = ExtResource("1_6kd3c")
 
 [node name="Roar of the Mountain Titan" parent="." instance=ExtResource("6_wewll")]
 texture_filter = 0
-position = Vector2(0, 0)
 
 [node name="Demon Slashes" parent="." instance=ExtResource("1_jimmr")]
-position = Vector2(0, 0)
 
 [node name="Dance of the Wind" parent="." instance=ExtResource("1_5ursw")]
 texture_filter = 0
-position = Vector2(0, 0)
 
 [node name="Wind Slash" parent="." instance=ExtResource("2_i6e28")]
 texture_filter = 0
-position = Vector2(0, 0)
 
 [node name="Natsu" parent="." instance=ExtResource("7_qtfuv")]
 texture_filter = 0
-position = Vector2(0, 0)
 
 [node name="The Jester" parent="." instance=ExtResource("5_f3p71")]
 texture_filter = 0
@@ -40,4 +35,9 @@ position = Vector2(1, 0)
 
 [node name="Sharpened Winds" parent="." instance=ExtResource("7_fag88")]
 texture_filter = 0
-position = Vector2(0, 0)
+
+[node name="Wind Slash2" parent="." instance=ExtResource("2_i6e28")]
+position = Vector2(-2, -2)
+
+[node name="God’s Judgment" parent="." instance=ExtResource("9_t8p5v")]
+position = Vector2(-2, -2)

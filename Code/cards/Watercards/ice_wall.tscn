@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://brrmk3l5eu72w"]
+
+[ext_resource type="PackedScene" uid="uid://ll6a4tti2aym" path="res://Code/cards/BaseCards/water_card_base.tscn" id="1_mfoje"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="2_1kfd4"]
+[ext_resource type="PackedScene" uid="uid://biwms2oatts6b" path="res://Code/cards/card effects/Shield.tscn" id="3_na44o"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="4_j411c"]
+
+[node name="IceWall" instance=ExtResource("1_mfoje")]
+Name = "IceWall"
+AttackDamage = 1
+description = "-Deal 1 Damage
+-Shield 2
+		-Draw 1"
+
+[node name="Name" parent="." index="1"]
+text = "IceWall"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 1 Damage
+-Shield 1
+	-Draw 1"
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("2_1kfd4")]
+AmountOfDamage = 1
+
+[node name="Shield" parent="Card EffectHolder" index="1" instance=ExtResource("3_na44o")]
+AmountOfShield = 1
+
+[node name="Draw" parent="Card EffectHolder" index="2" instance=ExtResource("4_j411c")]
+AmountOfCardDrawed = 1

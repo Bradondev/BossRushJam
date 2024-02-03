@@ -1,0 +1,32 @@
+[gd_scene load_steps=10 format=3 uid="uid://c67am37v2yn8w"]
+
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_swdfg"]
+[ext_resource type="PackedScene" uid="uid://ckgkrj6xwaxco" path="res://Code/cards/light cards/EarthCards/roar_of_the_mountain_titan.tscn" id="2_nmdyh"]
+[ext_resource type="PackedScene" uid="uid://blj3b88njxvd2" path="res://Code/cards/Dark Cards/demon_slashes.tscn" id="4_k1kcc"]
+[ext_resource type="PackedScene" uid="uid://cbg1sa1hej0v4" path="res://Code/cards/Air Cards/dance_of_the_wind.tscn" id="5_th0bh"]
+[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="6_fbnpm"]
+[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="7_l2jqa"]
+[ext_resource type="PackedScene" uid="uid://dso1ywhjaxcju" path="res://Code/cards/light cards/light_rays.tscn" id="8_pdl14"]
+[ext_resource type="PackedScene" uid="uid://t3oqvg73v7ag" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="9_yvr6g"]
+[ext_resource type="PackedScene" uid="uid://q2li60bgsmct" path="res://Code/cards/light cards/EarthCards/stone_shard.tscn" id="10_11lcn"]
+
+[node name="CardHolder" type="Node2D" groups=["CardHolderPlayer"]]
+position = Vector2(1066, 107)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_swdfg")
+
+[node name="Roar of the Mountain Titan" parent="." instance=ExtResource("2_nmdyh")]
+
+[node name="Demon Slashes" parent="." instance=ExtResource("4_k1kcc")]
+
+[node name="Dance of the Wind" parent="." instance=ExtResource("5_th0bh")]
+
+[node name="Gust of Wind2" parent="." instance=ExtResource("6_fbnpm")]
+
+[node name="Skeleton Strike2" parent="." instance=ExtResource("7_l2jqa")]
+
+[node name="Light Rays2" parent="." instance=ExtResource("8_pdl14")]
+
+[node name="Flame Bolt2" parent="." instance=ExtResource("9_yvr6g")]
+
+[node name="Stone Shard2" parent="." instance=ExtResource("10_11lcn")]

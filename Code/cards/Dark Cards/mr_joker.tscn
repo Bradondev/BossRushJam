@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfmgfsuvww2bu"]
+
+[ext_resource type="PackedScene" uid="uid://dbs8iqmgup11u" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_e0aml"]
+[ext_resource type="Texture2D" uid="uid://gvpofi6rgx8v" path="res://Art/Cards/cardImages/dark medium.png" id="2_4uevf"]
+[ext_resource type="PackedScene" uid="uid://cvlln5b6xnfhp" path="res://Code/cards/card effects/Steal.tscn" id="3_7o072"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="4_hmyeb"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="5_bmnqg"]
+
+[node name="Mr Joker" instance=ExtResource("1_e0aml")]
+Name = "Mr Joker"
+AttackDamage = 1
+description = "-Steal 1
+-Draw 1"
+
+[node name="Name" parent="." index="1"]
+text = "Mr Joker"
+
+[node name="description" parent="." index="2"]
+text = "-Steal 1
+-Draw 1"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_4uevf")
+
+[node name="Steal" parent="Card EffectHolder" index="0" instance=ExtResource("3_7o072")]
+AmountOfCardSteal = 1
+
+[node name="Draw" parent="Card EffectHolder" index="1" instance=ExtResource("4_hmyeb")]
+AmountOfCardDrawed = 1
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_bmnqg")
+stretch_mode = 2

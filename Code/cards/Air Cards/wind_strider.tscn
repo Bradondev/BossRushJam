@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyojm08wnc74l"]
+
+[ext_resource type="PackedScene" uid="uid://ulliyjmgpda6" path="res://Code/cards/BaseCards/air_card_base.tscn" id="1_6v101"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="2_5fl8k"]
+[ext_resource type="Texture2D" uid="uid://djcrxvplkev6k" path="res://Art/Cards/cardImages/Wind heavy-export.png" id="2_ei3s7"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_3k35v"]
+[ext_resource type="Texture2D" uid="uid://b8vqupxhndfiv" path="res://Art/Cards/cardImages/Icon_Dual_Sword_ATK.png" id="3_54is4"]
+
+[node name="Wind Strider" instance=ExtResource("1_6v101")]
+Name = "Wind Strider"
+AttackDamage = 3
+description = "-Deal 3 Damage Twice"
+
+[node name="Name" parent="." index="1"]
+text = "Wind Strider"
+
+[node name="description" parent="." index="2"]
+text = "-Deal 3 Damage Twice"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_ei3s7")
+
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("3_54is4")
+
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("2_5fl8k")]
+AmountOfDamage = 3
+
+[node name="Attack2" parent="Card EffectHolder" index="1" instance=ExtResource("2_5fl8k")]
+AmountOfDamage = 3
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_3k35v")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_3k35v")
+stretch_mode = 2

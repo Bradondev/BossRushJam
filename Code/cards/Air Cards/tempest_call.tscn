@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1wgfg36uo5nw"]
+
+[ext_resource type="PackedScene" uid="uid://ulliyjmgpda6" path="res://Code/cards/BaseCards/air_card_base.tscn" id="1_i2b11"]
+[ext_resource type="Texture2D" uid="uid://c0kucim0dk4ss" path="res://Art/Cards/cardImages/Wind Medium-export.png" id="2_mt5q5"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="2_o24yw"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_laf0e"]
+
+[node name="Tempest Call" instance=ExtResource("1_i2b11")]
+Name = "Tempest Call"
+AttackDamage = 4
+description = "-Draw 4"
+
+[node name="Name" parent="." index="1"]
+text = "Tempest Call"
+
+[node name="description" parent="." index="2"]
+text = "-Draw 4
+"
+
+[node name="Image" parent="." index="3"]
+texture = ExtResource("2_mt5q5")
+
+[node name="Draw" parent="Card EffectHolder" index="0" instance=ExtResource("2_o24yw")]
+AmountOfCardDrawed = 4
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_laf0e")
+stretch_mode = 2

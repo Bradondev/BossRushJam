@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0pntp4ef0gb1"]
+[gd_scene load_steps=13 format=3 uid="uid://b0pntp4ef0gb1"]
 
 [ext_resource type="Script" path="res://Code/BattleManager.gd" id="1_i4fai"]
 [ext_resource type="PackedScene" uid="uid://sce8xuonj2fd" path="res://Code/Bosses/BaseBoss.tscn" id="2_7b5iy"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bteh0r3v7rnq2" path="res://enemy_deck.tscn" id="5_dvet2"]
 [ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="6_b6rgs"]
 [ext_resource type="PackedScene" uid="uid://cqt6g201yn5j7" path="res://over_lays.tscn" id="7_8plj6"]
+[ext_resource type="Texture2D" uid="uid://d14f0u265vlki" path="res://Art/Cards/cardImages/arena.png" id="8_wowuj"]
+[ext_resource type="Texture2D" uid="uid://bmavcihruteom" path="res://Art/Cards/cardImages/shaman.png" id="9_o6e43"]
 
 [sub_resource type="Animation" id="Animation_rf1nl"]
 resource_name = "BossIntro"
@@ -23,10 +25,19 @@ _data = {
 [node name="BattleManager" type="Node2D"]
 script = ExtResource("1_i4fai")
 
+[node name="Arena" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(478, 268.5)
+scale = Vector2(2, 1.95926)
+texture = ExtResource("8_wowuj")
+
 [node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("6_b6rgs")]
 ItemToSave = NodePath("../PlayersDeck/CardHolder")
 
+[node name="Node" type="Node" parent="."]
+
 [node name="Boss" parent="." groups=["boss"] instance=ExtResource("2_7b5iy")]
+visible = false
 position = Vector2(787, 191)
 MaxHealth = 100
 
@@ -89,6 +100,10 @@ Name = "Player"
 
 [node name="OverLays" parent="." instance=ExtResource("7_8plj6")]
 position = Vector2(-2, -1)
+
+[node name="Shaman" type="Sprite2D" parent="."]
+position = Vector2(776, 206)
+texture = ExtResource("9_o6e43")
 
 [connection signal="StartComboBattle" from="." to="PlayersDeck" method="StartTurn"]
 [connection signal="StartComboBattle" from="." to="EnemyDeck" method="StartBattle"]

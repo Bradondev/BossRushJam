@@ -4,14 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bqub28n4ex52j" path="res://Art/Cards/Card_Dark.png" id="2_1icmn"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="3_ubpun"]
 [ext_resource type="Texture2D" uid="uid://d3lwlxuvk0bj6" path="res://Art/Cards/cardImages/earth almighty.png" id="4_4d2ni"]
-[ext_resource type="Texture2D" uid="uid://ca7jotfce6p6r" path="res://icon.svg" id="5_0d1gk"]
+[ext_resource type="Texture2D" uid="uid://ca7jotfce6p6r" path="res://Art/icon.svg" id="5_pyd0b"]
 [ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="7_5ogvw"]
 [ext_resource type="Texture2D" uid="uid://be80enblifuwo" path="res://Art/Cards/Card_Main_Back.png" id="7_phe7u"]
 [ext_resource type="Texture2D" uid="uid://4awxss0qu5wv" path="res://Art/Cards/cardImages/Icon_One_Sword_ATK.png" id="8_jsdme"]
 
 [node name="Cardbase" type="Node2D" groups=["Cards"]]
 texture_filter = 1
-position = Vector2(465, 240)
 script = ExtResource("1_xp1t7")
 metadata/_edit_group_ = true
 
@@ -58,7 +57,7 @@ offset_left = 49.0
 offset_top = 33.0
 offset_right = 83.0
 offset_bottom = 70.0
-texture = ExtResource("5_0d1gk")
+texture = ExtResource("5_pyd0b")
 expand_mode = 1
 
 [node name="MouseChecker" type="Control" parent="."]

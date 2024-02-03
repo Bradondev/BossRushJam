@@ -8,6 +8,7 @@
 [node name="Light Rays" instance=ExtResource("1_xeatp")]
 Name = "Light Rays"
 AttackDamage = 2
+description = "-Heal 2"
 
 [node name="description" parent="." index="2"]
 text = "-Heal 2"

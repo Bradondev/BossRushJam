@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cenou762pxkr8"]
+
+[ext_resource type="Script" path="res://ButtonSoundeffect.gd" id="1_k7e3w"]
+[ext_resource type="AudioStream" uid="uid://c4p71j0emotkm" path="res://Sound/SfX/Ui/010_Hover_10.wav" id="2_fwryt"]
+[ext_resource type="AudioStream" uid="uid://pcmg40f1oe60" path="res://Sound/SfX/Ui/020_Confirm_10.wav" id="3_x83gg"]
+[ext_resource type="AudioStream" uid="uid://b20km4h1dxptm" path="res://Sound/SfX/Ui/035_Denied_05.wav" id="4_2ruqi"]
+
+[node name="ButtonSoundeffect" type="Node"]
+script = ExtResource("1_k7e3w")
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fwryt")
+bus = &"SoundEffect"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_x83gg")
+bus = &"SoundEffect"
+
+[node name="Denied" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2ruqi")
+bus = &"SoundEffect"
