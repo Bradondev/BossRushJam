@@ -40,3 +40,9 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("3_gnoa8")
 stretch_mode = 2
+
+[node name="Draw" parent="." index="13"]
+bus = &"Master"
+
+[node name="UsedSound" parent="." index="14"]
+bus = &"Master"

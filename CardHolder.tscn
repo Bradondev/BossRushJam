@@ -35,6 +35,7 @@ position = Vector2(1, 0)
 
 [node name="Sharpened Winds" parent="." instance=ExtResource("7_fag88")]
 texture_filter = 0
+position = Vector2(-2, 6)
 
 [node name="Wind Slash2" parent="." instance=ExtResource("2_i6e28")]
 position = Vector2(-2, -2)

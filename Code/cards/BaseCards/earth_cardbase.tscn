@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://blnu171a4knsf"]
+[gd_scene load_steps=5 format=3 uid="uid://blnu171a4knsf"]
 
 [ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/cards/BaseCards/Cardbase.tscn" id="1_ryefy"]
+[ext_resource type="AudioStream" uid="uid://l31dtgw7xbp4" path="res://Sound/SfX/Magic/29_Earth_01.wav" id="3_lb5fw"]
 [ext_resource type="Texture2D" uid="uid://clkciasl3vxf3" path="res://Art/Cards/cardImages/Icon_Earth.png" id="3_u51gs"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q2gl7"]
@@ -12,9 +13,13 @@ Type = "Earth"
 [node name="ColorRect" parent="." index="0"]
 texture = SubResource("CompressedTexture2D_q2gl7")
 
-[node name="ImageType" parent="." index="3"]
-texture = ExtResource("3_u51gs")
-
-[node name="Name" parent="." index="7"]
+[node name="Name" parent="." index="1"]
 text = "
 "
+
+[node name="ImageType" parent="." index="4"]
+texture = ExtResource("3_u51gs")
+
+[node name="UsedSound" parent="." index="14"]
+stream = ExtResource("3_lb5fw")
+volume_db = 6.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c54m7kclwsk1f"]
+[gd_scene load_steps=8 format=3 uid="uid://c54m7kclwsk1f"]
 
 [ext_resource type="PackedScene" uid="uid://ulliyjmgpda6" path="res://Code/cards/BaseCards/air_card_base.tscn" id="1_5mre7"]
 [ext_resource type="Texture2D" uid="uid://da3j2812nkom0" path="res://Art/Cards/cardImages/Wind almighty-export.png" id="2_7y0j2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_tahfw"]
 [ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="4_6k2xu"]
 [ext_resource type="Texture2D" uid="uid://d3g0y64p2n5eh" path="res://Art/Cards/Card_Earth.png" id="5_7n2oe"]
+[ext_resource type="AudioStream" uid="uid://buvv538x4gi7p" path="res://Sound/SfX/Magic/28_Wind_04.wav" id="7_grh3q"]
 
 [node name="Breath of the Wind Dragon" instance=ExtResource("1_5mre7")]
 Name = "[font_size={10}]Breath of the[/font_size] [font_size={17}] Wind Dragon[/font_size]"
@@ -53,3 +54,8 @@ stretch_mode = 2
 
 [node name="Back" parent="." index="12"]
 texture = ExtResource("5_7n2oe")
+
+[node name="UsedSound" parent="." index="14"]
+stream = ExtResource("7_grh3q")
+volume_db = 5.0
+pitch_scale = 1.35

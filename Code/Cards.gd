@@ -102,11 +102,16 @@ func _on_hold_timer_timeout():
 	hasMoved= true
 	Down = false
 func Draw(Position):
+	if !Drawing:
+		drawSound()
 	Drawing = true
 	NextDrawPosition = Position
+	
 func OnUse():
+	$UsedSound.play()
 	IsUsed = true
 	emit_signal("OnClick",self)
+	
 	emit_signal("ChangeCombo", Type)
 	for effects in Effects:
 		effects.UseEffect()
@@ -117,3 +122,5 @@ func ShowOffCard(Position, IsShowingOff):
 	if IsShowingOff:
 		ShowingOff = true
 	ShowingOffPoint = Position
+func drawSound():
+	$Draw.play()

@@ -25,6 +25,7 @@ func _on_players_deck_on_draw(card):
 		CardsInPLay.remove_at(CardsInPLay.find(card))
 		$"..".CurrentEnemy.TakeDamage(OverDrawDamage)
 		print(card.Name + " Over Draw")
+		card.drawSound()
 		card.IsUsed = true
 		return
 	card.ConnectSignal("OnClick", self.CutCardFromCardInPlay)

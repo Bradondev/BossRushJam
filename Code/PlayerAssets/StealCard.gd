@@ -17,7 +17,6 @@ func StealCard(Amount):
 		CardGettingStolen.add_to_group("Cards")
 		var BossCardManger = get_tree().get_nodes_in_group("BossCardPlaces")[0]
 		var StealCardBoss =  get_tree().get_nodes_in_group("StealCardBoss")[0]
-		BossCardManger.CutCardFromCardInPlay(CardGettingStolen)
 		$"../CardsInPlayPlace"._on_players_deck_on_draw(CardGettingStolen)
 		CardGettingStolen.BossCard = false
 		CardGettingStolen.CanBeUsed = $"..".PlayerCanUseCards
@@ -48,6 +47,7 @@ func StealCard(Amount):
 		#effects.ConnectSignal("Steal",$"../StealCard".StealCard)
 		#effects.ConnectSignal("Heal",$"..".CurrentPLayer.Heal)
 		#effects.ConnectSignal("Shield",$"..".CurrentPLayer.ShieldUpdate)
+		BossCardManger.CutCardFromCardInPlay(CardGettingStolen)
 func _on_button_pressed():
 	StealCard(3)
 	

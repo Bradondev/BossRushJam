@@ -20,3 +20,4 @@ texture = ExtResource("2_8f6eu")
 texture = ExtResource("3_ouiej")
 
 [node name="Heal" parent="Card EffectHolder" index="0" instance=ExtResource("4_u5pex")]
+AmountOfCardDrawed = 2

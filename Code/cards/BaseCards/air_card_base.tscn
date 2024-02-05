@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ulliyjmgpda6"]
+[gd_scene load_steps=6 format=3 uid="uid://ulliyjmgpda6"]
 
 [ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/cards/BaseCards/Cardbase.tscn" id="1_4mchp"]
 [ext_resource type="Texture2D" uid="uid://gremaco4b0ws" path="res://Art/Cards/Card_Wind.png" id="2_11ysr"]
 [ext_resource type="Texture2D" uid="uid://wgsm0yi67do7" path="res://Art/Cards/cardImages/Wind Light.png" id="3_daxpt"]
 [ext_resource type="Texture2D" uid="uid://df85usgr68t22" path="res://Art/Cards/cardImages/Icon_Wind.png" id="4_wnnmi"]
+[ext_resource type="AudioStream" uid="uid://dow5moq807yv2" path="res://Sound/SfX/Magic/25_Wind_01.wav" id="5_fnabf"]
 
 [node name="AirCardBase" instance=ExtResource("1_4mchp")]
 Type = "Air"
@@ -19,3 +20,7 @@ texture = ExtResource("3_daxpt")
 
 [node name="ImageType" parent="." index="4"]
 texture = ExtResource("4_wnnmi")
+
+[node name="UsedSound" parent="." index="14"]
+stream = ExtResource("5_fnabf")
+volume_db = 4.0

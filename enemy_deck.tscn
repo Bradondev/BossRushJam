@@ -83,8 +83,12 @@ script = ExtResource("6_6a7e6")
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="OnDraw" from="." to="CardsInPlayPlace" method="_on_players_deck_on_draw"]
 [connection signal="StartThisUnitTurn" from="." to="CardsInHandHolder" method="FindCardstoUse"]
 [connection signal="EndTurn" from="CardsInHandHolder" to="." method="EndTurn"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="CardsInHandHolder" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

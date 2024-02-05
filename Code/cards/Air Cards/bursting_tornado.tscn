@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqjery6daoqt0"]
+[gd_scene load_steps=8 format=3 uid="uid://bqjery6daoqt0"]
 
 [ext_resource type="PackedScene" uid="uid://ulliyjmgpda6" path="res://Code/cards/BaseCards/air_card_base.tscn" id="1_yyebh"]
 [ext_resource type="Texture2D" uid="uid://djcrxvplkev6k" path="res://Art/Cards/cardImages/Wind heavy-export.png" id="2_eskgm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_an60a"]
 [ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="4_xc2bl"]
 [ext_resource type="Texture2D" uid="uid://d3g0y64p2n5eh" path="res://Art/Cards/Card_Earth.png" id="5_uc2v3"]
+[ext_resource type="AudioStream" uid="uid://b5p5x78sqess" path="res://Sound/SfX/Magic/27_Wind_03.wav" id="7_u8xvt"]
 
 [node name="Bursting Tornado" instance=ExtResource("1_yyebh")]
 Name = "Bursting Tornado"
@@ -39,3 +40,6 @@ stretch_mode = 2
 
 [node name="Back" parent="." index="12"]
 texture = ExtResource("5_uc2v3")
+
+[node name="UsedSound" parent="." index="14"]
+stream = ExtResource("7_u8xvt")

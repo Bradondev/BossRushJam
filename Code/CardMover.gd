@@ -26,6 +26,7 @@ func _on_players_deck_on_draw(card):
 		CardsInPLay.remove_at(CardsInPLay.find(card))
 		$"..".CurrentEnemy.TakeDamage(OverDrawDamage + OverDrawBuff)
 		print(card.Name + " Over Draw")
+		card.drawSound()
 		card.IsUsed = true
 		return
 	card.ConnectSignal("OnClick", self.CutCardFromCardInPlay)
@@ -49,6 +50,6 @@ func CutCardFromCardInPlay(card):
 	CardsInPLay.remove_at(CardsInPLay.find(card))
 	SpotsTaken[CardsInPLay.find(card)] = false
 	for Cards in CardsInPLay:
-		Cards.Draw(CardSpots[CardsInPLay.find(Cards) ].global_position.x)
+		Cards.Draw(CardSpots[CardsInPLay.find(Cards)].global_position.x)
 func  OverDrawBuffUpdata(Amount):
 	OverDrawBuff += Amount

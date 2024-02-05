@@ -74,8 +74,7 @@ func _on_end_combo_manager_draw_combo_break(Amount):
 func StartBattle():
 	DrawCards(5)
 func StartTurn():
-	DrawCards(3)
-	emit_signal("StartThisUnitTurn")
+	$Timer2.start()
 func  EndTurn():
 	PlayerCanUseCards = false
 	var Cards = get_tree().get_nodes_in_group("Cards")
@@ -94,3 +93,8 @@ func _on_button_pressed():
 func _on_battle_manager_start_combo_battle():
 	DrawCards(5)
 
+
+
+func _on_timer_2_timeout():
+	DrawCards(3)
+	emit_signal("StartThisUnitTurn")

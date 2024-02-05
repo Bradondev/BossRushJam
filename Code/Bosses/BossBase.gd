@@ -38,6 +38,7 @@ func  TakeDamage(Amount):
 		Shield -= Amount
 		if Shield < 0: 
 			CurrentHealth -=Shield
+			Shield = 0
 		checkHealth()
 		UpdateLabels()
 		return

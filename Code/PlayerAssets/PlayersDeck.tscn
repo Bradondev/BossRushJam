@@ -25,6 +25,7 @@
 script = ExtResource("1_j7q8m")
 
 [node name="CardHolder" parent="." instance=ExtResource("2_ebcu4")]
+position = Vector2(-430, 425)
 
 [node name="CardsInPlayPlace" type="Node2D" parent="." groups=["PlayerCardPlaces"]]
 position = Vector2(271, 382)
@@ -62,7 +63,7 @@ position = Vector2(1000, 512)
 position = Vector2(1100, 512)
 
 [node name="CardsInHandHolder" type="Node2D" parent="."]
-position = Vector2(-77, 398)
+position = Vector2(-455, 390)
 scale = Vector2(0.5, 0.5)
 
 [node name="Button" type="Button" parent="."]
@@ -142,6 +143,19 @@ value = 100.0
 texture_under = ExtResource("17_hj6jj")
 texture_progress = ExtResource("18_nsqjd")
 script = ExtResource("19_bj4tu")
+
+[node name="Label" type="Label" parent="UI/P{layerUi"]
+layout_mode = 0
+offset_left = 127.5
+offset_top = 58.5
+offset_right = 242.5
+offset_bottom = 94.5
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("12_gh4qe")
+theme_override_font_sizes/font_size = 40
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="UI/P{layerUi"]
 texture_filter = 1

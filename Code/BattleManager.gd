@@ -12,6 +12,7 @@ signal  StartBossTurn
 func  _ready():
 	$SaveManager.LoadItem()
 	StartBattle()
+	$AudioStreamPlayer.play()
 	#$SaveManager.LoadItem()
 func  StartBattle():
 	emit_signal("StartComboBattle")

@@ -16,3 +16,6 @@ texture = ExtResource("3_2jf23")
 
 [node name="ImageType" parent="." index="4"]
 texture = ExtResource("4_4d8as")
+
+[node name="UsedSound" parent="." index="14"]
+volume_db = 1.0

@@ -25,6 +25,21 @@ func _on_combo_manager_end_combo(Type,ComboAmount):
 		'Water':
 			print(Type +" Combo")
 			color = "blue"
+			if ComboAmount <=3:
+				CurrentBoss.TakeDamage(1)
+				CurrentPlayer.Heal(1)
+				CurrentPlayer.ShieldUpdate(1)
+				return
+			if ComboAmount <= 5:
+				CurrentBoss.TakeDamage(2)
+				CurrentPlayer.Heal(1)
+				CurrentPlayer.ShieldUpdate(2)
+				return
+			if ComboAmount > 8:
+				CurrentBoss.TakeDamage(3)
+				CurrentPlayer.Heal(3)
+				CurrentPlayer.ShieldUpdate(3)
+				return
 		'Dark':  
 			print(Type +" Combo")
 			color = "black"
@@ -46,7 +61,7 @@ func _on_combo_manager_end_combo(Type,ComboAmount):
 		'Earth':
 			print(Type +" Combo")
 			color = "brown"
-			#shield
+			CurrentPlayer.ShieldUpdate(ComboAmount)
 	emit_signal("ChangeComboLabelType", Type, color)
 
 

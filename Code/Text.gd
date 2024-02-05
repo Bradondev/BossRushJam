@@ -1,6 +1,6 @@
 extends Control
-
-var Text = ["Hello","this is an example"]
+@export_multiline var Text : Array[String]
+signal DialougeDone
 var counter = 0
 @onready var MainText = $textBubble/RichTextLabel
 @onready var Char_Timer = $TextTimer
@@ -13,6 +13,8 @@ func  _physics_process(delta):
 	if Input.is_action_just_pressed("Space") and DoneTyping :
 		if counter == Text.size() -1:
 			print("dialouge is done")
+			visible = false
+			emit_signal("DialougeDone")
 			return
 		counter += 1
 		MainText.visible_characters = 0
@@ -28,6 +30,7 @@ func runtext():
 		return
 	if Text[counter].length()  >= MainText.visible_characters:
 		DoneTyping = false
+		$AudioStreamPlayer.play()
 		SetText(Text[counter])
 		MainText.visible_characters += 1
 		Char_Timer.start()

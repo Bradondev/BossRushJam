@@ -5,7 +5,7 @@
 
 [node name="DrawEffect" instance=ExtResource("1_i821l")]
 
-[node name="Name" parent="." index="7"]
+[node name="Name" parent="." index="1"]
 text = "Slash"
 
 [node name="Draw" parent="Card EffectHolder" index="0" instance=ExtResource("2_tvj0v")]

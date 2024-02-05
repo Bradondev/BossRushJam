@@ -16,7 +16,7 @@ func _ready():
 	for weakness in $WeaknessHolder.get_children():
 		WeaknessList.append(weakness.WeaknessType)
 	
-	CurrentHealth = MaxHealth -10
+	CurrentHealth = MaxHealth 
 	$UiHolder/Label.text = str(CurrentHealth)
 	NameLabel.text = Name
 	HealthBar.max_value = MaxHealth
@@ -34,6 +34,7 @@ func  TakeDamage(Amount):
 		Shield -= Amount
 		if Shield < 0: 
 			CurrentHealth -=Shield
+			Shield = 0
 		checkHealth()
 		UpdateLabels()
 		return
@@ -52,6 +53,7 @@ func checkHealth():
 		
 	if CurrentHealth > MaxHealth:
 		CurrentHealth = MaxHealth
+	UpdateLabels()
 func UpdateLabels():
 	emit_signal("ChangeLables", CurrentHealth, MaxHealth, Shield)
 	$UiHolder/Label.text = str(CurrentHealth)

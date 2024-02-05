@@ -14,8 +14,10 @@ func _process(delta):
 
 
 func _on_player_change_lables(Health, maxHealth,Shield):
+	$"../Label".text = str(Health)+"/"+str(maxHealth)
 	max_value = maxHealth
 	value = Health
+	$"../Label".text = str(value)+"/"+str(maxHealth)
 	if Shield > 0:
 		$"../../Shield".visible = true
 		$"../../Shield/Label".text = str(Shield)
