@@ -37,6 +37,7 @@ func _on_players_deck_on_draw(card):
 		effects.ConnectSignal("Heal",$"..".CurrentPLayer.Heal)
 		effects.ConnectSignal("Shield",$"..".CurrentPLayer.ShieldUpdate)
 		effects.ConnectSignal("OverDrawBuff", OverDrawBuffUpdata)
+		effects.ConnectSignal("Reflect",$"..".CurrentEnemy.TakeDamage)
 	card.Draw(CardSpots[CardsInPLay.find(card)].global_position.x)
 	
 

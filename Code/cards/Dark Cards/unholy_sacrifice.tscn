@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgplycrw7g2c3"]
 
-[ext_resource type="PackedScene" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_kpcsx"]
+[ext_resource type="PackedScene" uid="uid://dbs8iqmgup11u" path="res://Code/cards/BaseCards/Darkcardbase.tscn" id="1_kpcsx"]
 [ext_resource type="Texture2D" uid="uid://bdld1sv1ox6lx" path="res://Art/Cards/cardImages/dark almighty.png" id="2_usxrh"]
 [ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_nocf1"]
 [ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_wgmum"]
@@ -20,6 +20,7 @@ text = "-Deal 7 Damage"
 texture = ExtResource("2_usxrh")
 
 [node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_wgmum")]
+AmountOfDamage = 7
 
 [node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
 texture_filter = 1

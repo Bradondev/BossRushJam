@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2c0jocytb0p5"]
+
+[ext_resource type="Script" path="res://Code/GamePhases/AfterBattle1.gd" id="1_qs4u4"]
+[ext_resource type="PackedScene" uid="uid://bubghem5n8xi2" path="res://DialougeBubble.tscn" id="2_xw0jg"]
+[ext_resource type="PackedScene" uid="uid://cyloxjhwxgfi7" path="res://Code/CardPacks/pick_card_phase3.tscn" id="3_tn4ae"]
+[ext_resource type="Script" path="res://Code/GamePhases/LevelSelecter.gd" id="4_mm1bu"]
+
+[node name="AfterBattle" type="Node2D"]
+script = ExtResource("1_qs4u4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 1000.0
+offset_bottom = 568.0
+color = Color(0, 0, 0, 0.584314)
+
+[node name="Second" type="Node2D" parent="."]
+
+[node name="Text" parent="Second" instance=ExtResource("2_xw0jg")]
+offset_left = -24.0
+offset_top = 120.0
+offset_right = -24.0
+offset_bottom = 120.0
+Text = Array[String](["You won you are  awarded new cards.
+", "This will be yout last battle."])
+
+[node name="PickCardPhase" parent="Second" instance=ExtResource("3_tn4ae")]
+visible = false
+
+[node name="LevelSelecter" type="Node2D" parent="Second"]
+visible = false
+script = ExtResource("4_mm1bu")
+
+[connection signal="DialougeDone" from="Second/Text" to="Second/PickCardPhase" method="PlayPhase"]
+[connection signal="EndPhase" from="Second/PickCardPhase" to="Second/LevelSelecter" method="PlayLevel3"]

@@ -50,6 +50,7 @@ func DrawCards(AmountOfCards):
 		var Newcard = NextCard.duplicate()
 		Newcard.global_position = $DeckArea.global_position
 		Newcard.visible = true
+		Newcard.CurrentUser = CurrentPLayer
 		Newcard.CanBeUsed = PlayerCanUseCards
 		Newcard.UsePoint = $UseArea.global_position
 		Newcard.add_to_group("PlayerCards")

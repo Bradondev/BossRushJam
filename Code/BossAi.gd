@@ -3,7 +3,7 @@ extends Node2D
 var CardsThatCanBeUsedUse 
 var CardThatAreGoingToBeUse
 var TempNumberArray =[]
-var NumberOfCardsBeingPlayed = [3,5,2,4,5,0]
+@export var NumberOfCardsBeingPlayed = [3,5,2,4,5,0]
 var AttackIndex = 0
 signal  EndTurn
 # Called when the node enters the scene tree for the first time.

@@ -36,6 +36,8 @@ func StealCard(Amount):
 				effects.disconnect("Shield",BossCardManger.get_parent().CurrentPLayer.ShieldUpdate)
 			if NameOfEffect =="OverDrawBuff":
 				effects.disconnect("OverDrawBuff",BossCardManger.OverDrawBuffUpdata)
+			elif NameOfEffect =="Reflect":
+				effects.disconnect("Reflect",BossCardManger.get_parent().CurrentEnemy.TakeDamage)
 				
 
 				#effects.disconnect("Steal")

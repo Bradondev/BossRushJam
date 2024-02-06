@@ -8,13 +8,14 @@
 load_path = "res://.godot/imported/Card_Earth.png-2eb8956719f9630f31e589e6f001f1bc.ctex"
 
 [node name="EarthCardbase" instance=ExtResource("1_ryefy")]
+Name = "Test Card"
 Type = "Earth"
 
 [node name="ColorRect" parent="." index="0"]
 texture = SubResource("CompressedTexture2D_q2gl7")
 
 [node name="Name" parent="." index="1"]
-text = "
+text = "Test Card
 "
 
 [node name="ImageType" parent="." index="4"]

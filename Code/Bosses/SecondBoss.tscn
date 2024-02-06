@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=3 uid="uid://cov83pkddjinn"]
+
+[ext_resource type="Script" path="res://Code/Bosses/BossBase.gd" id="1_er370"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="2_svc5a"]
+[ext_resource type="Texture2D" uid="uid://2t16vp6wfyj3" path="res://Art/BossDraft2.png" id="3_w3pbn"]
+[ext_resource type="PackedScene" uid="uid://donpin8m60qei" path="res://Code/Weakness/Weakness.tscn" id="4_m7iju"]
+[ext_resource type="Texture2D" uid="uid://b314mpakcfydl" path="res://Art/Cards/cardImages/Icon_Light2.png" id="5_muiej"]
+[ext_resource type="Texture2D" uid="uid://clkciasl3vxf3" path="res://Art/Cards/cardImages/Icon_Earth.png" id="5_wfv3a"]
+[ext_resource type="Texture2D" uid="uid://bgwj2b72u6v3n" path="res://Art/UI/heaartl-export.png" id="7_darug"]
+[ext_resource type="Texture2D" uid="uid://by4l55ctjbu2" path="res://Art/Cards/cardImages/Icon_Water2.png" id="7_vbtxn"]
+[ext_resource type="Texture2D" uid="uid://2buotv1b7mpl" path="res://Art/UI/fulll-export.png" id="8_cyqrq"]
+[ext_resource type="Texture2D" uid="uid://du0r6nxr65c22" path="res://Art/Cards/cardImages/Icon_Shield.png" id="9_y8lm6"]
+
+[node name="Boss" type="Node2D"]
+script = ExtResource("1_er370")
+MaxHealth = 160
+
+[node name="UiHolder" type="VBoxContainer" parent="."]
+offset_left = 65.0
+offset_top = -67.0
+offset_right = 265.0
+offset_bottom = -7.0
+metadata/_edit_group_ = true
+
+[node name="Name" type="Label" parent="UiHolder"]
+layout_mode = 2
+theme = ExtResource("2_svc5a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, 130)
+scale = Vector2(2, 2)
+texture = ExtResource("3_w3pbn")
+
+[node name="WeaknessHolder" type="Node2D" parent="."]
+
+[node name="Weakness" parent="WeaknessHolder" instance=ExtResource("4_m7iju")]
+WeaknessType = "Water"
+
+[node name="Weakness2" parent="WeaknessHolder" instance=ExtResource("4_m7iju")]
+WeaknessType = "Light"
+
+[node name="Weakness3" parent="WeaknessHolder" instance=ExtResource("4_m7iju")]
+WeaknessType = "Earth"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -112.0
+offset_top = -52.0
+offset_right = -56.0
+offset_bottom = -36.0
+scale = Vector2(4, 4)
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_wfv3a")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_muiej")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_vbtxn")
+stretch_mode = 4
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = -117.0
+offset_top = 14.0
+offset_right = -99.0
+offset_bottom = 31.0
+scale = Vector2(4, 4)
+value = 39.0
+fill_mode = 3
+texture_under = ExtResource("7_darug")
+texture_progress = ExtResource("8_cyqrq")
+
+[node name="ShieldIcon" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -126.0
+offset_top = 11.0
+offset_right = -35.0
+offset_bottom = 94.0
+texture = ExtResource("9_y8lm6")
+
+[node name="Label" type="Label" parent="ShieldIcon"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 79.0
+offset_bottom = 63.0
+theme = ExtResource("2_svc5a")
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1

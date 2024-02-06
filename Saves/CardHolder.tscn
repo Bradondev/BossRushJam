@@ -1,51 +1,136 @@
-[gd_scene load_steps=12 format=3 uid="uid://exttsow34w5b"]
+[gd_scene load_steps=13 format=3]
 
-[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_4ipw4"]
-[ext_resource type="PackedScene" uid="uid://ckgkrj6xwaxco" path="res://Code/cards/light cards/EarthCards/roar_of_the_mountain_titan.tscn" id="2_ijpvs"]
-[ext_resource type="PackedScene" uid="uid://blj3b88njxvd2" path="res://Code/cards/Dark Cards/demon_slashes.tscn" id="4_g4aw0"]
-[ext_resource type="PackedScene" uid="uid://cbg1sa1hej0v4" path="res://Code/cards/Air Cards/dance_of_the_wind.tscn" id="5_0iajc"]
-[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="6_hoayd"]
-[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="7_nbobi"]
-[ext_resource type="PackedScene" uid="uid://dso1ywhjaxcju" path="res://Code/cards/light cards/light_rays.tscn" id="8_m4qlb"]
-[ext_resource type="PackedScene" uid="uid://t3oqvg73v7ag" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="9_8noec"]
-[ext_resource type="PackedScene" uid="uid://q2li60bgsmct" path="res://Code/cards/light cards/EarthCards/stone_shard.tscn" id="10_5aquc"]
-[ext_resource type="PackedScene" uid="uid://dujfx84u7xadn" path="res://Code/cards/Fire Cards/flame_fang.tscn" id="11_04q16"]
-[ext_resource type="PackedScene" uid="uid://nkyoi5lscp6q" path="res://Code/cards/Dark Cards/shadow_blast.tscn" id="12_pdv8a"]
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_vfhck"]
+[ext_resource type="PackedScene" path="res://Code/cards/Watercards/Aqua Glist.tscn" id="2_g46vs"]
+[ext_resource type="Script" path="res://Code/Cards.gd" id="3_i0vkm"]
+[ext_resource type="PackedScene" path="res://Code/cards/light cards/light_rays.tscn" id="4_eqkwq"]
+[ext_resource type="PackedScene" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="5_fvhbb"]
+[ext_resource type="PackedScene" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="6_skvdw"]
+[ext_resource type="PackedScene" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="7_6ly1l"]
+[ext_resource type="PackedScene" path="res://Code/cards/light cards/EarthCards/stone_shard.tscn" id="8_w10wn"]
+[ext_resource type="PackedScene" path="res://Code/cards/Air Cards/sharpened_winds.tscn" id="9_jn3xv"]
+[ext_resource type="PackedScene" path="res://Code/cards/Air Cards/master_of_winds.tscn" id="10_6ova4"]
+[ext_resource type="PackedScene" path="res://Code/cards/Air Cards/breath_of_the_wind_dragon.tscn" id="11_eu80w"]
+[ext_resource type="PackedScene" path="res://Code/cards/light cards/fairy’s_kiss.tscn" id="12_y846x"]
 
 [node name="CardHolder" type="Node2D" groups=["CardHolderPlayer"]]
-position = Vector2(1454, 181)
+position = Vector2(-92, 455)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_4ipw4")
+script = ExtResource("1_vfhck")
 
-[node name="Roar of the Mountain Titan" parent="." instance=ExtResource("2_ijpvs")]
+[node name="WaterCardBase" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("2_g46vs")]
+texture_filter = 1
+script = ExtResource("3_i0vkm")
+Name = "Aqua Glist"
+AttackDamage = 2
+description = " -Deal 2 Damage"
+Type = "Water"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true
 
-[node name="Demon Slashes" parent="." instance=ExtResource("4_g4aw0")]
+[node name="Light Rays" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("4_eqkwq")]
+texture_filter = 1
+script = ExtResource("3_i0vkm")
+Name = "Light Rays"
+AttackDamage = 2
+description = "-Heal 2"
+Type = "Light"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true
 
-[node name="Dance of the Wind" parent="." instance=ExtResource("5_0iajc")]
+[node name="Flame Bolt" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("5_fvhbb")]
+texture_filter = 1
+script = ExtResource("3_i0vkm")
+Name = "Flame Bolt"
+AttackDamage = 2
+description = "-Deal 2 Damage"
+Type = "Fire"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true
 
-[node name="Gust of Wind2" parent="." instance=ExtResource("6_hoayd")]
-position = Vector2(1966, 581)
+[node name="Skeleton Strike" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("6_skvdw")]
+texture_filter = 1
+script = ExtResource("3_i0vkm")
+Name = "Skeleton Strike"
+AttackDamage = 2
+description = "-Deal 2 Damage"
+Type = "Dark"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true
 
-[node name="Skeleton Strike2" parent="." instance=ExtResource("7_nbobi")]
-position = Vector2(1966, 581)
+[node name="Gust of Wind" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("7_6ly1l")]
+texture_filter = 1
+script = ExtResource("3_i0vkm")
+Name = "Gust of Wind"
+AttackDamage = 1
+description = "-Deal 1 Damage
+-Draw 1"
+Type = "Air"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true
 
-[node name="Light Rays2" parent="." instance=ExtResource("8_m4qlb")]
-position = Vector2(1966, 581)
+[node name="Stone Shard" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("8_w10wn")]
+texture_filter = 1
+script = ExtResource("3_i0vkm")
+Name = "Stone Shard"
+AttackDamage = 2
+description = "-Deal 2 Damage"
+Type = "Earth"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true
 
-[node name="Flame Bolt2" parent="." instance=ExtResource("9_8noec")]
-position = Vector2(1966, 581)
+[node name="Sharpened Winds" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("9_jn3xv")]
+texture_filter = 1
+position = Vector2(420, 855)
+script = ExtResource("3_i0vkm")
+Name = "Sharpened Winds"
+AttackDamage = 0
+description = "-Buff Over Draw Damage"
+Type = "Air"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true
 
-[node name="Stone Shard2" parent="." instance=ExtResource("10_5aquc")]
-position = Vector2(1966, 581)
+[node name="Master of Winds" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("10_6ova4")]
+texture_filter = 1
+position = Vector2(420, 855)
+script = ExtResource("3_i0vkm")
+Name = "Master of Winds"
+AttackDamage = 4
+description = "-Draw 4"
+Type = "Air"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true
 
-[node name="Flame Fang" parent="." instance=ExtResource("11_04q16")]
-position = Vector2(1966, 581)
+[node name="Breath of the Wind Dragon" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("11_eu80w")]
+texture_filter = 1
+position = Vector2(420, 855)
+script = ExtResource("3_i0vkm")
+Name = "[font_size={10}]Breath of the[/font_size] [font_size={17}] Wind Dragon[/font_size]"
+AttackDamage = 5
+description = "-Almighty Wind Attack
+-Draw 3"
+Type = "Air"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true
 
-[node name="Shadow Blast" parent="." instance=ExtResource("12_pdv8a")]
-position = Vector2(1966, 581)
-
-[node name="Flame Bolt" parent="." instance=ExtResource("9_8noec")]
-position = Vector2(1966, 581)
-
-[node name="Gust of Wind" parent="." instance=ExtResource("6_hoayd")]
-position = Vector2(1966, 581)
+[node name="Fairy’s Kiss" type="Node2D" parent="." groups=["Cards"] instance=ExtResource("12_y846x")]
+texture_filter = 1
+position = Vector2(420, 855)
+script = ExtResource("3_i0vkm")
+Name = "Fairy’s Kiss"
+AttackDamage = 3
+description = "-Heal 2
+-Shield 1"
+Type = "Light"
+OnUseSignal = ""
+PlayerUsing = true
+metadata/_edit_group_ = true

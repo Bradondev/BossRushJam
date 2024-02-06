@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://3dqgddntmh7x"]
+[gd_scene load_steps=8 format=3 uid="uid://bhvprcbrc8i1h"]
 
-[ext_resource type="PackedScene" uid="uid://q84h2ixauhlr" path="res://Code/CardPacks/card_pack.tscn" id="1_qt4n2"]
-[ext_resource type="PackedScene" uid="uid://t3oqvg73v7ag" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="2_8tgub"]
-[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="2_u3rlg"]
-[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="3_xwlb0"]
+[ext_resource type="PackedScene" uid="uid://q84h2ixauhlr" path="res://Code/CardPacks/card_pack.tscn" id="1_xj4fi"]
+[ext_resource type="PackedScene" uid="uid://drxb62wak6kuf" path="res://Code/cards/Air Cards/sharpened_winds.tscn" id="2_xnc0p"]
+[ext_resource type="PackedScene" uid="uid://dbwwnr1mh4vae" path="res://Code/cards/Air Cards/master_of_winds.tscn" id="3_o46wq"]
+[ext_resource type="PackedScene" uid="uid://c54m7kclwsk1f" path="res://Code/cards/Air Cards/breath_of_the_wind_dragon.tscn" id="4_cjdbp"]
+[ext_resource type="PackedScene" uid="uid://cv5yufj5gp5w2" path="res://Code/cards/light cards/fairy’s_kiss.tscn" id="5_2tlor"]
 
-[sub_resource type="Shader" id="Shader_5jt7l"]
+[sub_resource type="Shader" id="Shader_crqrk"]
 code = "shader_type canvas_item;
 
 uniform vec4 color :source_color = vec4(1.0);
@@ -71,24 +72,24 @@ void fragment() {
 
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oo1kh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tl50o"]
 resource_local_to_scene = true
-shader = SubResource("Shader_5jt7l")
+shader = SubResource("Shader_crqrk")
 shader_parameter/color = Color(1, 1, 1, 0.976471)
 shader_parameter/width = 0.0
-shader_parameter/pattern = 1
+shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="CardPack" instance=ExtResource("1_qt4n2")]
+[node name="CardPack" instance=ExtResource("1_xj4fi")]
 
-[node name="Flame Bolt" parent="CardHolder" index="0" instance=ExtResource("2_8tgub")]
+[node name="Sharpened Winds" parent="CardHolder" index="0" instance=ExtResource("2_xnc0p")]
 
-[node name="Gust of Wind" parent="CardHolder" index="1" instance=ExtResource("2_u3rlg")]
+[node name="Master of Winds" parent="CardHolder" index="1" instance=ExtResource("3_o46wq")]
 
-[node name="Skeleton Strike" parent="CardHolder" index="2" instance=ExtResource("3_xwlb0")]
+[node name="Breath of the Wind Dragon" parent="CardHolder" index="2" instance=ExtResource("4_cjdbp")]
+
+[node name="Fairy’s Kiss" parent="CardHolder" index="3" instance=ExtResource("5_2tlor")]
 
 [node name="CardBack" parent="." index="1"]
-material = SubResource("ShaderMaterial_oo1kh")
-offset_top = -65.0
-offset_bottom = -1.0
+material = SubResource("ShaderMaterial_tl50o")

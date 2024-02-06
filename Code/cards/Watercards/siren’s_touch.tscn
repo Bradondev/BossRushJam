@@ -1,24 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6bjg7n3f7h75"]
+[gd_scene load_steps=7 format=3 uid="uid://b6bjg7n3f7h75"]
 
 [ext_resource type="PackedScene" uid="uid://ll6a4tti2aym" path="res://Code/cards/BaseCards/water_card_base.tscn" id="1_o1l4m"]
 [ext_resource type="Texture2D" uid="uid://b8ote4iuvknjh" path="res://Art/Cards/cardImages/water almighty.png" id="2_samrs"]
 [ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="3_lhtk2"]
+[ext_resource type="PackedScene" uid="uid://bil84fm6y350b" path="res://Code/cards/card effects/Draw.tscn" id="4_5o6oc"]
 [ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="4_mavwj"]
+[ext_resource type="PackedScene" uid="uid://ctd2prbk30buh" path="res://Code/cards/card effects/Heal.tscn" id="5_wtw8n"]
 
 [node name="Siren’s Touch" instance=ExtResource("1_o1l4m")]
 Name = "Siren’s Touch"
+description = "-Deal 7 Damage
+-Draw 2
+	-Heal 1"
 
 [node name="Name" parent="." index="1"]
 text = "Siren’s Touch"
 
 [node name="description" parent="." index="2"]
-text = "-Deal 7 Damage"
+text = "-Deal 7 Damage
+-Draw 2
+	-Heal 1"
 
 [node name="Image" parent="." index="3"]
 texture = ExtResource("2_samrs")
 
 [node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("3_lhtk2")]
 AmountOfDamage = 7
+
+[node name="Draw" parent="Card EffectHolder" index="1" instance=ExtResource("4_5o6oc")]
+AmountOfCardDrawed = 2
+
+[node name="Heal" parent="Card EffectHolder" index="2" instance=ExtResource("5_wtw8n")]
+AmountOfCardDrawed = 1
 
 [node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
 texture_filter = 1

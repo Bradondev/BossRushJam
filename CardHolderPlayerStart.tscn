@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="6_rqosj"]
 [ext_resource type="PackedScene" uid="uid://q2li60bgsmct" path="res://Code/cards/light cards/EarthCards/stone_shard.tscn" id="7_1e02h"]
 
-[node name="CardHolder" type="Node2D"]
+[node name="CardHolder" type="Node2D" groups=["CardHolderPlayer"]]
 position = Vector2(-92, 455)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_uihj4")

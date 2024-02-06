@@ -38,7 +38,8 @@ func StealCard(Amount):
 				effects.disconnect("Shield",PlayerCardManger.get_parent().CurrentPLayer.ShieldUpdate)
 			elif NameOfEffect =="OverDrawBuff":
 				effects.disconnect("OverDrawBuff",PlayerCardManger.OverDrawBuffUpdata)
-				
+			elif NameOfEffect =="Reflect":
+				effects.disconnect("Reflect",PlayerCardManger.get_parent().CurrentEnemy.TakeDamage)
 				#effects.disconnect("Steal")
 		CardGettingStolen.disconnect("OnClick",PlayerCardManger.CutCardFromCardInPlay)
 		Amount -=1

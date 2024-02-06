@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://3dqgddntmh7x"]
+[gd_scene load_steps=7 format=3 uid="uid://bkubfppfmqw8l"]
 
-[ext_resource type="PackedScene" uid="uid://q84h2ixauhlr" path="res://Code/CardPacks/card_pack.tscn" id="1_qt4n2"]
-[ext_resource type="PackedScene" uid="uid://t3oqvg73v7ag" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="2_8tgub"]
-[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="2_u3rlg"]
-[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="3_xwlb0"]
+[ext_resource type="PackedScene" uid="uid://q84h2ixauhlr" path="res://Code/CardPacks/card_pack.tscn" id="1_b1klr"]
+[ext_resource type="PackedScene" uid="uid://dbwwnr1mh4vae" path="res://Code/cards/Air Cards/master_of_winds.tscn" id="2_qyolk"]
+[ext_resource type="PackedScene" uid="uid://nk7w272w161j" path="res://Code/cards/Air Cards/wind_slash.tscn" id="3_jyren"]
+[ext_resource type="PackedScene" uid="uid://bqsdx1s10w8us" path="res://Code/cards/Dark Cards/the_jester.tscn" id="4_drdwj"]
 
-[sub_resource type="Shader" id="Shader_5jt7l"]
+[sub_resource type="Shader" id="Shader_crqrk"]
 code = "shader_type canvas_item;
 
 uniform vec4 color :source_color = vec4(1.0);
@@ -71,24 +71,24 @@ void fragment() {
 
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oo1kh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwfnv"]
 resource_local_to_scene = true
-shader = SubResource("Shader_5jt7l")
+shader = SubResource("Shader_crqrk")
 shader_parameter/color = Color(1, 1, 1, 0.976471)
 shader_parameter/width = 0.0
-shader_parameter/pattern = 1
+shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="CardPack" instance=ExtResource("1_qt4n2")]
+[node name="CardPack" instance=ExtResource("1_b1klr")]
 
-[node name="Flame Bolt" parent="CardHolder" index="0" instance=ExtResource("2_8tgub")]
+[node name="Master of Winds" parent="CardHolder" index="0" instance=ExtResource("2_qyolk")]
 
-[node name="Gust of Wind" parent="CardHolder" index="1" instance=ExtResource("2_u3rlg")]
+[node name="Wind Slash" parent="CardHolder" index="1" instance=ExtResource("3_jyren")]
+description = "-Deal 2 Damage
+-Draw 1"
 
-[node name="Skeleton Strike" parent="CardHolder" index="2" instance=ExtResource("3_xwlb0")]
+[node name="The Jester" parent="CardHolder" index="2" instance=ExtResource("4_drdwj")]
 
 [node name="CardBack" parent="." index="1"]
-material = SubResource("ShaderMaterial_oo1kh")
-offset_top = -65.0
-offset_bottom = -1.0
+material = SubResource("ShaderMaterial_vwfnv")

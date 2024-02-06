@@ -12,7 +12,7 @@ class_name  CardAttacks extends Node2D
 signal  OnClick
 signal ChangeCombo
 signal BossUses
-
+var CurrentUser 
 var BossWillUse = false
 var CanBeUsed = true
 var Up = false

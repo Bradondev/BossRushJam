@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmjh2godqwrl"]
+
+[ext_resource type="PackedScene" uid="uid://d1nx15mfo2mld" path="res://Code/GamePhases/pick_card_phase.tscn" id="1_u5w5s"]
+[ext_resource type="PackedScene" uid="uid://canxrm3ecn6wi" path="res://Code/CardPacks/Level2-1.tscn" id="2_tsu3k"]
+[ext_resource type="PackedScene" uid="uid://5j4bwrm12kx5" path="res://Code/CardPacks/Level2-2.tscn" id="3_6oqhi"]
+[ext_resource type="PackedScene" uid="uid://datvovatjr8pe" path="res://Code/CardPacks/Level2-3.tscn" id="4_c43yc"]
+
+[node name="PickCardPhase" instance=ExtResource("1_u5w5s")]
+
+[node name="CardPack" parent="AllPacks/CardHolder3" index="0" instance=ExtResource("2_tsu3k")]
+
+[node name="CardPack" parent="AllPacks/CardHolder2" index="0" instance=ExtResource("3_6oqhi")]
+
+[node name="CardPack" parent="AllPacks/CardHolder" index="0" instance=ExtResource("4_c43yc")]
+
+[editable path="ButtonSoundeffect"]

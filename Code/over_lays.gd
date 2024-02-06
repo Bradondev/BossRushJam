@@ -1,6 +1,5 @@
 extends Node2D
-
-
+@export var NextPhasePath :String 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,7 +13,7 @@ func _process(delta):
 
 func WinScreen():
 	$AnimationPlayer.play("WIn")
-	Globels.NumberOfWins += 1
+	
 	
 func  LossScreen():
 	$AnimationPlayer.play("Lost")
@@ -23,8 +22,14 @@ func  LossScreen():
 
 
 func _on_menu_pressed():
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Code/PlayerAssets/main_meau.tscn")
-
-
+	
 func _on_continue_pressed():
-	get_tree().change_scene_to_file("res://Code/GamePhases/before_battle.tscn")
+	Globels.NumberOfWins += 1
+	get_tree().paused = false
+	get_tree().change_scene_to_file(NextPhasePath)
+	
+
+func _on_animation_player_animation_finished(anim_name):
+	get_tree().paused = false

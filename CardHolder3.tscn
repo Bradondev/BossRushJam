@@ -1,0 +1,38 @@
+[gd_scene load_steps=12 format=3 uid="uid://cotxr7ua12oww"]
+
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_1usl3"]
+[ext_resource type="PackedScene" uid="uid://885t68w5anyh" path="res://Code/cards/Fire Cards/natsu.tscn" id="2_8ur37"]
+[ext_resource type="PackedScene" uid="uid://cva253rdjm72p" path="res://Code/cards/light cards/god’s_judgment.tscn" id="3_nhoi0"]
+[ext_resource type="PackedScene" uid="uid://cbedehcdstg0b" path="res://Code/cards/light cards/valkyrie’s_strike.tscn" id="4_8ltw2"]
+[ext_resource type="PackedScene" uid="uid://blace6uro553k" path="res://Code/cards/Fire Cards/quick_flame.tscn" id="5_7y6ab"]
+[ext_resource type="PackedScene" uid="uid://bpup8jptaean5" path="res://Code/cards/light cards/EarthCards/tremor_pulse.tscn" id="5_g10b5"]
+[ext_resource type="PackedScene" uid="uid://bqsdx1s10w8us" path="res://Code/cards/Dark Cards/the_jester.tscn" id="6_pepwf"]
+[ext_resource type="PackedScene" uid="uid://bvihpgs3lfkuq" path="res://Code/cards/light cards/EarthCards/rock_slide.tscn" id="6_yvbjc"]
+[ext_resource type="PackedScene" uid="uid://dgplycrw7g2c3" path="res://Code/cards/Dark Cards/unholy_sacrifice.tscn" id="9_5ci5v"]
+[ext_resource type="PackedScene" uid="uid://c54m7kclwsk1f" path="res://Code/cards/Air Cards/breath_of_the_wind_dragon.tscn" id="9_bwngk"]
+[ext_resource type="PackedScene" uid="uid://drxb62wak6kuf" path="res://Code/cards/Air Cards/sharpened_winds.tscn" id="10_t8wsv"]
+
+[node name="CardHolder" type="Node2D"]
+position = Vector2(-92, 455)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_1usl3")
+
+[node name="Natsu" parent="." instance=ExtResource("2_8ur37")]
+
+[node name="God’s Judgment" parent="." instance=ExtResource("3_nhoi0")]
+
+[node name="Valkyrie’s Strike" parent="." instance=ExtResource("4_8ltw2")]
+
+[node name="Tremor Pulse" parent="." instance=ExtResource("5_g10b5")]
+
+[node name="Rock Slide" parent="." instance=ExtResource("6_yvbjc")]
+
+[node name="Unholy Sacrifice" parent="." instance=ExtResource("9_5ci5v")]
+
+[node name="The Jester" parent="." instance=ExtResource("6_pepwf")]
+
+[node name="Breath of the Wind Dragon" parent="." instance=ExtResource("9_bwngk")]
+
+[node name="Sharpened Winds" parent="." instance=ExtResource("10_t8wsv")]
+
+[node name="Quick Flame" parent="." instance=ExtResource("5_7y6ab")]

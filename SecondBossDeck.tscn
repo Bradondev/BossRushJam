@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://d30b7ga5hq1km"]
+
+[ext_resource type="Script" path="res://Code/enemy_deck.gd" id="1_32lgp"]
+[ext_resource type="Script" path="res://Code/EnemyPlayPlace.gd" id="2_ymr44"]
+[ext_resource type="Script" path="res://Code/BossAi.gd" id="3_xmuqu"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="4_l1ju8"]
+[ext_resource type="Script" path="res://Code/StealCardBoss.gd" id="5_0q65r"]
+[ext_resource type="PackedScene" uid="uid://cepkge8qin8ok" path="res://CardHolder2.tscn" id="6_bhhd7"]
+
+[node name="EnemyDeck" type="Node2D"]
+position = Vector2(980, 568)
+rotation = 3.14159
+script = ExtResource("1_32lgp")
+
+[node name="CardsInPlayPlace" type="Node2D" parent="." groups=["BossCardPlaces"]]
+position = Vector2(171, 255)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_ymr44")
+
+[node name="Card1" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(200, 512)
+
+[node name="Card2" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(300, 512)
+
+[node name="Card3" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(400, 512)
+
+[node name="Card4" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(500, 512)
+
+[node name="Card5" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(600, 512)
+
+[node name="Card6" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(700, 512)
+
+[node name="Card7" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(800, 512)
+
+[node name="Card8" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(900, 512)
+
+[node name="Card9" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(1000, 512)
+
+[node name="Card10" type="Marker2D" parent="CardsInPlayPlace"]
+position = Vector2(1100, 512)
+
+[node name="CardsInHandHolder" type="Node2D" parent="."]
+position = Vector2(-467.001, 425.999)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_xmuqu")
+NumberOfCardsBeingPlayed = [3, 5, 7, 4, 3, 4]
+
+[node name="UseArea" type="Marker2D" parent="."]
+position = Vector2(1011, 157.003)
+
+[node name="DeckArea" type="Marker2D" parent="."]
+position = Vector2(-470.001, 425.999)
+
+[node name="DeckAmount" type="Label" parent="."]
+offset_top = 409.0
+offset_right = 92.0
+offset_bottom = 539.0
+theme = ExtResource("4_l1ju8")
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 198.999
+offset_top = 493.0
+offset_right = 246.999
+offset_bottom = 524.0
+text = "draw"
+metadata/_edit_use_anchors_ = true
+
+[node name="StealCardBoss" type="Node2D" parent="." groups=["StealCardBoss"]]
+script = ExtResource("5_0q65r")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
+[node name="CardHolder" parent="." instance=ExtResource("6_bhhd7")]
+
+[connection signal="OnDraw" from="." to="CardsInPlayPlace" method="_on_players_deck_on_draw"]
+[connection signal="StartThisUnitTurn" from="." to="CardsInHandHolder" method="FindCardstoUse"]
+[connection signal="EndTurn" from="CardsInHandHolder" to="." method="EndTurn"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="CardsInHandHolder" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

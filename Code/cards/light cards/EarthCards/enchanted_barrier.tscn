@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvr56alj0y4tb"]
+[gd_scene load_steps=7 format=3 uid="uid://dvr56alj0y4tb"]
 
 [ext_resource type="PackedScene" uid="uid://blnu171a4knsf" path="res://Code/cards/BaseCards/earth_cardbase.tscn" id="1_ug3bx"]
 [ext_resource type="Texture2D" uid="uid://u4ofv25a25lq" path="res://Art/Cards/cardImages/earth medium.png" id="2_c3uwq"]
+[ext_resource type="Texture2D" uid="uid://du0r6nxr65c22" path="res://Art/Cards/cardImages/Icon_Shield.png" id="3_6uhtg"]
 [ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="3_ccyxg"]
 [ext_resource type="PackedScene" uid="uid://biwms2oatts6b" path="res://Code/cards/card effects/Shield.tscn" id="3_t0ckt"]
+[ext_resource type="PackedScene" uid="uid://cwjhaat07bbf2" path="res://Code/cards/card effects/Reflect.tscn" id="5_fj1gi"]
 
 [node name="Enchanted Barrier" instance=ExtResource("1_ug3bx")]
 Name = "Enchanted Barrier"
+AttackDamage = 4
+description = "-Shield 4
+-Reflect"
 
 [node name="Name" parent="." index="1"]
 text = "Enchanted Barrier"
@@ -18,10 +23,21 @@ text = "-Shield 4
 [node name="Image" parent="." index="3"]
 texture = ExtResource("2_c3uwq")
 
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("3_6uhtg")
+
 [node name="Shield" parent="Card EffectHolder" index="0" instance=ExtResource("3_t0ckt")]
 AmountOfShield = 4
 
+[node name="Reflect" parent="Card EffectHolder" index="1" instance=ExtResource("5_fj1gi")]
+
 [node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_ccyxg")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("3_ccyxg")

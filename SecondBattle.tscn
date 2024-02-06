@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://quchiwanrbfx"]
+
+[ext_resource type="Script" path="res://Code/BattleManager.gd" id="1_0wx6r"]
+[ext_resource type="Texture2D" uid="uid://bvoaqt42grg8m" path="res://Art/arena-Recovered.png" id="2_42u2i"]
+[ext_resource type="PackedScene" uid="uid://d30b7ga5hq1km" path="res://SecondBossDeck.tscn" id="2_644oo"]
+[ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="3_i706v"]
+[ext_resource type="PackedScene" uid="uid://br5brytqnyr30" path="res://Code/PlayerAssets/PlayersDeck.tscn" id="5_1or8v"]
+[ext_resource type="PackedScene" uid="uid://cov83pkddjinn" path="res://Code/Bosses/SecondBoss.tscn" id="5_ld2o2"]
+[ext_resource type="PackedScene" uid="uid://caq3o3ok3b3vr" path="res://Code/PlayerAssets/Player.tscn" id="7_vkiuf"]
+[ext_resource type="PackedScene" uid="uid://cqt6g201yn5j7" path="res://over_lays.tscn" id="8_myo1k"]
+[ext_resource type="AudioStream" uid="uid://b3cb5ua54pnjg" path="res://Sound/Music/bgm_ver2.mp3" id="10_5lted"]
+
+[sub_resource type="Animation" id="Animation_rf1nl"]
+resource_name = "BossIntro"
+
+[sub_resource type="Animation" id="Animation_kuu7x"]
+resource_name = "PlayerIntro"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7880t"]
+_data = {
+"BossIntro": SubResource("Animation_rf1nl"),
+"PlayerIntro": SubResource("Animation_kuu7x")
+}
+
+[node name="BattleManager" type="Node2D"]
+script = ExtResource("1_0wx6r")
+
+[node name="Arena" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(478, 268.5)
+scale = Vector2(2, 1.95926)
+texture = ExtResource("2_42u2i")
+
+[node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("3_i706v")]
+ItemToSave = NodePath("../PlayersDeck/CardHolder")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Boss" parent="." instance=ExtResource("5_ld2o2")]
+position = Vector2(761, 89)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7880t")
+}
+
+[node name="PlayersDeck" parent="." node_paths=PackedStringArray("CurrentEnemy", "CurrentPLayer") instance=ExtResource("5_1or8v")]
+position = Vector2(-2, -3)
+CurrentEnemy = NodePath("../Boss")
+CurrentPLayer = NodePath("../Player")
+
+[node name="CardsInPlayPlace" parent="PlayersDeck" index="1"]
+position = Vector2(108, 391)
+metadata/_edit_group_ = true
+
+[node name="CardsInHandHolder" parent="PlayersDeck" index="2"]
+position = Vector2(-480, 378)
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("7_vkiuf")]
+position = Vector2(74, 388)
+Name = "Player"
+
+[node name="OverLays" parent="." instance=ExtResource("8_myo1k")]
+visible = false
+position = Vector2(-2, -1)
+NextPhasePath = "res://Code/GamePhases/AfterBattle3.tscn"
+
+[node name="EnemyDeck" parent="." node_paths=PackedStringArray("CurrentEnemy", "CurrentPLayer") instance=ExtResource("2_644oo")]
+CurrentEnemy = NodePath("../Player")
+CurrentPLayer = NodePath("../Boss")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_5lted")
+volume_db = -40.0
+bus = &"Music"
+
+[connection signal="StartComboBattle" from="." to="PlayersDeck" method="StartTurn"]
+[connection signal="StartComboBattle" from="." to="EnemyDeck" method="StartBattle"]
+[connection signal="StartPLayarsTurn" from="." to="PlayersDeck" method="StartTurn"]
+[connection signal="Dead" from="Boss" to="OverLays" method="WinScreen"]
+[connection signal="StartEnemyTurn" from="PlayersDeck" to="EnemyDeck" method="StartTurn"]
+[connection signal="EndTurn" from="PlayersDeck/ComboManager" to="PlayersDeck" method="EndTurn"]
+[connection signal="ChangeLables" from="Player" to="PlayersDeck/UI/P{layerUi/ProgressBar" method="_on_player_change_lables"]
+[connection signal="Dead" from="Player" to="." method="EndBattle"]
+[connection signal="StartEnemyTurn" from="EnemyDeck" to="PlayersDeck" method="StartTurn"]
+
+[editable path="PlayersDeck"]

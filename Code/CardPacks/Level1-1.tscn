@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://3dqgddntmh7x"]
+[gd_scene load_steps=7 format=3 uid="uid://dgl0qgyydalmr"]
 
-[ext_resource type="PackedScene" uid="uid://q84h2ixauhlr" path="res://Code/CardPacks/card_pack.tscn" id="1_qt4n2"]
-[ext_resource type="PackedScene" uid="uid://t3oqvg73v7ag" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="2_8tgub"]
-[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="2_u3rlg"]
-[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="3_xwlb0"]
+[ext_resource type="PackedScene" uid="uid://q84h2ixauhlr" path="res://Code/CardPacks/card_pack.tscn" id="1_pkgyl"]
+[ext_resource type="PackedScene" uid="uid://ckgkrj6xwaxco" path="res://Code/cards/light cards/EarthCards/roar_of_the_mountain_titan.tscn" id="2_b6nyd"]
+[ext_resource type="PackedScene" uid="uid://brrmk3l5eu72w" path="res://Code/cards/Watercards/ice_wall.tscn" id="3_ay4uh"]
+[ext_resource type="PackedScene" uid="uid://bqjery6daoqt0" path="res://Code/cards/Air Cards/bursting_tornado.tscn" id="4_am7at"]
 
-[sub_resource type="Shader" id="Shader_5jt7l"]
+[sub_resource type="Shader" id="Shader_crqrk"]
 code = "shader_type canvas_item;
 
 uniform vec4 color :source_color = vec4(1.0);
@@ -71,24 +71,22 @@ void fragment() {
 
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oo1kh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gus2w"]
 resource_local_to_scene = true
-shader = SubResource("Shader_5jt7l")
+shader = SubResource("Shader_crqrk")
 shader_parameter/color = Color(1, 1, 1, 0.976471)
 shader_parameter/width = 0.0
-shader_parameter/pattern = 1
+shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="CardPack" instance=ExtResource("1_qt4n2")]
+[node name="CardPack" instance=ExtResource("1_pkgyl")]
 
-[node name="Flame Bolt" parent="CardHolder" index="0" instance=ExtResource("2_8tgub")]
+[node name="Roar of the Mountain Titan" parent="CardHolder" index="0" instance=ExtResource("2_b6nyd")]
 
-[node name="Gust of Wind" parent="CardHolder" index="1" instance=ExtResource("2_u3rlg")]
+[node name="IceWall" parent="CardHolder" index="1" instance=ExtResource("3_ay4uh")]
 
-[node name="Skeleton Strike" parent="CardHolder" index="2" instance=ExtResource("3_xwlb0")]
+[node name="Bursting Tornado" parent="CardHolder" index="2" instance=ExtResource("4_am7at")]
 
 [node name="CardBack" parent="." index="1"]
-material = SubResource("ShaderMaterial_oo1kh")
-offset_top = -65.0
-offset_bottom = -1.0
+material = SubResource("ShaderMaterial_gus2w")

@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://3dqgddntmh7x"]
+[gd_scene load_steps=8 format=3 uid="uid://cnwjhmfa6x4qg"]
 
-[ext_resource type="PackedScene" uid="uid://q84h2ixauhlr" path="res://Code/CardPacks/card_pack.tscn" id="1_qt4n2"]
-[ext_resource type="PackedScene" uid="uid://t3oqvg73v7ag" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="2_8tgub"]
-[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="2_u3rlg"]
-[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="3_xwlb0"]
+[ext_resource type="PackedScene" uid="uid://q84h2ixauhlr" path="res://Code/CardPacks/card_pack.tscn" id="1_tb5ri"]
+[ext_resource type="PackedScene" uid="uid://dgplycrw7g2c3" path="res://Code/cards/Dark Cards/unholy_sacrifice.tscn" id="2_0dpeu"]
+[ext_resource type="PackedScene" uid="uid://cva253rdjm72p" path="res://Code/cards/light cards/god’s_judgment.tscn" id="3_roxam"]
+[ext_resource type="PackedScene" uid="uid://mrwsivnx71l8" path="res://Code/cards/Watercards/hydro_splash.tscn" id="4_74k83"]
+[ext_resource type="PackedScene" uid="uid://bvihpgs3lfkuq" path="res://Code/cards/light cards/EarthCards/rock_slide.tscn" id="5_t38ka"]
 
-[sub_resource type="Shader" id="Shader_5jt7l"]
+[sub_resource type="Shader" id="Shader_crqrk"]
 code = "shader_type canvas_item;
 
 uniform vec4 color :source_color = vec4(1.0);
@@ -71,24 +72,24 @@ void fragment() {
 
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oo1kh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wuuj"]
 resource_local_to_scene = true
-shader = SubResource("Shader_5jt7l")
+shader = SubResource("Shader_crqrk")
 shader_parameter/color = Color(1, 1, 1, 0.976471)
 shader_parameter/width = 0.0
-shader_parameter/pattern = 1
+shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="CardPack" instance=ExtResource("1_qt4n2")]
+[node name="CardPack" instance=ExtResource("1_tb5ri")]
 
-[node name="Flame Bolt" parent="CardHolder" index="0" instance=ExtResource("2_8tgub")]
+[node name="Unholy Sacrifice" parent="CardHolder" index="0" instance=ExtResource("2_0dpeu")]
 
-[node name="Gust of Wind" parent="CardHolder" index="1" instance=ExtResource("2_u3rlg")]
+[node name="God’s Judgment" parent="CardHolder" index="1" instance=ExtResource("3_roxam")]
 
-[node name="Skeleton Strike" parent="CardHolder" index="2" instance=ExtResource("3_xwlb0")]
+[node name="Hydro Splash" parent="CardHolder" index="2" instance=ExtResource("4_74k83")]
+
+[node name="Rock Slide" parent="CardHolder" index="3" instance=ExtResource("5_t38ka")]
 
 [node name="CardBack" parent="." index="1"]
-material = SubResource("ShaderMaterial_oo1kh")
-offset_top = -65.0
-offset_bottom = -1.0
+material = SubResource("ShaderMaterial_0wuuj")

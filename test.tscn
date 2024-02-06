@@ -86,7 +86,6 @@ bus = &"Music"
 [connection signal="StartPLayarsTurn" from="." to="PlayersDeck" method="StartTurn"]
 [connection signal="Dead" from="Boss" to="." method="EndBattle"]
 [connection signal="StartEnemyTurn" from="PlayersDeck" to="EnemyDeck" method="StartTurn"]
-[connection signal="EndTurn" from="PlayersDeck/ComboManager" to="PlayersDeck" method="EndTurn"]
 [connection signal="StartEnemyTurn" from="EnemyDeck" to="PlayersDeck" method="StartTurn"]
 [connection signal="ChangeLables" from="Player" to="PlayersDeck/UI/P{layerUi/ProgressBar" method="_on_player_change_lables"]
 [connection signal="Dead" from="Player" to="." method="EndBattle"]

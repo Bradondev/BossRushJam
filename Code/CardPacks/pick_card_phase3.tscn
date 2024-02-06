@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1nx15mfo2mld"]
+[gd_scene load_steps=16 format=3 uid="uid://cyloxjhwxgfi7"]
 
-[ext_resource type="Script" path="res://Code/GamePhases/pick_card_phase.gd" id="1_b61up"]
-[ext_resource type="PackedScene" uid="uid://ky1ect0cidci" path="res://CardHolderPlayerStart.tscn" id="2_swhdp"]
-[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="3_6784g"]
-[ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="5_c70vb"]
-[ext_resource type="Texture2D" uid="uid://djx5iu233nf4i" path="res://Art/UI/Button_End_OnHover_OnClick.png" id="6_p8up2"]
-[ext_resource type="Texture2D" uid="uid://cwbq8i3n85p7h" path="res://Art/UI/Button_End_Normal.png" id="7_gy0mm"]
-[ext_resource type="PackedScene" uid="uid://cenou762pxkr8" path="res://button_soundeffect.tscn" id="10_t3vhn"]
+[ext_resource type="Script" path="res://Code/GamePhases/pick_card_phase.gd" id="1_6xvi4"]
+[ext_resource type="PackedScene" uid="uid://ky1ect0cidci" path="res://CardHolderPlayerStart.tscn" id="2_mfaph"]
+[ext_resource type="PackedScene" uid="uid://cnwjhmfa6x4qg" path="res://Code/CardPacks/level3-1.tscn" id="3_2g0ai"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="3_h087d"]
+[ext_resource type="PackedScene" uid="uid://dm4d64wt0dsx3" path="res://Code/CardPacks/level3-2.tscn" id="4_2h46x"]
+[ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="4_vinj3"]
+[ext_resource type="Texture2D" uid="uid://djx5iu233nf4i" path="res://Art/UI/Button_End_OnHover_OnClick.png" id="5_jypur"]
+[ext_resource type="PackedScene" uid="uid://bhvprcbrc8i1h" path="res://level3-3.tscn" id="5_l6bui"]
+[ext_resource type="Texture2D" uid="uid://cwbq8i3n85p7h" path="res://Art/UI/Button_End_Normal.png" id="6_ske35"]
+[ext_resource type="PackedScene" uid="uid://cenou762pxkr8" path="res://button_soundeffect.tscn" id="7_ac38m"]
 
 [sub_resource type="Animation" id="Animation_yntwa"]
 resource_name = "LabalCardsBeenAdded"
@@ -202,9 +205,9 @@ _data = {
 
 [node name="PickCardPhase" type="Node2D" groups=["PickPhase"]]
 position = Vector2(512, 640)
-script = ExtResource("1_b61up")
+script = ExtResource("1_6xvi4")
 
-[node name="CardHolder" parent="." instance=ExtResource("2_swhdp")]
+[node name="CardHolder" parent="." instance=ExtResource("2_mfaph")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -221,10 +224,16 @@ metadata/_edit_group_ = true
 [node name="CardHolder3" type="Node2D" parent="AllPacks"]
 position = Vector2(200, 0)
 
+[node name="CardPack" parent="AllPacks/CardHolder3" instance=ExtResource("3_2g0ai")]
+
 [node name="CardHolder2" type="Node2D" parent="AllPacks"]
+
+[node name="CardPack" parent="AllPacks/CardHolder2" instance=ExtResource("4_2h46x")]
 
 [node name="CardHolder" type="Node2D" parent="AllPacks"]
 position = Vector2(-200, 0)
+
+[node name="CardPack" parent="AllPacks/CardHolder" instance=ExtResource("5_l6bui")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -248,7 +257,7 @@ offset_left = 240.0
 offset_top = 56.0
 offset_right = 780.0
 offset_bottom = 136.0
-theme = ExtResource("3_6784g")
+theme = ExtResource("3_h087d")
 theme_override_font_sizes/font_size = 30
 text = "Please choose a pack to
 add to your deck"
@@ -263,7 +272,7 @@ position = Vector2(1, 11)
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("5_c70vb")]
+[node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("4_vinj3")]
 ItemToSave = NodePath("../CardHolder")
 
 [node name="DoneButton" type="TextureButton" parent="."]
@@ -274,8 +283,8 @@ offset_top = 64.0
 offset_right = 408.0
 offset_bottom = 104.0
 scale = Vector2(1.2, 1.2)
-texture_normal = ExtResource("6_p8up2")
-texture_hover = ExtResource("7_gy0mm")
+texture_normal = ExtResource("5_jypur")
+texture_hover = ExtResource("6_ske35")
 
 [node name="Label" type="Label" parent="DoneButton"]
 layout_mode = 0
@@ -283,12 +292,12 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 104.0
 offset_bottom = 40.0
-theme = ExtResource("3_6784g")
+theme = ExtResource("3_h087d")
 text = "Continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonSoundeffect" parent="." instance=ExtResource("10_t3vhn")]
+[node name="ButtonSoundeffect" parent="." instance=ExtResource("7_ac38m")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

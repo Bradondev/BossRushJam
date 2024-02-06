@@ -14,6 +14,6 @@ func _process(delta):
 func PlayLevel1():
 	get_tree().change_scene_to_file("res://FirstBattle.tscn")
 func playlevel2():
-	get_tree().change_scene_to_file("res://test.tscn")
+	get_tree().change_scene_to_file("res://SecondBattle.tscn")
 func  PlayLevel3():
-	get_tree().change_scene_to_file("res://test.tscn")
+	get_tree().change_scene_to_file("res://ThridBattle.tscn")

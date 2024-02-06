@@ -1,0 +1,38 @@
+[gd_scene load_steps=12 format=3 uid="uid://cepkge8qin8ok"]
+
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_hesw8"]
+[ext_resource type="PackedScene" uid="uid://dc7f5pj6kdwpq" path="res://Code/cards/Fire Cards/flame_blitz.tscn" id="2_gdn3v"]
+[ext_resource type="PackedScene" uid="uid://cs2ts50dk20vh" path="res://Code/cards/Fire Cards/flame_blast.tscn" id="3_q1san"]
+[ext_resource type="PackedScene" uid="uid://dujfx84u7xadn" path="res://Code/cards/Fire Cards/flame_fang.tscn" id="4_010om"]
+[ext_resource type="PackedScene" uid="uid://blace6uro553k" path="res://Code/cards/Fire Cards/quick_flame.tscn" id="5_y0mai"]
+[ext_resource type="PackedScene" uid="uid://bqsdx1s10w8us" path="res://Code/cards/Dark Cards/the_jester.tscn" id="7_owtgk"]
+[ext_resource type="PackedScene" uid="uid://dfmgfsuvww2bu" path="res://Code/cards/Dark Cards/mr_joker.tscn" id="7_r2dtv"]
+[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="8_7wquv"]
+[ext_resource type="PackedScene" uid="uid://dgplycrw7g2c3" path="res://Code/cards/Dark Cards/unholy_sacrifice.tscn" id="9_oic5l"]
+[ext_resource type="PackedScene" uid="uid://bd3pxf7i7nrwj" path="res://Code/cards/Fire Cards/wild_fire.tscn" id="10_de5at"]
+[ext_resource type="PackedScene" uid="uid://dbwwnr1mh4vae" path="res://Code/cards/Air Cards/master_of_winds.tscn" id="11_csnb3"]
+
+[node name="CardHolder" type="Node2D"]
+position = Vector2(-92, 455)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_hesw8")
+
+[node name="Flame Blitz" parent="." instance=ExtResource("2_gdn3v")]
+
+[node name="Flame Blast" parent="." instance=ExtResource("3_q1san")]
+
+[node name="Flame Fang" parent="." instance=ExtResource("4_010om")]
+
+[node name="Quick Flame" parent="." instance=ExtResource("5_y0mai")]
+
+[node name="The Jester" parent="." instance=ExtResource("7_owtgk")]
+
+[node name="Mr Joker" parent="." instance=ExtResource("7_r2dtv")]
+
+[node name="Skeleton Strike" parent="." instance=ExtResource("8_7wquv")]
+
+[node name="Unholy Sacrifice" parent="." instance=ExtResource("9_oic5l")]
+
+[node name="WildFire" parent="." instance=ExtResource("10_de5at")]
+
+[node name="Master of Winds" parent="." instance=ExtResource("11_csnb3")]

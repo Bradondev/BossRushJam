@@ -38,6 +38,7 @@ ItemToSave = NodePath("../PlayersDeck/CardHolder")
 
 [node name="Boss" parent="." instance=ExtResource("4_ajik8")]
 position = Vector2(755, 80)
+MaxHealth = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -65,7 +66,10 @@ position = Vector2(74, 388)
 Name = "Player"
 
 [node name="OverLays" parent="." instance=ExtResource("8_rd3ls")]
+process_mode = 3
+visible = false
 position = Vector2(-2, -1)
+NextPhasePath = "res://Code/GamePhases/AfterBattle2.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_47l1o")

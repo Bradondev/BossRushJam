@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjephv04nipwi"]
+[gd_scene load_steps=6 format=3 uid="uid://bjephv04nipwi"]
 
 [ext_resource type="PackedScene" uid="uid://blnu171a4knsf" path="res://Code/cards/BaseCards/earth_cardbase.tscn" id="1_g54rg"]
+[ext_resource type="Texture2D" uid="uid://du0r6nxr65c22" path="res://Art/Cards/cardImages/Icon_Shield.png" id="2_ni6my"]
+[ext_resource type="PackedScene" uid="uid://biwms2oatts6b" path="res://Code/cards/card effects/Shield.tscn" id="3_ayo0u"]
+[ext_resource type="PackedScene" uid="uid://cwjhaat07bbf2" path="res://Code/cards/card effects/Reflect.tscn" id="4_ic1fr"]
+[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="5_gcubl"]
 
 [node name="Planet Earth" instance=ExtResource("1_g54rg")]
 Name = "Planet Earth"
+AttackDamage = 8
+description = "-Shield 8 
+-Reflect"
 
 [node name="Name" parent="." index="1"]
 text = "Planet Earth
@@ -12,3 +19,29 @@ text = "Planet Earth
 [node name="description" parent="." index="2"]
 text = "-Shield 8 
 -Reflect"
+
+[node name="TypeOFCardImage" parent="." index="7"]
+texture = ExtResource("2_ni6my")
+
+[node name="Shield" parent="Card EffectHolder" index="0" instance=ExtResource("3_ayo0u")]
+AmountOfShield = 8
+
+[node name="Reflect" parent="Card EffectHolder" index="1" instance=ExtResource("4_ic1fr")]
+
+[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_gcubl")
+stretch_mode = 2
+
+[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_gcubl")
+stretch_mode = 2
+
+[node name="star4" type="TextureRect" parent="LevelHolder" index="3"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_gcubl")
+stretch_mode = 2
