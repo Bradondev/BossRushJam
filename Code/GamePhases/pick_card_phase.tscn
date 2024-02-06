@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1nx15mfo2mld"]
+[gd_scene load_steps=16 format=3 uid="uid://d1nx15mfo2mld"]
 
 [ext_resource type="Script" path="res://Code/GamePhases/pick_card_phase.gd" id="1_b61up"]
 [ext_resource type="PackedScene" uid="uid://3dqgddntmh7x" path="res://Code/CardPacks/BasicCardPack.tscn" id="1_dqtut"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="5_c70vb"]
 [ext_resource type="Texture2D" uid="uid://djx5iu233nf4i" path="res://Art/UI/Button_End_OnHover_OnClick.png" id="6_p8up2"]
 [ext_resource type="Texture2D" uid="uid://cwbq8i3n85p7h" path="res://Art/UI/Button_End_Normal.png" id="7_gy0mm"]
-[ext_resource type="PackedScene" uid="uid://dbljr6webtxg1" path="res://card_holder.tscn" id="7_nwylt"]
+[ext_resource type="PackedScene" uid="uid://exttsow34w5b" path="res://Saves/CardHolder.tscn" id="10_3a4jh"]
+[ext_resource type="PackedScene" uid="uid://cenou762pxkr8" path="res://button_soundeffect.tscn" id="10_t3vhn"]
 
 [sub_resource type="Animation" id="Animation_yntwa"]
 resource_name = "LabalCardsBeenAdded"
@@ -305,9 +306,11 @@ position = Vector2(-200, 0)
 [node name="Pack_2" parent="AllPacks/CardHolder" instance=ExtResource("3_2apg2")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_w77a7")
 }
+autoplay = "LabalCardsBeenAdded"
 
 [node name="MouseBlocker" type="Control" parent="."]
 visible = false
@@ -339,8 +342,7 @@ position = Vector2(1, 11)
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("5_c70vb")]
-ItemToSave = NodePath("../CardHolder")
+[node name="SaveManager" parent="." instance=ExtResource("5_c70vb")]
 
 [node name="DoneButton" type="TextureButton" parent="."]
 visible = false
@@ -364,9 +366,14 @@ text = "Continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CardHolder" parent="." groups=["CardHolderPlayer"] instance=ExtResource("7_nwylt")]
-position = Vector2(854, 206)
+[node name="ButtonSoundeffect" parent="." instance=ExtResource("10_t3vhn")]
+
+[node name="CardHolder" parent="." instance=ExtResource("10_3a4jh")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="DoneButton" to="ButtonSoundeffect" method="Hover"]
 [connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed"]
+[connection signal="pressed" from="DoneButton" to="ButtonSoundeffect" method="Clicked"]
+
+[editable path="ButtonSoundeffect"]

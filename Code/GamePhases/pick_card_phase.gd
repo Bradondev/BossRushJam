@@ -1,9 +1,9 @@
 extends Node2D
 
-
+signal  EndPhase
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimationPlayer.play("ShowPacks")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,3 +34,9 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_done_button_pressed():
 	$SaveManager.SaveItem()
+	emit_signal("EndPhase")
+	queue_free()
+
+func PlayPhase():
+	$AnimationPlayer.play("ShowPacks")
+	visible = true

@@ -1,23 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bteh0r3v7rnq2"]
+[gd_scene load_steps=7 format=3 uid="uid://c3ryqv3jusim8"]
 
-[ext_resource type="Script" path="res://Code/enemy_deck.gd" id="1_h3105"]
-[ext_resource type="PackedScene" uid="uid://cbnu0dckupgjp" path="res://CardHolder.tscn" id="2_2okhj"]
-[ext_resource type="Script" path="res://Code/BossAi.gd" id="4_j5d3b"]
-[ext_resource type="Script" path="res://Code/StealCardBoss.gd" id="6_6a7e6"]
-[ext_resource type="Script" path="res://Code/EnemyPlayPlace.gd" id="10_8wjqx"]
-[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="13_607fp"]
+[ext_resource type="Script" path="res://Code/enemy_deck.gd" id="1_5nlm4"]
+[ext_resource type="Script" path="res://Code/EnemyPlayPlace.gd" id="3_0xegd"]
+[ext_resource type="Script" path="res://Code/BossAi.gd" id="4_ut5xn"]
+[ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="5_jbvlb"]
+[ext_resource type="PackedScene" uid="uid://dd4iily4vpu7r" path="res://CardHolder1.tscn" id="6_as26m"]
+[ext_resource type="Script" path="res://Code/StealCardBoss.gd" id="6_y5pe1"]
 
 [node name="EnemyDeck" type="Node2D"]
 position = Vector2(980, 568)
 rotation = 3.14159
-script = ExtResource("1_h3105")
-
-[node name="CardHolder" parent="." instance=ExtResource("2_2okhj")]
+script = ExtResource("1_5nlm4")
 
 [node name="CardsInPlayPlace" type="Node2D" parent="." groups=["BossCardPlaces"]]
 position = Vector2(171, 255)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("10_8wjqx")
+script = ExtResource("3_0xegd")
 
 [node name="Card1" type="Marker2D" parent="CardsInPlayPlace"]
 position = Vector2(200, 512)
@@ -52,7 +50,7 @@ position = Vector2(1100, 512)
 [node name="CardsInHandHolder" type="Node2D" parent="."]
 position = Vector2(-467.001, 425.999)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("4_j5d3b")
+script = ExtResource("4_ut5xn")
 
 [node name="UseArea" type="Marker2D" parent="."]
 position = Vector2(1011, 157.003)
@@ -64,7 +62,7 @@ position = Vector2(-470.001, 425.999)
 offset_top = 409.0
 offset_right = 92.0
 offset_bottom = 539.0
-theme = ExtResource("13_607fp")
+theme = ExtResource("5_jbvlb")
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -80,12 +78,14 @@ text = "draw"
 metadata/_edit_use_anchors_ = true
 
 [node name="StealCardBoss" type="Node2D" parent="." groups=["StealCardBoss"]]
-script = ExtResource("6_6a7e6")
+script = ExtResource("6_y5pe1")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Timer2" type="Timer" parent="."]
 one_shot = true
+
+[node name="CardHolder" parent="." instance=ExtResource("6_as26m")]
 
 [connection signal="OnDraw" from="." to="CardsInPlayPlace" method="_on_players_deck_on_draw"]
 [connection signal="StartThisUnitTurn" from="." to="CardsInHandHolder" method="FindCardstoUse"]

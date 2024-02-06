@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5lrfrpytd2tr"]
+
+[ext_resource type="Script" path="res://Code/GamePhases/before_battle.gd" id="1_3xea6"]
+[ext_resource type="PackedScene" uid="uid://bubghem5n8xi2" path="res://DialougeBubble.tscn" id="1_6xqrs"]
+[ext_resource type="PackedScene" uid="uid://d1nx15mfo2mld" path="res://Code/GamePhases/pick_card_phase.tscn" id="2_fjtkb"]
+[ext_resource type="Script" path="res://Code/GamePhases/LevelSelecter.gd" id="4_dvofn"]
+
+[node name="BeforeBattle" type="Node2D"]
+script = ExtResource("1_3xea6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 1000.0
+offset_bottom = 568.0
+color = Color(0, 0, 0, 0.584314)
+
+[node name="First" type="Node2D" parent="."]
+
+[node name="Text" parent="First" instance=ExtResource("1_6xqrs")]
+offset_left = -24.0
+offset_top = 120.0
+offset_right = -24.0
+offset_bottom = 120.0
+Text = Array[String](["You are a 
+gladiator made to fight for your freedom.", "After you win each battle you will be awarded new cards.", "Here pick some cards"])
+
+[node name="PickCardPhase" parent="First" instance=ExtResource("2_fjtkb")]
+
+[node name="Text2" parent="First" instance=ExtResource("1_6xqrs")]
+offset_left = -24.0
+offset_top = 120.0
+offset_right = -24.0
+offset_bottom = 120.0
+Text = Array[String](["You have picked 
+a Pack.", "You are now
+ready to fight."])
+
+[node name="LevelSelecter" type="Node2D" parent="First"]
+script = ExtResource("4_dvofn")
+
+[node name="Second" type="Node2D" parent="."]
+visible = false
+
+[node name="Text" parent="Second" instance=ExtResource("1_6xqrs")]
+offset_left = -24.0
+offset_top = 120.0
+offset_right = -24.0
+offset_bottom = 120.0
+Text = Array[String](["You are a 
+gladiator made to fight for your freedom.", "After you win each battle you will be awarded new cards.", "Here pick some cards"])
+
+[node name="PickCardPhase" parent="Second" instance=ExtResource("2_fjtkb")]
+
+[node name="Text2" parent="Second" instance=ExtResource("1_6xqrs")]
+offset_left = -24.0
+offset_top = 120.0
+offset_right = -24.0
+offset_bottom = 120.0
+Text = Array[String](["You have picked 
+a Pack.", "You are now
+ready to fight."])
+
+[node name="LevelSelecter" type="Node2D" parent="Second"]
+script = ExtResource("4_dvofn")
+
+[node name="Last" type="Node2D" parent="."]
+visible = false
+
+[node name="Text" parent="Last" instance=ExtResource("1_6xqrs")]
+offset_left = -24.0
+offset_top = 120.0
+offset_right = -24.0
+offset_bottom = 120.0
+Text = Array[String](["You are a 
+gladiator made to fight for your freedom.", "After you win each battle you will be awarded new cards.", "Here pick some cards"])
+
+[node name="PickCardPhase" parent="Last" instance=ExtResource("2_fjtkb")]
+
+[node name="Text2" parent="Last" instance=ExtResource("1_6xqrs")]
+offset_left = -24.0
+offset_top = 120.0
+offset_right = -24.0
+offset_bottom = 120.0
+Text = Array[String](["You have picked 
+a Pack.", "You are now
+ready to fight."])
+
+[node name="LevelSelecter" type="Node2D" parent="Last"]
+script = ExtResource("4_dvofn")
+
+[connection signal="First" from="." to="First/Text" method="Start"]
+[connection signal="Last" from="." to="Last/Text" method="Start"]
+[connection signal="Second" from="." to="Second/Text" method="Start"]
+[connection signal="StarttextBubble" from="." to="First/Text" method="Start"]
+[connection signal="DialougeDone" from="First/Text" to="First/PickCardPhase" method="PlayPhase"]
+[connection signal="EndPhase" from="First/PickCardPhase" to="First/Text2" method="Start"]
+[connection signal="DialougeDone" from="First/Text2" to="First/LevelSelecter" method="PlayLevel1"]
+[connection signal="EndPhase" from="Second/PickCardPhase" to="Second/Text2" method="Start"]
+[connection signal="DialougeDone" from="Second/Text2" to="Second/LevelSelecter" method="PlayLevel1"]
+[connection signal="EndPhase" from="Last/PickCardPhase" to="Last/Text2" method="Start"]
+[connection signal="DialougeDone" from="Last/Text2" to="Last/LevelSelecter" method="PlayLevel1"]

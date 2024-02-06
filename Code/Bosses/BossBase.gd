@@ -9,8 +9,8 @@ signal StartPlayerTurn
 var CurrentHealth = 100
 var WeaknessList = []
 var Shield = 0
-@onready var HealthBar = $UiHolder/Healthbar
-@onready var NameLabel = $UiHolder/Name
+@onready var HealthBar = $Healthbar
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for weakness in $WeaknessHolder.get_children():
@@ -18,25 +18,28 @@ func _ready():
 	
 	
 	CurrentHealth = MaxHealth
-	NameLabel.text = Name
 	HealthBar.max_value = MaxHealth
 	HealthBar.value = CurrentHealth
-	
+	UpdateLabels()
+	TakeDamage(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	if Shield > 0: 
+		$ShieldIcon.visible = true
+	else :
+		$ShieldIcon.visible = false
 
 
 	
 
 func UpdateLabels():
 		HealthBar.value = CurrentHealth
+		$ShieldIcon/Label.text = str(Shield)
 func  TakeDamage(Amount):
 	if Shield >0:
 		Shield -= Amount
-		if Shield < 0: 
+		if Shield <= 0: 
 			CurrentHealth -=Shield
 			Shield = 0
 		checkHealth()
@@ -61,4 +64,4 @@ func checkHealth():
 	
 func ShieldUpdate(Amount):
 	Shield += Amount
-	
+	$ShieldIcon/Label.text = str(Shield)

@@ -56,8 +56,8 @@ func checkHealth():
 	UpdateLabels()
 func UpdateLabels():
 	emit_signal("ChangeLables", CurrentHealth, MaxHealth, Shield)
-	$UiHolder/Label.text = str(CurrentHealth)
-	HealthBar.value = CurrentHealth
+	#$UiHolder/Label.text = str(CurrentHealth)
+	#HealthBar.value = CurrentHealth
 	
 func ShieldUpdate(Amount):
 	Shield += Amount

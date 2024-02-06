@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqn40dp5dml1u"]
 
 [ext_resource type="PackedScene" uid="uid://ll6a4tti2aym" path="res://Code/cards/BaseCards/water_card_base.tscn" id="1_7dli5"]
-[ext_resource type="Texture2D" uid="uid://chi8gpvbmm4vt" path="res://Art/Cards/cardImages/Icon_Rarity.png" id="2_pop8v"]
+[ext_resource type="PackedScene" uid="uid://b8mln1epw7iqj" path="res://Code/cards/card effects/Attack.tscn" id="2_3aift"]
 
 [node name="WaterCardBase" instance=ExtResource("1_7dli5")]
 Name = "Aqua Glist"
@@ -14,14 +14,5 @@ text = "Aqua Glist"
 [node name="description" parent="." index="2"]
 text = " -Deal 2 Damage"
 
-[node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("2_pop8v")
-stretch_mode = 2
-
-[node name="star3" type="TextureRect" parent="LevelHolder" index="2"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("2_pop8v")
-stretch_mode = 2
+[node name="Attack" parent="Card EffectHolder" index="0" instance=ExtResource("2_3aift")]
+AmountOfDamage = 2

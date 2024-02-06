@@ -4,6 +4,8 @@ extends Node
 var NameOfSave 
 # Called when the node enters the scene tree for the first time.
 func SaveItem():
+	ItemToSave = get_tree().get_nodes_in_group("CardHolderPlayer")[0]
+	
 	var save = PackedScene.new()
 	for c in ItemToSave.get_children():
 		c.set_owner(ItemToSave)
@@ -17,6 +19,7 @@ func LoadItem():
 	var Parent = ItemToSave.get_parent()
 	old_node.get_parent().remove_child(old_node)
 	Parent.add_child(SavedDeck.instantiate())
+	SavedDeck.instantiate().global_position = Parent.global_position
 	old_node.queue_free()
 	Parent.ReloadInfo()
 	pass

@@ -3,7 +3,7 @@ extends Node2D
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://test.tscn")
+	get_tree().change_scene_to_file("res://Code/GamePhases/before_battle.tscn")
 
 
 func _on_settings_pressed():

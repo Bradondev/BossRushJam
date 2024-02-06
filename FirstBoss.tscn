@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb1c5d3011hv7"]
+
+[ext_resource type="PackedScene" uid="uid://sce8xuonj2fd" path="res://Code/Bosses/BaseBoss.tscn" id="1_3hmr3"]
+[ext_resource type="PackedScene" uid="uid://donpin8m60qei" path="res://Code/Weakness/Weakness.tscn" id="2_w8w7l"]
+[ext_resource type="Texture2D" uid="uid://cfr4r5sblvmna" path="res://Art/Cards/cardImages/Icon_Dark2.png" id="3_8kieu"]
+
+[node name="Boss" instance=ExtResource("1_3hmr3")]
+
+[node name="Weakness" parent="WeaknessHolder" index="0" instance=ExtResource("2_w8w7l")]
+WeaknessType = "Air"
+
+[node name="Weakness2" parent="WeaknessHolder" index="1" instance=ExtResource("2_w8w7l")]
+WeaknessType = "Fire"
+
+[node name="Weakness3" parent="WeaknessHolder" index="2" instance=ExtResource("2_w8w7l")]
+WeaknessType = "Dark"
+
+[node name="TextureRect2" parent="HBoxContainer" index="1"]
+texture = ExtResource("3_8kieu")

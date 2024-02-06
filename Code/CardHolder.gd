@@ -4,6 +4,6 @@ extends Node2D
 func AddCards(CardList):
 	for card in CardList:
 		var Newcard = card.duplicate()
-		Newcard.position =global_position
+		Newcard.global_position=global_position
 		self.add_child(Newcard)
 

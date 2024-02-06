@@ -1,53 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://sce8xuonj2fd"]
+[gd_scene load_steps=10 format=3 uid="uid://sce8xuonj2fd"]
 
 [ext_resource type="Script" path="res://Code/Bosses/BossBase.gd" id="1_w4mek"]
+[ext_resource type="Texture2D" uid="uid://bgwj2b72u6v3n" path="res://Art/UI/heaartl-export.png" id="2_gpeu3"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="2_ompur"]
-[ext_resource type="Texture2D" uid="uid://ca7jotfce6p6r" path="res://Art/icon.svg" id="3_x75xl"]
-[ext_resource type="PackedScene" uid="uid://donpin8m60qei" path="res://Code/Weakness/Weakness.tscn" id="4_67ku4"]
+[ext_resource type="Texture2D" uid="uid://c7f7vme2bgmdj" path="res://Art/BossDraft1.png" id="3_4un27"]
+[ext_resource type="Texture2D" uid="uid://2buotv1b7mpl" path="res://Art/UI/fulll-export.png" id="3_tiwsx"]
 [ext_resource type="Texture2D" uid="uid://dwgnlb1pimtiu" path="res://Art/Cards/cardImages/Icon_Fire.png" id="5_3y3gs"]
 [ext_resource type="Texture2D" uid="uid://b314mpakcfydl" path="res://Art/Cards/cardImages/Icon_Light2.png" id="6_nerv4"]
 [ext_resource type="Texture2D" uid="uid://df85usgr68t22" path="res://Art/Cards/cardImages/Icon_Wind.png" id="7_q5qdi"]
+[ext_resource type="Texture2D" uid="uid://du0r6nxr65c22" path="res://Art/Cards/cardImages/Icon_Shield.png" id="10_quu6d"]
 
 [node name="Boss" type="Node2D"]
 script = ExtResource("1_w4mek")
 
 [node name="UiHolder" type="VBoxContainer" parent="."]
-offset_left = -99.0
-offset_top = -80.0
-offset_right = 101.0
-offset_bottom = -20.0
+offset_left = 65.0
+offset_top = -67.0
+offset_right = 265.0
+offset_bottom = -7.0
 metadata/_edit_group_ = true
 
 [node name="Name" type="Label" parent="UiHolder"]
 layout_mode = 2
 theme = ExtResource("2_ompur")
-text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Healthbar" type="ProgressBar" parent="UiHolder"]
-layout_mode = 2
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 59)
-texture = ExtResource("3_x75xl")
+texture_filter = 1
+position = Vector2(6, 130)
+scale = Vector2(2, 2)
+texture = ExtResource("3_4un27")
 
 [node name="WeaknessHolder" type="Node2D" parent="."]
 
-[node name="Weakness" parent="WeaknessHolder" instance=ExtResource("4_67ku4")]
-WeaknessType = "Fire"
-
-[node name="Weakness2" parent="WeaknessHolder" instance=ExtResource("4_67ku4")]
-WeaknessType = "Light"
-
-[node name="Weakness3" parent="WeaknessHolder" instance=ExtResource("4_67ku4")]
-WeaknessType = "Air"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = -112.0
-offset_top = -153.0
+offset_top = -52.0
 offset_right = -56.0
-offset_bottom = -137.0
+offset_bottom = -36.0
 scale = Vector2(4, 4)
 alignment = 1
 metadata/_edit_group_ = true
@@ -69,3 +60,35 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("7_q5qdi")
 stretch_mode = 4
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = -117.0
+offset_top = 14.0
+offset_right = -99.0
+offset_bottom = 31.0
+scale = Vector2(4, 4)
+value = 39.0
+fill_mode = 3
+texture_under = ExtResource("2_gpeu3")
+texture_progress = ExtResource("3_tiwsx")
+
+[node name="ShieldIcon" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -126.0
+offset_top = 11.0
+offset_right = -35.0
+offset_bottom = 94.0
+texture = ExtResource("10_quu6d")
+
+[node name="Label" type="Label" parent="ShieldIcon"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 79.0
+offset_bottom = 63.0
+theme = ExtResource("2_ompur")
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1

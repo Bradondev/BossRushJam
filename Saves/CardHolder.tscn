@@ -1,33 +1,51 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs1xnlqn5rxua"]
+[gd_scene load_steps=12 format=3 uid="uid://exttsow34w5b"]
 
-[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_4vfr2"]
-[ext_resource type="PackedScene" uid="uid://ckgkrj6xwaxco" path="res://Code/cards/light cards/EarthCards/roar_of_the_mountain_titan.tscn" id="2_d7qdd"]
-[ext_resource type="PackedScene" uid="uid://blj3b88njxvd2" path="res://Code/cards/Dark Cards/demon_slashes.tscn" id="4_g1t1a"]
-[ext_resource type="PackedScene" uid="uid://cbg1sa1hej0v4" path="res://Code/cards/Air Cards/dance_of_the_wind.tscn" id="5_mqalw"]
-[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="6_mcx1f"]
-[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="7_gcrkk"]
-[ext_resource type="PackedScene" uid="uid://dso1ywhjaxcju" path="res://Code/cards/light cards/light_rays.tscn" id="8_h5t0w"]
-[ext_resource type="PackedScene" uid="uid://t3oqvg73v7ag" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="9_nv30k"]
-[ext_resource type="PackedScene" uid="uid://q2li60bgsmct" path="res://Code/cards/light cards/EarthCards/stone_shard.tscn" id="10_ssudn"]
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_4ipw4"]
+[ext_resource type="PackedScene" uid="uid://ckgkrj6xwaxco" path="res://Code/cards/light cards/EarthCards/roar_of_the_mountain_titan.tscn" id="2_ijpvs"]
+[ext_resource type="PackedScene" uid="uid://blj3b88njxvd2" path="res://Code/cards/Dark Cards/demon_slashes.tscn" id="4_g4aw0"]
+[ext_resource type="PackedScene" uid="uid://cbg1sa1hej0v4" path="res://Code/cards/Air Cards/dance_of_the_wind.tscn" id="5_0iajc"]
+[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="6_hoayd"]
+[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="7_nbobi"]
+[ext_resource type="PackedScene" uid="uid://dso1ywhjaxcju" path="res://Code/cards/light cards/light_rays.tscn" id="8_m4qlb"]
+[ext_resource type="PackedScene" uid="uid://t3oqvg73v7ag" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="9_8noec"]
+[ext_resource type="PackedScene" uid="uid://q2li60bgsmct" path="res://Code/cards/light cards/EarthCards/stone_shard.tscn" id="10_5aquc"]
+[ext_resource type="PackedScene" uid="uid://dujfx84u7xadn" path="res://Code/cards/Fire Cards/flame_fang.tscn" id="11_04q16"]
+[ext_resource type="PackedScene" uid="uid://nkyoi5lscp6q" path="res://Code/cards/Dark Cards/shadow_blast.tscn" id="12_pdv8a"]
 
 [node name="CardHolder" type="Node2D" groups=["CardHolderPlayer"]]
-position = Vector2(-137, 426)
+position = Vector2(1454, 181)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_4vfr2")
-metadata/_edit_group_ = true
+script = ExtResource("1_4ipw4")
 
-[node name="Roar of the Mountain Titan" parent="." instance=ExtResource("2_d7qdd")]
+[node name="Roar of the Mountain Titan" parent="." instance=ExtResource("2_ijpvs")]
 
-[node name="Demon Slashes" parent="." instance=ExtResource("4_g1t1a")]
+[node name="Demon Slashes" parent="." instance=ExtResource("4_g4aw0")]
 
-[node name="Dance of the Wind" parent="." instance=ExtResource("5_mqalw")]
+[node name="Dance of the Wind" parent="." instance=ExtResource("5_0iajc")]
 
-[node name="Gust of Wind2" parent="." instance=ExtResource("6_mcx1f")]
+[node name="Gust of Wind2" parent="." instance=ExtResource("6_hoayd")]
+position = Vector2(1966, 581)
 
-[node name="Skeleton Strike2" parent="." instance=ExtResource("7_gcrkk")]
+[node name="Skeleton Strike2" parent="." instance=ExtResource("7_nbobi")]
+position = Vector2(1966, 581)
 
-[node name="Light Rays2" parent="." instance=ExtResource("8_h5t0w")]
+[node name="Light Rays2" parent="." instance=ExtResource("8_m4qlb")]
+position = Vector2(1966, 581)
 
-[node name="Flame Bolt2" parent="." instance=ExtResource("9_nv30k")]
+[node name="Flame Bolt2" parent="." instance=ExtResource("9_8noec")]
+position = Vector2(1966, 581)
 
-[node name="Stone Shard2" parent="." instance=ExtResource("10_ssudn")]
+[node name="Stone Shard2" parent="." instance=ExtResource("10_5aquc")]
+position = Vector2(1966, 581)
+
+[node name="Flame Fang" parent="." instance=ExtResource("11_04q16")]
+position = Vector2(1966, 581)
+
+[node name="Shadow Blast" parent="." instance=ExtResource("12_pdv8a")]
+position = Vector2(1966, 581)
+
+[node name="Flame Bolt" parent="." instance=ExtResource("9_8noec")]
+position = Vector2(1966, 581)
+
+[node name="Gust of Wind" parent="." instance=ExtResource("6_hoayd")]
+position = Vector2(1966, 581)

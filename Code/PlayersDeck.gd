@@ -26,6 +26,7 @@ func _ready():
 	CurrentCardsCycle = Cards.duplicate(true)
 	CurrentCardCycleIndex = CurrentCardsCycle.size() -1
 	LengthOfDeck =Cards.size()
+	CurrentPLayer.UpdateLabels()
 	print(CurrentCardsCycle)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func  _process(delta):

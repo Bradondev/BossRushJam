@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://br5brytqnyr30"]
 
 [ext_resource type="Script" path="res://Code/PlayersDeck.gd" id="1_j7q8m"]
-[ext_resource type="PackedScene" uid="uid://dbljr6webtxg1" path="res://card_holder.tscn" id="2_ebcu4"]
+[ext_resource type="PackedScene" uid="uid://ky1ect0cidci" path="res://CardHolderPlayerStart.tscn" id="2_ia1cp"]
 [ext_resource type="Script" path="res://Code/CardMover.gd" id="3_u4ehx"]
 [ext_resource type="Script" path="res://Code/ComboManager.gd" id="5_s4ahh"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/EndComboManager.gd" id="12_cma6a"]
@@ -24,8 +24,7 @@
 [node name="PlayersDeck" type="Node2D"]
 script = ExtResource("1_j7q8m")
 
-[node name="CardHolder" parent="." instance=ExtResource("2_ebcu4")]
-position = Vector2(-430, 425)
+[node name="CardHolder" parent="." instance=ExtResource("2_ia1cp")]
 
 [node name="CardsInPlayPlace" type="Node2D" parent="." groups=["PlayerCardPlaces"]]
 position = Vector2(271, 382)
@@ -67,6 +66,7 @@ position = Vector2(-455, 390)
 scale = Vector2(0.5, 0.5)
 
 [node name="Button" type="Button" parent="."]
+visible = false
 offset_left = 133.0
 offset_top = 25.0
 offset_right = 242.0

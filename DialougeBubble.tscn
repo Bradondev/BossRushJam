@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ijkhjhjkf6wy" path="res://Sound/SfX/Ui/036_Dialogue_01_Single.wav" id="4_uhafm"]
 
 [node name="Text" type="Control"]
+visible = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -38,9 +39,21 @@ text = "asda"
 [node name="TextTimer" type="Timer" parent="."]
 wait_time = 0.07
 one_shot = true
-autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_uhafm")
+bus = &"SoundEffect"
+
+[node name="Label" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 312.0
+offset_top = 256.0
+offset_right = 680.0
+offset_bottom = 328.0
+theme = ExtResource("3_ind8r")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1](Press space)[/shake]"
 
 [connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]

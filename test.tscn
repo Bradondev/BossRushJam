@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://b0pntp4ef0gb1"]
 
 [ext_resource type="Script" path="res://Code/BattleManager.gd" id="1_i4fai"]
+[ext_resource type="Texture2D" uid="uid://bvoaqt42grg8m" path="res://Art/arena-Recovered.png" id="2_1rt8i"]
 [ext_resource type="PackedScene" uid="uid://sce8xuonj2fd" path="res://Code/Bosses/BaseBoss.tscn" id="2_7b5iy"]
 [ext_resource type="PackedScene" uid="uid://caq3o3ok3b3vr" path="res://Code/PlayerAssets/Player.tscn" id="2_h6ivu"]
 [ext_resource type="PackedScene" uid="uid://br5brytqnyr30" path="res://Code/PlayerAssets/PlayersDeck.tscn" id="4_blya1"]
 [ext_resource type="PackedScene" uid="uid://bteh0r3v7rnq2" path="res://enemy_deck.tscn" id="5_dvet2"]
 [ext_resource type="PackedScene" uid="uid://bblnj1oxe21bi" path="res://Saves/save_manager.tscn" id="6_b6rgs"]
 [ext_resource type="PackedScene" uid="uid://cqt6g201yn5j7" path="res://over_lays.tscn" id="7_8plj6"]
-[ext_resource type="Texture2D" uid="uid://d14f0u265vlki" path="res://Art/Cards/cardImages/arena.png" id="8_wowuj"]
 [ext_resource type="Texture2D" uid="uid://bmavcihruteom" path="res://Art/Cards/cardImages/shaman.png" id="9_o6e43"]
 [ext_resource type="AudioStream" uid="uid://b3cb5ua54pnjg" path="res://Sound/Music/bgm_ver2.mp3" id="10_drlsd"]
 
@@ -30,7 +30,7 @@ script = ExtResource("1_i4fai")
 texture_filter = 1
 position = Vector2(478, 268.5)
 scale = Vector2(2, 1.95926)
-texture = ExtResource("8_wowuj")
+texture = ExtResource("2_1rt8i")
 
 [node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("6_b6rgs")]
 ItemToSave = NodePath("../PlayersDeck/CardHolder")
@@ -38,7 +38,7 @@ ItemToSave = NodePath("../PlayersDeck/CardHolder")
 [node name="Node" type="Node" parent="."]
 
 [node name="Boss" parent="." groups=["boss"] instance=ExtResource("2_7b5iy")]
-position = Vector2(787, 191)
+position = Vector2(826, 89)
 MaxHealth = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -50,6 +50,13 @@ libraries = {
 position = Vector2(-2, -3)
 CurrentEnemy = NodePath("../Boss")
 CurrentPLayer = NodePath("../Player")
+
+[node name="CardsInPlayPlace" parent="PlayersDeck" index="1"]
+position = Vector2(108, 391)
+metadata/_edit_group_ = true
+
+[node name="CardsInHandHolder" parent="PlayersDeck" index="2"]
+position = Vector2(-480, 378)
 
 [node name="EnemyDeck" parent="." node_paths=PackedStringArray("CurrentEnemy", "CurrentPLayer") instance=ExtResource("5_dvet2")]
 position = Vector2(960, 575)
@@ -79,6 +86,9 @@ bus = &"Music"
 [connection signal="StartPLayarsTurn" from="." to="PlayersDeck" method="StartTurn"]
 [connection signal="Dead" from="Boss" to="." method="EndBattle"]
 [connection signal="StartEnemyTurn" from="PlayersDeck" to="EnemyDeck" method="StartTurn"]
+[connection signal="EndTurn" from="PlayersDeck/ComboManager" to="PlayersDeck" method="EndTurn"]
 [connection signal="StartEnemyTurn" from="EnemyDeck" to="PlayersDeck" method="StartTurn"]
 [connection signal="ChangeLables" from="Player" to="PlayersDeck/UI/P{layerUi/ProgressBar" method="_on_player_change_lables"]
 [connection signal="Dead" from="Player" to="." method="EndBattle"]
+
+[editable path="PlayersDeck"]

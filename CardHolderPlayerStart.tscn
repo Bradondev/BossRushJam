@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3 uid="uid://ky1ect0cidci"]
+
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="1_uihj4"]
+[ext_resource type="PackedScene" uid="uid://dqn40dp5dml1u" path="res://Code/cards/Watercards/Aqua Glist.tscn" id="2_0bdo0"]
+[ext_resource type="PackedScene" uid="uid://dso1ywhjaxcju" path="res://Code/cards/light cards/light_rays.tscn" id="3_80bks"]
+[ext_resource type="PackedScene" uid="uid://t3oqvg73v7ag" path="res://Code/cards/Fire Cards/flame_bolt.tscn" id="4_son8a"]
+[ext_resource type="PackedScene" uid="uid://dw5k1xkaj27re" path="res://Code/cards/Dark Cards/skeleton_strike.tscn" id="5_sbf3x"]
+[ext_resource type="PackedScene" uid="uid://bushcex21045j" path="res://Code/cards/Air Cards/gust_of_wind.tscn" id="6_rqosj"]
+[ext_resource type="PackedScene" uid="uid://q2li60bgsmct" path="res://Code/cards/light cards/EarthCards/stone_shard.tscn" id="7_1e02h"]
+
+[node name="CardHolder" type="Node2D"]
+position = Vector2(-92, 455)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_uihj4")
+
+[node name="WaterCardBase" parent="." instance=ExtResource("2_0bdo0")]
+
+[node name="Light Rays" parent="." instance=ExtResource("3_80bks")]
+
+[node name="Flame Bolt" parent="." instance=ExtResource("4_son8a")]
+
+[node name="Skeleton Strike" parent="." instance=ExtResource("5_sbf3x")]
+
+[node name="Gust of Wind" parent="." instance=ExtResource("6_rqosj")]
+
+[node name="Stone Shard" parent="." instance=ExtResource("7_1e02h")]

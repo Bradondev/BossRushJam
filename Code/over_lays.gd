@@ -14,18 +14,17 @@ func _process(delta):
 
 func WinScreen():
 	$AnimationPlayer.play("WIn")
+	Globels.NumberOfWins += 1
 	
 func  LossScreen():
 	$AnimationPlayer.play("Lost")
 
 
-func _on_retry_pressed():
-	pass # Replace with function body.
 
 
 func _on_menu_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Code/PlayerAssets/main_meau.tscn")
 
 
 func _on_continue_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Code/GamePhases/before_battle.tscn")
