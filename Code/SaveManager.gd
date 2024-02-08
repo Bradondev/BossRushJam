@@ -10,11 +10,11 @@ func SaveItem():
 	for c in ItemToSave.get_children():
 		c.set_owner(ItemToSave)
 	save.pack(ItemToSave);
-	NameOfSave = "res://Saves/"+ItemToSave.get_name()+".tscn"
+	NameOfSave = "user://"+ItemToSave.get_name()+".tscn"
 	ResourceSaver.save(save, NameOfSave);
 	print_debug("Saved game")
 func LoadItem():
-	var SavedDeck = load("res://Saves/"+ItemToSave.get_name()+".tscn")
+	var SavedDeck = load("user://"+ItemToSave.get_name()+".tscn")
 	var old_node = ItemToSave
 	var Parent = ItemToSave.get_parent()
 	old_node.get_parent().remove_child(old_node)

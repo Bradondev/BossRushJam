@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="Boss Rush Jam"
-run/main_scene="res://Code/PlayerAssets/PlayersDeck.tscn"
+run/main_scene="res://Code/PlayerAssets/main_meau.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Art/icon.svg"
+boot_splash/bg_color=Color(0.12549, 0.152941, 0.0470588, 1)
+config/icon="res://Art/Cards/cardImages/Icon_Dark2.png"
+config/windows_native_icon="res://Art/Cards/cardImages/Icon_Dark2-export.ico"
 
 [autoload]
 
@@ -24,6 +26,10 @@ Globels="*res://Code/GlobelVars.gd"
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="viewport"
+
+[editor]
+
+export/convert_text_resources_to_binary=false
 
 [file_customization]
 

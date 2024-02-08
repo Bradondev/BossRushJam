@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://csh0df8wdxhgn"]
+[gd_scene load_steps=10 format=3 uid="uid://csh0df8wdxhgn"]
 
 [ext_resource type="Script" path="res://Code/main_meau.gd" id="1_hhv0w"]
 [ext_resource type="Texture2D" uid="uid://cl40ltby3gdnu" path="res://Art/UI/title_screen.png" id="2_d4ywa"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dq0q2jboya6jq" path="res://Art/UI/Button_Break_Normal.png" id="5_grn4k"]
 [ext_resource type="Texture2D" uid="uid://dv527jp84e6iw" path="res://Art/UI/Button_Break_OnHover_OnClick.png" id="6_ajn7k"]
 [ext_resource type="PackedScene" uid="uid://cenou762pxkr8" path="res://button_soundeffect.tscn" id="7_h7oa3"]
+[ext_resource type="Script" path="res://Code/PlayerAssets/Settings.gd" id="9_nm2gp"]
 
 [node name="MainMeau" type="Node2D"]
 texture_filter = 1
@@ -75,13 +76,36 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="TextureButton" parent="ui/ButtonHolder"]
+[node name="How to Pay" type="TextureButton" parent="ui/ButtonHolder"]
 texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("2_kyba8")
 texture_hover = ExtResource("3_18rqb")
 
-[node name="Label" type="Label" parent="ui/ButtonHolder/Quit"]
+[node name="Label" type="Label" parent="ui/ButtonHolder/How to Pay"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 40.0
+theme = ExtResource("4_yxcd8")
+theme_override_font_sizes/font_size = 15
+text = "How to Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="ui"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 832.0
+offset_top = 488.0
+offset_right = 948.0
+offset_bottom = 536.0
+texture_normal = ExtResource("2_kyba8")
+texture_hover = ExtResource("3_18rqb")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="ui/Quit"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
@@ -94,14 +118,164 @@ vertical_alignment = 1
 
 [node name="ButtonSoundeffect" parent="." instance=ExtResource("7_h7oa3")]
 
+[node name="Hover" parent="ButtonSoundeffect" index="0"]
+bus = &"SFX"
+
+[node name="Click" parent="ButtonSoundeffect" index="1"]
+bus = &"SFX"
+
+[node name="Denied" parent="ButtonSoundeffect" index="2"]
+bus = &"SFX"
+
+[node name="Settings" type="Node2D" parent="."]
+script = ExtResource("9_nm2gp")
+
+[node name="ColorRect" type="ColorRect" parent="Settings"]
+offset_right = 960.0
+offset_bottom = 538.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="back" type="TextureButton" parent="Settings"]
+texture_filter = 1
+offset_left = 784.0
+offset_top = 456.0
+offset_right = 900.0
+offset_bottom = 504.0
+texture_normal = ExtResource("2_kyba8")
+texture_hover = ExtResource("3_18rqb")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Settings/back"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 40.0
+theme = ExtResource("4_yxcd8")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Settings"]
+offset_left = 336.0
+offset_top = 8.0
+offset_right = 632.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+offset_left = 360.0
+offset_top = 168.0
+offset_right = 608.0
+offset_bottom = 398.0
+metadata/_edit_group_ = true
+
+[node name="Master" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "MASTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Master3" type="HSlider" parent="Settings/VBoxContainer"]
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+
+[node name="Music" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "MUSIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicS" type="HSlider" parent="Settings/VBoxContainer"]
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+
+[node name="SFX2" type="Label" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFX" type="HSlider" parent="Settings/VBoxContainer"]
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+
+[node name="Help" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Help"]
+offset_right = 960.0
+offset_bottom = 538.0
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="back" type="TextureButton" parent="Help"]
+texture_filter = 1
+offset_left = 800.0
+offset_top = 464.0
+offset_right = 916.0
+offset_bottom = 512.0
+texture_normal = ExtResource("2_kyba8")
+texture_hover = ExtResource("3_18rqb")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Help/back"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 40.0
+theme = ExtResource("4_yxcd8")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Help"]
+offset_left = 64.0
+offset_top = 72.0
+offset_right = 896.0
+offset_bottom = 456.0
+theme_override_font_sizes/normal_font_size = 30
+
+[node name="Label" type="Label" parent="Help"]
+offset_left = 344.0
+offset_top = 8.0
+offset_right = 655.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 50
+text = "How to play?"
+
 [connection signal="button_down" from="ui/ButtonHolder/Start" to="ButtonSoundeffect" method="Clicked"]
 [connection signal="mouse_entered" from="ui/ButtonHolder/Start" to="ButtonSoundeffect" method="Hover"]
 [connection signal="pressed" from="ui/ButtonHolder/Start" to="." method="_on_start_pressed"]
 [connection signal="button_down" from="ui/ButtonHolder/Settings" to="ButtonSoundeffect" method="Clicked"]
 [connection signal="mouse_entered" from="ui/ButtonHolder/Settings" to="ButtonSoundeffect" method="Hover"]
 [connection signal="pressed" from="ui/ButtonHolder/Settings" to="." method="_on_settings_pressed"]
-[connection signal="button_down" from="ui/ButtonHolder/Quit" to="ButtonSoundeffect" method="Denied"]
-[connection signal="mouse_entered" from="ui/ButtonHolder/Quit" to="ButtonSoundeffect" method="Hover"]
-[connection signal="pressed" from="ui/ButtonHolder/Quit" to="." method="_on_quit_pressed"]
+[connection signal="button_down" from="ui/ButtonHolder/How to Pay" to="ButtonSoundeffect" method="Denied"]
+[connection signal="mouse_entered" from="ui/ButtonHolder/How to Pay" to="ButtonSoundeffect" method="Hover"]
+[connection signal="pressed" from="ui/ButtonHolder/How to Pay" to="." method="_on_how_to_pay_pressed"]
+[connection signal="button_down" from="ui/Quit" to="ButtonSoundeffect" method="Denied"]
+[connection signal="mouse_entered" from="ui/Quit" to="ButtonSoundeffect" method="Hover"]
+[connection signal="pressed" from="ui/Quit" to="." method="_on_quit_pressed"]
+[connection signal="button_down" from="Settings/back" to="ButtonSoundeffect" method="Denied"]
+[connection signal="mouse_entered" from="Settings/back" to="ButtonSoundeffect" method="Hover"]
+[connection signal="pressed" from="Settings/back" to="." method="_on_back_pressed"]
+[connection signal="drag_started" from="Settings/VBoxContainer/Master3" to="ButtonSoundeffect" method="Clicked"]
+[connection signal="value_changed" from="Settings/VBoxContainer/Master3" to="Settings" method="_on_master_3_value_changed"]
+[connection signal="drag_started" from="Settings/VBoxContainer/MusicS" to="ButtonSoundeffect" method="Clicked"]
+[connection signal="value_changed" from="Settings/VBoxContainer/MusicS" to="Settings" method="_on_music_s_value_changed"]
+[connection signal="drag_started" from="Settings/VBoxContainer/SFX" to="ButtonSoundeffect" method="Clicked"]
+[connection signal="value_changed" from="Settings/VBoxContainer/SFX" to="Settings" method="_on_sfx_value_changed"]
+[connection signal="button_down" from="Help/back" to="ButtonSoundeffect" method="Denied"]
+[connection signal="mouse_entered" from="Help/back" to="ButtonSoundeffect" method="Hover"]
+[connection signal="pressed" from="Help/back" to="." method="_on_back_pressed"]
 
 [editable path="ButtonSoundeffect"]

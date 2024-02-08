@@ -12,7 +12,9 @@ description = "-Deal 7 Damage
 -Shield 4"
 
 [node name="Name" parent="." index="1"]
-offset_top = 35.0
+offset_top = 32.0
+offset_right = 52.0
+offset_bottom = 81.0
 bbcode_enabled = true
 text = "[font_size={10}]Roar of the [/font_size] [font_size={17}]Mountain Titan [/font_size]
 "
@@ -25,7 +27,7 @@ text = "-Deal 7 Damage
 AmountOfShield = 4
 
 [node name="Attack" parent="Card EffectHolder" index="1" instance=ExtResource("3_65lt6")]
-AmountOfDamage = 6
+AmountOfDamage = 7
 
 [node name="star2" type="TextureRect" parent="LevelHolder" index="1"]
 texture_filter = 1

@@ -1,13 +1,19 @@
-[gd_scene load_steps=21 format=3 uid="uid://br5brytqnyr30"]
+[gd_scene load_steps=30 format=3 uid="uid://br5brytqnyr30"]
 
 [ext_resource type="Script" path="res://Code/PlayersDeck.gd" id="1_j7q8m"]
 [ext_resource type="PackedScene" uid="uid://ky1ect0cidci" path="res://CardHolderPlayerStart.tscn" id="2_ia1cp"]
 [ext_resource type="Script" path="res://Code/CardMover.gd" id="3_u4ehx"]
 [ext_resource type="Script" path="res://Code/ComboManager.gd" id="5_s4ahh"]
+[ext_resource type="Texture2D" uid="uid://cfr4r5sblvmna" path="res://Art/Cards/cardImages/Icon_Dark2.png" id="9_dks2y"]
+[ext_resource type="Texture2D" uid="uid://clkciasl3vxf3" path="res://Art/Cards/cardImages/Icon_Earth.png" id="10_6mcm4"]
+[ext_resource type="Texture2D" uid="uid://dwgnlb1pimtiu" path="res://Art/Cards/cardImages/Icon_Fire.png" id="11_y5sha"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/EndComboManager.gd" id="12_cma6a"]
 [ext_resource type="Theme" uid="uid://bphefhuacy6kd" path="res://Fonts/MainTheme.tres" id="12_gh4qe"]
+[ext_resource type="Texture2D" uid="uid://by4l55ctjbu2" path="res://Art/Cards/cardImages/Icon_Water2.png" id="12_ubsfl"]
 [ext_resource type="Texture2D" uid="uid://celcw23ik15mp" path="res://Art/Cards/cardImages/Icon_ComboBreakNull.png" id="13_d2mbj"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabel.gd" id="13_ef21n"]
+[ext_resource type="Texture2D" uid="uid://df85usgr68t22" path="res://Art/Cards/cardImages/Icon_Wind.png" id="13_y3q0h"]
+[ext_resource type="Texture2D" uid="uid://b314mpakcfydl" path="res://Art/Cards/cardImages/Icon_Light2.png" id="14_nawt4"]
 [ext_resource type="Texture2D" uid="uid://c5mlicl7i4dw3" path="res://Art/Cards/cardImages/Icon_ComboBreak.png" id="14_s03rt"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/ComboLabelType.gd" id="15_flb88"]
 [ext_resource type="Texture2D" uid="uid://m452ft6obee4" path="res://Art/UI/HUD_Player_Layout.png" id="16_rbfhc"]
@@ -20,6 +26,43 @@
 [ext_resource type="Texture2D" uid="uid://dv527jp84e6iw" path="res://Art/UI/Button_Break_OnHover_OnClick.png" id="20_4f62i"]
 [ext_resource type="Texture2D" uid="uid://du0r6nxr65c22" path="res://Art/Cards/cardImages/Icon_Shield.png" id="22_e7h4o"]
 [ext_resource type="Script" path="res://Code/PlayerAssets/StealCard.gd" id="26_6xwqx"]
+
+[sub_resource type="Animation" id="Animation_fxm2j"]
+resource_name = "EndCombo"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ComboIcon:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 256), Vector2(1112, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_rlm4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ComboIcon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 256)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_muhoj"]
+_data = {
+"EndCombo": SubResource("Animation_fxm2j"),
+"RESET": SubResource("Animation_rlm4p")
+}
 
 [node name="PlayersDeck" type="Node2D"]
 script = ExtResource("1_j7q8m")
@@ -79,6 +122,19 @@ position = Vector2(856, 240)
 [node name="DeckArea" type="Marker2D" parent="."]
 position = Vector2(0, -61)
 
+[node name="ComboIcon" type="TextureRect" parent="."]
+texture_filter = 1
+offset_top = 256.0
+offset_right = 136.0
+offset_bottom = 376.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ComboIcon"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 80.0
+offset_bottom = 72.0
+
 [node name="ComboManager" type="Node2D" parent="."]
 script = ExtResource("5_s4ahh")
 
@@ -86,6 +142,7 @@ script = ExtResource("5_s4ahh")
 script = ExtResource("12_cma6a")
 
 [node name="DeckAmount" type="Label" parent="."]
+visible = false
 offset_left = 296.0
 offset_top = 259.0
 offset_right = 388.0
@@ -96,20 +153,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ComboLabel" type="RichTextLabel" parent="."]
-offset_left = 100.0
-offset_top = 82.0
-offset_right = 290.0
-offset_bottom = 152.0
+offset_left = 40.0
+offset_top = 288.0
+offset_right = 112.0
+offset_bottom = 336.0
 theme = ExtResource("12_gh4qe")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 script = ExtResource("13_ef21n")
+Images = Array[Texture2D]([ExtResource("9_dks2y"), ExtResource("10_6mcm4"), ExtResource("11_y5sha"), ExtResource("12_ubsfl"), ExtResource("13_y3q0h"), ExtResource("14_nawt4")])
 
 [node name="ComboLabelType" type="RichTextLabel" parent="."]
-offset_left = 119.0
-offset_top = 105.0
-offset_right = 309.0
-offset_bottom = 175.0
+visible = false
+offset_left = 120.0
+offset_top = 136.0
+offset_right = 310.0
+offset_bottom = 206.0
 theme = ExtResource("12_gh4qe")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
@@ -254,6 +313,11 @@ text = "End"
 
 [node name="StealCard" type="Node2D" parent="." groups=["PlayerStealCard"]]
 script = ExtResource("26_6xwqx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_muhoj")
+}
 
 [connection signal="GiveWeaknessInfo" from="." to="ComboManager" method="_on_players_deck_give_weakness_info"]
 [connection signal="GiveWeaknessInfo" from="." to="EndComboManager" method="_on_players_deck_give_weakness_info"]

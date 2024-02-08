@@ -51,6 +51,7 @@ position = Vector2(1100, 512)
 position = Vector2(-467.001, 425.999)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("4_ut5xn")
+NumberOfCardsBeingPlayed = [3, 5, 2, 4, 5, 1]
 
 [node name="UseArea" type="Marker2D" parent="."]
 position = Vector2(1011, 157.003)

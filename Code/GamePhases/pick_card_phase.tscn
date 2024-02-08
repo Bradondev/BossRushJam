@@ -290,6 +290,15 @@ vertical_alignment = 1
 
 [node name="ButtonSoundeffect" parent="." instance=ExtResource("10_t3vhn")]
 
+[node name="Hover" parent="ButtonSoundeffect" index="0"]
+bus = &"Master"
+
+[node name="Click" parent="ButtonSoundeffect" index="1"]
+bus = &"Master"
+
+[node name="Denied" parent="ButtonSoundeffect" index="2"]
+bus = &"Master"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="DoneButton" to="ButtonSoundeffect" method="Hover"]

@@ -27,8 +27,8 @@ script = ExtResource("1_0wx6r")
 
 [node name="Arena" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(478, 268.5)
-scale = Vector2(2, 1.95926)
+position = Vector2(478, 266.5)
+scale = Vector2(2, 1.97407)
 texture = ExtResource("2_42u2i")
 
 [node name="SaveManager" parent="." node_paths=PackedStringArray("ItemToSave") instance=ExtResource("3_i706v")]
@@ -71,7 +71,7 @@ CurrentPLayer = NodePath("../Boss")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_5lted")
-volume_db = -40.0
+volume_db = -20.0
 bus = &"Music"
 
 [connection signal="StartComboBattle" from="." to="PlayersDeck" method="StartTurn"]
@@ -79,7 +79,6 @@ bus = &"Music"
 [connection signal="StartPLayarsTurn" from="." to="PlayersDeck" method="StartTurn"]
 [connection signal="Dead" from="Boss" to="OverLays" method="WinScreen"]
 [connection signal="StartEnemyTurn" from="PlayersDeck" to="EnemyDeck" method="StartTurn"]
-[connection signal="EndTurn" from="PlayersDeck/ComboManager" to="PlayersDeck" method="EndTurn"]
 [connection signal="ChangeLables" from="Player" to="PlayersDeck/UI/P{layerUi/ProgressBar" method="_on_player_change_lables"]
 [connection signal="Dead" from="Player" to="." method="EndBattle"]
 [connection signal="StartEnemyTurn" from="EnemyDeck" to="PlayersDeck" method="StartTurn"]

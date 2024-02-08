@@ -4,5 +4,7 @@
 
 [node name="BattleManager" instance=ExtResource("1_uset5")]
 
+[connection signal="EndTurn" from="PlayersDeck/ComboManager" to="PlayersDeck" method="EndTurn"]
+
 [editable path="PlayersDeck"]
 [editable path="EnemyDeck"]

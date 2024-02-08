@@ -121,11 +121,11 @@ stretch_mode = 6
 
 [node name="Draw" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_4semh")
-bus = &"SoundEffect"
+bus = &"SFX"
 
 [node name="UsedSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_f7533")
-bus = &"SoundEffect"
+bus = &"SFX"
 
 [connection signal="gui_input" from="MouseChecker" to="." method="_on_mouse_checker_gui_input"]
 [connection signal="mouse_entered" from="MouseChecker" to="." method="_on_mouse_checker_mouse_entered"]

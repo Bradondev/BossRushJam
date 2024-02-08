@@ -1,18 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://blnu171a4knsf"]
 
 [ext_resource type="PackedScene" uid="uid://byrkjggsh3t04" path="res://Code/cards/BaseCards/Cardbase.tscn" id="1_ryefy"]
+[ext_resource type="Texture2D" uid="uid://d3g0y64p2n5eh" path="res://Art/Cards/Card_Earth.png" id="2_3flfi"]
 [ext_resource type="AudioStream" uid="uid://l31dtgw7xbp4" path="res://Sound/SfX/Magic/29_Earth_01.wav" id="3_lb5fw"]
 [ext_resource type="Texture2D" uid="uid://clkciasl3vxf3" path="res://Art/Cards/cardImages/Icon_Earth.png" id="3_u51gs"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q2gl7"]
-load_path = "res://.godot/imported/Card_Earth.png-2eb8956719f9630f31e589e6f001f1bc.ctex"
 
 [node name="EarthCardbase" instance=ExtResource("1_ryefy")]
 Name = "Test Card"
 Type = "Earth"
 
 [node name="ColorRect" parent="." index="0"]
-texture = SubResource("CompressedTexture2D_q2gl7")
+texture = ExtResource("2_3flfi")
 
 [node name="Name" parent="." index="1"]
 text = "Test Card
